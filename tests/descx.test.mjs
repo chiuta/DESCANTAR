@@ -20,6 +20,19 @@ await p.click('nav [data-tab="bobi"]'); await p.locator("#guide summary").click(
 await p.click('nav [data-tab="desc"]'); check("12 descântece listate", (await p.locator("#dlist > *").count()) >= 12);
 const langs = await p.evaluate(() => [...document.querySelectorAll("#lang option")].map(o => o.value)); check("8 limbi", langs.length === 8, langs);
 for (let i = 0; i < langs.length; i++) { await p.selectOption("#lang", {index: i}); await p.waitForTimeout(100); }
+// conținutul folcloric tradus: în fiecare limbă rezultatul nu mai conține cuvinte românești-cheie
+{
+  const RO = ["boabe", "Rândul", "Picioarele", "Răspunsul bobilor", "PREGĂTIREA"];
+  let badLang = [];
+  for (let i = 1; i < 8; i++) {
+    await p.selectOption("#lang", {index: i}); await p.waitForTimeout(150);
+    await p.click('nav [data-tab="bobi"]'); await p.click("#bagain").catch(() => {});
+    await p.click("#brow").catch(() => {}); await p.click("#brand"); await p.click("#bcount"); await p.waitForTimeout(250);
+    const t = await p.locator("#result").innerText(); const g = await p.locator("#gtext").innerText();
+    if (RO.some(w => (t + g).includes(w))) badLang.push(langs[i]);
+  }
+  check("rezultat și ghid traduse în limbile 2–8", badLang.length === 0, badLang);
+}
 check("localStorage cu prefix", (await p.evaluate(() => Object.keys(localStorage))).every(k => /^(descantar|fff)/.test(k)));
 check("fără erori JS", errs.length === 0, errs); check("fără cereri de rețea", net.length === 0, net);
 await b.close(); console.log(`\n${ok} ok, ${bad} eșuate`); process.exit(bad ? 1 : 0);

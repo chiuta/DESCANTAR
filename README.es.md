@@ -6,7 +6,7 @@ Adivinación rumana con frijoles (41 frijoles) y ensalmos tradicionales, interfa
 
 **[Abrir la aplicación →](https://descantar.chiuta.ro/)**
 
-_Versión: 1.2.0 · Última actualización: 2026-11-08_
+_Versión: 1.3.0 · Última actualización: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Abre la página en línea, o descarga `index.html` y ábrelo en un navegador rec
 
 - Entretenimiento y folclore, no un consejo; no lo uses para decisiones médicas, legales o financieras.
 - Las reglas de Oltenia proceden de un texto que no pude verificar; un verso del ensalmo es poco claro y está marcado como variante local.
-- Interfaz en 8 idiomas, pero las lecturas, los ensalmos y la guía están por ahora solo en rumano.
+- Interfaz y contenido folclórico (lecturas, ensalmos, guía) en 8 idiomas; las traducciones de los textos tradicionales fueron generadas con IA y no revisadas por hablantes nativos.
 
 ## Privacidad
 

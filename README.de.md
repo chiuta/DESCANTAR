@@ -6,7 +6,7 @@ Rumänisches Bohnenorakel (41 Bohnen) und traditionelle Sprüche, Oberfläche in
 
 **[App öffnen →](https://descantar.chiuta.ro/)**
 
-_Version: 1.2.0 · Letzte Aktualisierung: 2026-11-08_
+_Version: 1.3.0 · Letzte Aktualisierung: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Seite online öffnen oder `index.html` herunterladen und in einem aktuellen Brow
 
 - Unterhaltung und Volkskunde, kein Rat; nicht für medizinische, rechtliche oder finanzielle Entscheidungen verwenden.
 - Die oltenischen Regeln stammen aus einem Text, den ich nicht prüfen konnte; eine Zeile des Spruchs ist unklar und als lokale Variante markiert.
-- Oberfläche in 8 Sprachen, Deutungen, Sprüche und Anleitung vorerst nur auf Rumänisch.
+- Oberfläche und Volkskundeinhalte (Deutungen, Sprüche, Anleitung) in 8 Sprachen; die Übersetzungen der traditionellen Texte wurden mit KI erstellt und nicht von Muttersprachlern geprüft.
 
 ## Datenschutz
 

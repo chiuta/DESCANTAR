@@ -6,7 +6,7 @@ Román babavetés (41 bab) és hagyományos ráolvasások, 8 nyelvű felülettel
 
 **[Alkalmazás megnyitása →](https://descantar.chiuta.ro/)**
 
-_Verzió: 1.2.0 · Utolsó frissítés: 2026-11-08_
+_Verzió: 1.3.0 · Utolsó frissítés: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Nyisd meg az oldalt online, vagy töltsd le az `index.html` fájlt és nyisd meg
 
 - Szórakozás és népszokás, nem tanács; ne használd orvosi, jogi vagy pénzügyi döntésekhez.
 - Az olténiai szabályok egy nem ellenőrizhető szövegből származnak; a ráolvasás egyik sora homályos, helyi változatként jelölve.
-- A felület 8 nyelvű, de az olvasatok, ráolvasások és az útmutató egyelőre csak románul érhetők el.
+- A felület és a népi tartalom (olvasatok, ráolvasások, útmutató) 8 nyelven érhető el; a hagyományos szövegek fordításait mesterséges intelligencia készítette, anyanyelvi lektor nem ellenőrizte.
 
 ## Adatvédelem
 

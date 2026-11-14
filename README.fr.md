@@ -6,7 +6,7 @@ Divination romaine aux haricots (41 haricots) et incantations traditionnelles, i
 
 **[Ouvrir l’application →](https://descantar.chiuta.ro/)**
 
-_Version: 1.2.0 · Dernière mise à jour: 2026-11-08_
+_Version: 1.3.0 · Dernière mise à jour: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Ouvrez la page en ligne, ou téléchargez `index.html` et ouvrez-le dans un navi
 
 - Divertissement et folklore, pas un conseil ; ne l’utilisez pas pour des décisions médicales, juridiques ou financières.
 - Les règles d’Olténie proviennent d’un texte que je n’ai pas pu vérifier ; un vers de l’incantation est obscur et indiqué comme variante locale.
-- Interface en 8 langues, mais les lectures, incantations et le guide sont pour l’instant en roumain uniquement.
+- Interface et contenu folklorique (lectures, incantations, guide) en 8 langues ; les traductions des textes traditionnels ont été générées par IA et non relues par des locuteurs natifs.
 
 ## Confidentialité
 

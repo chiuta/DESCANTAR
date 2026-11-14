@@ -6,7 +6,7 @@ Romanian folk bean divination (41 beans) and traditional charms, with an 8-langu
 
 **[Open the app →](https://descantar.chiuta.ro/)**
 
-_Version: 1.2.0 · Last updated: 2026-11-08_
+_Version: 1.3.0 · Last updated: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Open the page online, or download `index.html` and open it in a recent browser. 
 
 - Entertainment and folklore, not advice; do not use it for medical, legal or financial decisions.
 - The Oltenian rules were taken from a text I could not verify; one line of the traditional charm is unclear and is marked as a local variant.
-- Interface in 8 languages, but the readings, charms and guide are in Romanian only for now (translations were prepared separately and are not included in this version).
+- Interface and folklore content (readings, charms, guide) in 8 languages; the translations of the traditional texts were AI-generated and not reviewed by native speakers.
 
 ## Privacy
 

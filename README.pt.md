@@ -6,7 +6,7 @@ Adivinhação romena com feijões (41 feijões) e benzeduras tradicionais, inter
 
 **[Abrir a aplicação →](https://descantar.chiuta.ro/)**
 
-_Versão: 1.2.0 · Última atualização: 2026-11-08_
+_Versão: 1.3.0 · Última atualização: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Abre a página online, ou descarrega `index.html` e abre-o num navegador recente
 
 - Entretenimento e folclore, não é aconselhamento; não o uses para decisões médicas, jurídicas ou financeiras.
 - As regras da Oltênia vêm de um texto que não consegui verificar; um verso da benzedura é pouco claro e está marcado como variante local.
-- Interface em 8 línguas, mas as leituras, benzeduras e o guia estão por agora apenas em romeno.
+- Interface e conteúdo folclórico (leituras, benzeduras, guia) em 8 línguas; as traduções dos textos tradicionais foram geradas com IA e não revistas por falantes nativos.
 
 ## Privacidade
 

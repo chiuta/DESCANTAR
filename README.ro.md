@@ -6,7 +6,7 @@ Dat în bobi (41 de boabe) și descântece tradiționale românești, cu interfa
 
 **[Deschide aplicația →](https://descantar.chiuta.ro/)**
 
-_Versiune: 1.2.0 · Ultima actualizare: 2026-11-08_
+_Versiune: 1.3.0 · Ultima actualizare: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Deschide pagina online sau descarcă `index.html` și deschide-l într-un browse
 
 - Divertisment și folclor, nu sfat; nu-l folosi pentru decizii medicale, juridice sau financiare.
 - Regulile oltenești provin dintr-un text pe care nu l-am putut verifica; un rând din descântec e neclar și e marcat ca variantă locală.
-- Interfață în 8 limbi, dar interpretările, descântecele și ghidul sunt deocamdată doar în română (traducerile au fost pregătite separat și nu sunt incluse în această versiune).
+- Interfața și conținutul folcloric (interpretări, descântece, ghid) sunt în 8 limbi; traducerile textelor tradiționale au fost făcute cu IA și nu au fost revizuite de vorbitori nativi.
 
 ## Confidențialitate
 

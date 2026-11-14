@@ -6,7 +6,7 @@ Divinazione rumena con i fagioli (41 fagioli) e incantesimi tradizionali, interf
 
 **[Apri l’app →](https://descantar.chiuta.ro/)**
 
-_Versione: 1.2.0 · Ultimo aggiornamento: 2026-11-08_
+_Versione: 1.3.0 · Ultimo aggiornamento: 2026-11-14_
 
 | 1 | 2 | 3 |
 |---|---|---|
@@ -26,7 +26,7 @@ Apri la pagina online, oppure scarica `index.html` e aprilo in un browser recent
 
 - Intrattenimento e folklore, non un consiglio; non usarlo per decisioni mediche, legali o finanziarie.
 - Le regole dell’Oltenia provengono da un testo non verificabile; un verso dell’incantesimo è poco chiaro ed è indicato come variante locale.
-- Interfaccia in 8 lingue, ma letture, incantesimi e guida sono per ora solo in rumeno.
+- Interfaccia e contenuti folclorici (letture, incantesimi, guida) in 8 lingue; le traduzioni dei testi tradizionali sono state generate con IA e non riviste da madrelingua.
 
 ## Privacy
 
