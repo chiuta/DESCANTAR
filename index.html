@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="ro" data-fff-hash="e06cd75db015e14622b75f06b168b0a81668d9bc36d7cfbfd3f55a5a42acfc6b">
+<head>
+<meta charset="utf-8">
+<!--fff:kit:start v=1 modules=core,store,dialog,ux,label-->
+<meta name="fff-app" content="descantar">
+<meta name="fff-modules" content="core,store,dialog,ux,label">
+<style id="fff-style">/* fff-kit · stil comun (prefix fff-). Nu modifică stilul aplicației gazdă. */
+[data-fff-label]{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+[data-fff-label]:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:3px}
+#app-version[data-fff-label]{box-sizing:border-box;min-height:24px;min-width:24px}
+#app-version[data-fff-label][data-fff-inl]{display:inline-flex;align-items:center;vertical-align:middle}
+#app-version[data-fff-label][data-fff-fs],#app-version[data-fff-label] [data-fff-fs]{font-size:12px!important}
+.fff-dlg{--_bg:var(--fff-bg,#fff);--_fg:var(--fff-fg,#1b1b1f);--_mut:var(--fff-muted,#4a4d57);--_line:var(--fff-line,#c4c7d0);--_btn:var(--fff-btn,#eef0f4);--_pri:var(--fff-accent,#0b57d0);--_prif:var(--fff-accent-fg,#fff);--_bad:var(--fff-bad,#b3261e);--_ok:var(--fff-ok,#146c2e);--_note:#fff1c9;--_notef:#3d2e00;
+  box-sizing:border-box;width:min(42rem,calc(100vw - 2rem));max-width:calc(100vw - 2rem);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);margin:auto;padding:0;overflow:auto;
+  border:1px solid var(--_line);border-radius:12px;background:var(--_bg);color:var(--_fg);font:14px/1.5 var(--fff-font,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);text-align:left;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.fff-dlg.fff-dark{--_bg:var(--fff-bg,#1e1f24);--_fg:var(--fff-fg,#ececf1);--_mut:var(--fff-muted,#b7bbc7);--_line:var(--fff-line,#4a4d57);--_btn:var(--fff-btn,#2c2e36);--_pri:var(--fff-accent,#a8c7fa);--_prif:var(--fff-accent-fg,#062e6f);--_bad:var(--fff-bad,#f2b8b5);--_ok:var(--fff-ok,#8fd9a0);--_note:#3b3118;--_notef:#f6e3a6;color-scheme:dark}
+@media (prefers-color-scheme:dark){.fff-dlg:not(.fff-light){--_bg:var(--fff-bg,#1e1f24);--_fg:var(--fff-fg,#ececf1);--_mut:var(--fff-muted,#b7bbc7);--_line:var(--fff-line,#4a4d57);--_btn:var(--fff-btn,#2c2e36);--_pri:var(--fff-accent,#a8c7fa);--_prif:var(--fff-accent-fg,#062e6f);--_bad:var(--fff-bad,#f2b8b5);--_ok:var(--fff-ok,#8fd9a0);--_note:#3b3118;--_notef:#f6e3a6;color-scheme:dark}}
+.fff-dlg::backdrop{background:rgba(0,0,0,.55)}
+.fff-dlg-sm{width:min(26rem,calc(100vw - 2rem))}
+.fff-dlg *,.fff-dlg *::before,.fff-dlg *::after{box-sizing:border-box}
+.fff-dlg .fff-in{padding:16px 20px 20px}
+.fff-dlg .fff-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 8px}
+.fff-dlg h2{margin:0;font-family:inherit;font-size:1.25rem;font-weight:700;line-height:1.3;color:var(--_fg);letter-spacing:0;text-transform:none}
+.fff-dlg h3{margin:0 0 6px;font-family:inherit;font-size:1rem;font-weight:700;line-height:1.35;color:var(--_fg);letter-spacing:0;text-transform:none}
+.fff-dlg p{margin:0 0 8px;color:var(--_fg);font-size:inherit}
+.fff-dlg .fff-mut{color:var(--_mut)}
+.fff-dlg p.fff-mut{color:var(--_mut)}
+.fff-dlg .fff-sm{font-size:.85rem}
+.fff-dlg .fff-lead{font-size:1.05rem}
+.fff-dlg .fff-sec{border-top:1px solid var(--_line);padding-top:12px;margin-top:12px}
+.fff-dlg .fff-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;overflow-wrap:anywhere}
+.fff-dlg .fff-break{word-break:break-all}
+.fff-dlg code{background:none;border:0;padding:0;color:inherit}
+.fff-dlg .fff-list{margin:0 0 8px;padding-left:1.2rem;list-style:disc}
+.fff-dlg .fff-list li{margin:2px 0;color:var(--_fg)}
+.fff-dlg .fff-cols{columns:2 14rem}
+.fff-dlg .fff-tbl{width:100%;table-layout:fixed;border-collapse:collapse;margin:0 0 8px}
+.fff-dlg .fff-tbl th,.fff-dlg .fff-tbl td{padding:3px 6px;border-bottom:1px solid var(--_line);text-align:left;vertical-align:top;color:var(--_fg)}
+.fff-dlg .fff-tbl th.fff-num,.fff-dlg .fff-tbl td.fff-num{text-align:right;width:6.5rem;white-space:nowrap}
+.fff-dlg .fff-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fff-dlg .fff-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.fff-dlg .fff-end{justify-content:flex-end}
+.fff-dlg .fff-btn{appearance:none;min-height:36px;min-width:36px;padding:6px 14px;border:1px solid var(--_line);border-radius:8px;background:var(--_btn);color:var(--_fg);font:inherit;font-weight:600;cursor:pointer;text-transform:none;letter-spacing:0;box-shadow:none}
+.fff-dlg .fff-btn:hover{border-color:var(--_fg)}
+.fff-dlg .fff-btn:focus-visible,.fff-dlg .fff-input:focus-visible,.fff-dlg summary:focus-visible,.fff-dlg .fff-pre:focus-visible{outline:2px solid var(--_fg);outline-offset:2px}
+.fff-dlg .fff-primary{background:var(--_pri);color:var(--_prif);border-color:transparent}
+.fff-dlg .fff-danger{background:var(--_bad);color:var(--_bg)}
+.fff-dlg .fff-danger-o{color:var(--_bad);border-color:var(--_bad)}
+.fff-dlg .fff-x{font-size:1.4rem;line-height:1;padding:2px 10px}
+.fff-dlg .fff-box{border:1px solid var(--_line);border-radius:8px;padding:10px;margin:0 0 8px}
+.fff-dlg [hidden]{display:none}
+.fff-dlg .fff-field{display:flex;flex-direction:column;gap:2px;margin:0 0 8px}
+.fff-dlg .fff-field label{font-weight:600}
+.fff-dlg .fff-input{width:100%;min-height:36px;padding:6px 10px;border:1px solid var(--_line);border-radius:6px;background:var(--_bg);color:var(--_fg);font:inherit}
+.fff-dlg .fff-note{background:var(--_note);color:var(--_notef);padding:8px 10px;border-radius:8px}
+.fff-dlg .fff-res{min-height:1.5em}
+.fff-dlg .fff-ok{color:var(--_ok);font-weight:600}
+.fff-dlg .fff-bad{color:var(--_bad);font-weight:600}
+.fff-dlg .fff-det{margin:0 0 8px}
+.fff-dlg .fff-det summary{cursor:pointer;font-weight:600;min-height:24px}
+.fff-dlg .fff-pre{margin:6px 0 0;padding:8px 10px;overflow:auto;white-space:pre-wrap;word-break:break-all;border:1px solid var(--_line);border-radius:6px;background:var(--_btn);color:var(--_fg)}
+.fff-dlg .fff-foot{border-top:1px solid var(--_line);margin-top:12px;padding-top:10px}
+.fff-dlg .fff-msg{font-size:1rem;margin-bottom:14px;white-space:pre-line;overflow-wrap:anywhere}
+.fff-chip{appearance:none;background:none;border:1px dotted currentColor;border-radius:6px;color:inherit;font:inherit;font-size:.85em;cursor:pointer;min-height:24px;min-width:24px;padding:0 8px}
+.fff-chip{font-size:max(12px,.85em)}
+.fff-chip:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media (pointer:coarse){.fff-dlg .fff-btn,.fff-dlg .fff-input{min-height:44px}.fff-dlg .fff-btn{min-width:44px}.fff-dlg .fff-det summary{min-height:44px}}
+@media (prefers-reduced-motion:no-preference){.fff-dlg[open]{animation:fff-in .12s ease-out}@keyframes fff-in{from{transform:translateY(6px)}to{transform:none}}}
+@media (prefers-reduced-motion:reduce){.fff-dlg,.fff-dlg *{animation:none!important;transition:none!important}}
+.fff-dlg .fff-dt{margin:0 0 8px}
+.fff-dlg .fff-ta{resize:vertical;min-height:4.5em}
+.fff-dlg textarea.fff-input{font:inherit}
+.fff-toasts{--_tbg:var(--fff-toast-bg,#2b2d33);--_tfg:var(--fff-toast-fg,#f4f4f7);--_tac:var(--fff-toast-accent,#a8c7fa);
+  position:fixed;inset:auto 0 0 0;margin:0;padding:0 16px 16px;border:0;background:transparent;overflow:visible;z-index:2147483000;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:8px;font:14px/1.45 var(--fff-font,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);color:var(--_tfg);box-sizing:border-box}
+.fff-toasts *{box-sizing:border-box}
+.fff-toast-reg{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%}
+.fff-toast-reg:empty{display:none}
+.fff-toast{pointer-events:auto;display:flex;align-items:center;gap:10px;max-width:min(34rem,100%);padding:10px 12px 10px 14px;border-radius:10px;background:var(--_tbg);color:var(--_tfg);border:1px solid rgba(255,255,255,.18);border-left:6px solid #a8c7fa;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.fff-toast-success{border-left-color:#81c995}.fff-toast-warning{border-left-color:#fdd663}.fff-toast-error{border-left-color:#f28b82}
+.fff-toast-msg{flex:1 1 auto;min-width:0;overflow-wrap:anywhere;white-space:pre-line}
+.fff-toast .fff-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.fff-toast .fff-btn{appearance:none;min-height:32px;min-width:32px;padding:2px 10px;border:1px solid rgba(255,255,255,.35);border-radius:8px;background:transparent;color:var(--_tac);font:inherit;font-weight:600;cursor:pointer}
+.fff-toast .fff-toast-x{font-size:1.3rem;line-height:1;color:var(--_tfg);padding:0 8px}
+.fff-toast .fff-btn:focus-visible{outline:2px solid var(--_tfg);outline-offset:2px}
+@media (pointer:coarse){.fff-toast .fff-btn{min-height:44px;min-width:44px}}
+@media (prefers-reduced-motion:no-preference){.fff-toast{animation:fff-tin .16s ease-out}@keyframes fff-tin{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}}
+@media (prefers-reduced-motion:reduce){.fff-toast{animation:none!important}}
+/* fff-kit · ux — confort la atingere. Specificitate 0 (:where) unde se poate: stilul propriu al aplicației are prioritate. */
+:where(:root:not([data-fff-ux="off"]) a, :root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) input, :root:not([data-fff-ux="off"]) select, :root:not([data-fff-ux="off"]) textarea, :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) label, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem], :root:not([data-fff-ux="off"]) [role=switch], :root:not([data-fff-ux="off"]) [role=checkbox]){touch-action:manipulation}
+:where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) summary){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+:where(html:not([data-fff-ux="off"])){scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:where(:root:not([data-fff-ux="off"]) body){overflow-wrap:break-word}
+:where(:root:not([data-fff-ux="off"]) button:not(:disabled), :root:not([data-fff-ux="off"]) [role=button]){cursor:pointer}
+:where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) [role=tab]):active:not(:disabled){filter:brightness(.92)}
+@media (prefers-reduced-motion:reduce){:where(html:not([data-fff-ux="off"])){scroll-behavior:auto}}
+@media (pointer:coarse){
+  /* ținte de atingere de cel puțin 44×44 px (WCAG 2.5.5 / Apple HIG); min-* nu strică înălțimile proprii mai mari */
+  :where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem], :root:not([data-fff-ux="off"]) summary, :root:not([data-fff-ux="off"]) select, :root:not([data-fff-ux="off"]) textarea, :root:not([data-fff-ux="off"]) input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=hidden]):not([type=color]):not([type=file])){min-height:44px}
+  :where(:root:not([data-fff-ux="off"]) button, :root:not([data-fff-ux="off"]) [role=button], :root:not([data-fff-ux="off"]) [role=tab], :root:not([data-fff-ux="off"]) [role=menuitem]){min-width:44px}
+  :where(:root:not([data-fff-ux="off"]) input[type=checkbox], :root:not([data-fff-ux="off"]) input[type=radio]){min-width:22px;min-height:22px}
+  :where(:root:not([data-fff-ux="off"]) label:has(input[type=checkbox]), :root:not([data-fff-ux="off"]) label:has(input[type=radio])){min-height:44px;display:inline-flex;align-items:center;gap:.5em}
+  :root:not([data-fff-ux="off"]) [data-fff-hit]{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+  /* iOS mărește pagina la focus dacă textul câmpului e sub 16 px */
+  :root:not([data-fff-ux="off"]) input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]):not([type=hidden]):not([data-fff-nouxfont]),:root:not([data-fff-ux="off"]) select:not([data-fff-nouxfont]),:root:not([data-fff-ux="off"]) textarea:not([data-fff-nouxfont]){font-size:max(16px,1em)}
+}</style>
+<script id="fff-kit">/* fff-kit 1.5.0 */
+/* ---- fff-kit/core ---- */
+/* fff-kit · core · v1.2.0 — fără rețea, fără dependențe. Definește window.FFF. */
+(function () {
+  'use strict';
+  /* anti-clickjacking: GitHub Pages nu trimite X-Frame-Options; dacă pagina e încadrată de o origine străină (sau într-un iframe sandbox),
+     conținutul aplicației e ascuns și apare doar un mesaj minimal tradus cu un link către pagină într-o fereastră nouă. */
+  function frameGuard() {
+    var M = {
+      ro: ['Această pagină nu poate fi încadrată în alt site.', 'Deschide-o într-o fereastră nouă'],
+      en: ['This page cannot be embedded in another site.', 'Open it in a new window'],
+      fr: ['Cette page ne peut pas être intégrée dans un autre site.', 'Ouvrez-la dans une nouvelle fenêtre'],
+      it: ['Questa pagina non può essere incorporata in un altro sito.', 'Aprila in una nuova finestra'],
+      es: ['Esta página no se puede incrustar en otro sitio.', 'Ábrela en una ventana nueva'],
+      pt: ['Esta página não pode ser incorporada noutro site.', 'Abra-a numa nova janela'],
+      hu: ['Ez az oldal nem ágyazható be másik webhelyre.', 'Nyisd meg új ablakban'],
+      de: ['Diese Seite kann nicht in eine andere Website eingebettet werden.', 'In einem neuen Fenster öffnen']
+    };
+    var d = document, de = d.documentElement;
+    var l = (de.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+    if (!M[l]) l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    var m = M[l] || M.en, box = null;
+    function hideKids(b) {
+      for (var i = 0; i < b.children.length; i++) if (b.children[i] !== box) b.children[i].style.setProperty('display', 'none', 'important');
+    }
+    function build() {
+      var b = d.body;
+      if (!b || box) return;
+      box = d.createElement('div');
+      box.setAttribute('data-fff-frameguard', '');
+      box.setAttribute('role', 'alert');
+      box.style.cssText = 'display:block;box-sizing:border-box;margin:0;padding:24px 16px;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1b1b1f;background:#fff;text-align:center';
+      var p = d.createElement('p'); p.textContent = m[0]; p.style.cssText = 'margin:0 0 12px';
+      var a = d.createElement('a');
+      a.href = window.self.location.href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = m[1];
+      a.style.cssText = 'color:#0b57d0;text-decoration:underline;font-weight:600';
+      box.appendChild(p); box.appendChild(a);
+      hideKids(b);
+      b.appendChild(box);
+      b.style.setProperty('display', 'block', 'important');
+      de.style.display = '';
+      if (window.MutationObserver) new MutationObserver(function () { hideKids(b); if (box.parentNode !== b) b.appendChild(box); }).observe(b, {childList: true});
+    }
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', build); else build();
+  }
+  try {
+    if (window.top !== window.self) {
+      var __cross = false;
+      try { void window.top.location.href; } catch (e) { __cross = true; }
+      if (__cross) {
+        document.documentElement.style.display = 'none';   // ascuns până când mesajul e gata (nimic din aplicație nu rămâne vizibil)
+        try { window.top.location = window.self.location.href; } catch (e2) {}
+        try { frameGuard(); } catch (e4) {}
+      }
+    }
+  } catch (e3) {}
+  var KIT_VERSION = '1.5.0';
+  var F = (window.FFF = window.FFF || {});
+  if (F.core && F.core.version) return; // idempotent la dublă încărcare
+  var SUP = ['ro', 'en', 'fr', 'it', 'es', 'pt', 'hu', 'de'];
+  var doc = document;
+
+  /* ---------- clipboard sigur: refuzul de permisiune nu mai produce o excepție neprinsă ----------
+   * navigator.clipboard.writeText respinge cu NotAllowedError când pagina nu are focus sau permisiunea e refuzată.
+   * Încercăm întâi API-ul, apoi execCommand('copy'); dacă nici acesta nu merge, respingerea rămâne (apelantul o poate prinde),
+   * dar dacă nimeni n-o prinde, o marcăm ca tratată, ca pagina să rămână stabilă. */
+  try {
+    var cb = navigator.clipboard;
+    if (cb && typeof cb.writeText === 'function' && !cb.__fffSafe) {
+      var rawWrite = cb.writeText.bind(cb);
+      var legacyCopy = function (t) {
+        var ta = doc.createElement('textarea');
+        ta.value = String(t); ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+        (doc.body || doc.documentElement).appendChild(ta); ta.select();
+        var ok = false; try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+        ta.remove(); return ok;
+      };
+      cb.writeText = function (t) {
+        var p; try { p = rawWrite(t); } catch (e) { p = Promise.reject(e); }
+        return p.catch(function (err) { if (legacyCopy(t)) return; throw err; });
+      };
+      try { Object.defineProperty(cb, '__fffSafe', {value: true}); } catch (e) { cb.__fffSafe = true; }
+    }
+  } catch (e5) {}
+  window.addEventListener('unhandledrejection', function (ev) {
+    var r = ev && ev.reason;
+    if (r && (r.name === 'NotAllowedError' || r.name === 'SecurityError') && /clipboard|permission/i.test(String(r.message || ''))) ev.preventDefault();
+  });
+
+  /* ---------- meta / app ---------- */
+  function meta(name) {
+    var m = doc.querySelector('meta[name="' + name + '"]');
+    return m ? (m.getAttribute('content') || '') : '';
+  }
+  function guessSlug() {
+    var p = (location.pathname || '').split('/').filter(Boolean);
+    var s = p.length ? p[p.length - 1] : '';
+    if (/\.html?$/i.test(s)) s = p.length > 1 ? p[p.length - 2] : '';
+    s = s.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '');
+    return s || 'app';
+  }
+  var SLUG = (meta('fff-app') || '').trim() || guessSlug();
+  var DISABLED = (meta('fff-disable') || '').trim() || '';
+  function computeApp() {
+    return {slug: SLUG, name: doc.title || SLUG, version: meta('application-version'), updated: meta('last-updated')};
+  }
+  var appCache = null;
+  Object.defineProperty(F, 'app', {
+    enumerable: true, configurable: true,
+    get: function () {
+      if (doc.readyState === 'loading') return computeApp();
+      return appCache || (appCache = computeApp());
+    }
+  });
+
+  /* ---------- bus ---------- */
+  var L = {};
+  var bus = {
+    on: function (ev, fn) { (L[ev] = L[ev] || []).push(fn); return function () { bus.off(ev, fn); }; },
+    off: function (ev, fn) { if (L[ev]) L[ev] = L[ev].filter(function (f) { return f !== fn; }); },
+    once: function (ev, fn) { var off = bus.on(ev, function (d) { off(); fn(d); }); return off; },
+    emit: function (ev, data) {
+      (L[ev] || []).slice().forEach(function (f) { try { f(data); } catch (e) { if (window.console) console.error('[fff] bus', ev, e); } });
+    }
+  };
+  F.bus = bus;
+
+  /* ---------- i18n ---------- */
+  var I18N = (F._i18n = F._i18n || {});
+  var i18nLoaded = false;
+  function mergeLang(mod, obj) {
+    var d = (I18N[mod] = I18N[mod] || {});
+    for (var l in obj) if (Object.prototype.hasOwnProperty.call(obj, l)) {
+      d[l] = Object.assign(d[l] || {}, obj[l]);
+    }
+  }
+  function loadI18nJson() {
+    var el = doc.getElementById('fff-i18n');
+    if (!el) return;
+    i18nLoaded = true;
+    try {
+      var j = JSON.parse(el.textContent || '{}');
+      for (var m in j) if (Object.prototype.hasOwnProperty.call(j, m)) mergeLang(m, j[m]);
+    } catch (e) { if (window.console) console.error('[fff] i18n', e); }
+  }
+  F.registerI18n = function (mod, obj) { mergeLang(mod, obj || {}); };
+  function lsGetRaw(k) { try { return LS ? origGet.call(LS, k) : null; } catch (e) { return null; } }
+
+  var LS = null;
+  try { LS = window.localStorage; } catch (e) { LS = null; }
+  var P = window.Storage ? window.Storage.prototype : null;
+  var origGet = P && P.getItem, origSet = P && P.setItem, origRem = P && P.removeItem, origClr = P && P.clear;
+
+  F.lang = function () {
+    var l = (doc.documentElement.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+    if (SUP.indexOf(l) >= 0) return l;
+    var ks = ['lang', 'language', 'locale'];
+    for (var i = 0; i < ks.length; i++) {
+      var v = lsGetRaw(ks[i]);
+      if (v) { v = String(v).replace(/^"|"$/g, '').slice(0, 2).toLowerCase(); if (SUP.indexOf(v) >= 0) return v; }
+    }
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+    return SUP.indexOf(n) >= 0 ? n : 'en';
+  };
+  var langObs = null, langFns = [];
+  F.onLang = function (fn) {
+    langFns.push(fn);
+    if (!langObs && window.MutationObserver) {
+      var last = F.lang();
+      langObs = new MutationObserver(function () {
+        var now = F.lang();
+        if (now === last) return;
+        last = now;
+        langFns.slice().forEach(function (f) { try { f(now); } catch (e) { if (window.console) console.error(e); } });
+        bus.emit('lang', now);
+      });
+      langObs.observe(doc.documentElement, {attributes: true, attributeFilter: ['lang']});
+    }
+    return function () { langFns = langFns.filter(function (f) { return f !== fn; }); };
+  };
+  F.t = function (mod, key, vars) {
+    if (!i18nLoaded) loadI18nJson();
+    var d = I18N[mod] || {};
+    var s = (d[F.lang()] || {})[key];
+    if (s == null) s = (d.en || {})[key];
+    if (s == null) s = (d.ro || {})[key];
+    if (s == null) s = key;
+    if (vars) for (var k in vars) if (Object.prototype.hasOwnProperty.call(vars, k)) s = String(s).split('{' + k + '}').join(String(vars[k]));
+    return s;
+  };
+
+  /* ---------- observator de stocare ---------- */
+  var INDEX_KEY = 'fff.' + SLUG + '.__keys';
+  var PFX = 'fff.' + SLUG + '.';
+  var idx = null; // Set de chei ale aplicației (fără prefix fff.)
+  function loadIdx() {
+    if (idx) return idx;
+    idx = new Set();
+    try {
+      var raw = origGet && LS ? origGet.call(LS, INDEX_KEY) : null;
+      if (raw) JSON.parse(raw).forEach(function (k) { if (typeof k === 'string') idx.add(k); });
+    } catch (e) { /* index corupt: se reface */ }
+    return idx;
+  }
+  function saveIdx() {
+    try { if (LS && origSet) origSet.call(LS, INDEX_KEY, JSON.stringify(Array.from(idx).sort())); } catch (e) { /* plin: ignorat */ }
+  }
+  /* momentul ultimei scrieri pe cheie (folosit de FFF.sync): {cheie: ms}, în fff.<slug>.__mt (exclus din chei/export, ca __keys), scris cu amânare */
+  var MT_KEY = 'fff.' + SLUG + '.__mt', mt = null, mtTimer = 0;
+  function loadMt() {
+    if (mt) return mt;
+    mt = Object.create(null);
+    try {
+      var raw = origGet && LS ? origGet.call(LS, MT_KEY) : null;
+      if (raw) { var o = JSON.parse(raw); Object.keys(o).forEach(function (k) { if (typeof o[k] === 'number') mt[k] = o[k]; }); }
+    } catch (e) { /* corupt: se reface */ }
+    return mt;
+  }
+  function touch(k) {
+    k = String(k);
+    if (k.indexOf('fff.') === 0) return;
+    loadMt()[k] = Date.now();
+    if (mtTimer) return;
+    mtTimer = setTimeout(function () {
+      mtTimer = 0;
+      try { if (LS && origSet) origSet.call(LS, MT_KEY, JSON.stringify(mt)); } catch (e) { /* plin: ignorat */ }
+    }, 400);
+  }
+  F.mtime = function (k) { return loadMt()[String(k)] || 0; };
+  F.mtimeClear = function () { mt = Object.create(null); clearTimeout(mtTimer); mtTimer = 0; try { if (LS && origRem) origRem.call(LS, MT_KEY); } catch (e) { /* ignorat */ } };
+  function track(k) {
+    k = String(k);
+    if (k.indexOf('fff.') === 0) return;
+    var s = loadIdx();
+    if (!s.has(k)) { s.add(k); saveIdx(); }
+  }
+  function untrack(k) {
+    k = String(k);
+    var s = loadIdx();
+    if (s.delete(k)) saveIdx();
+  }
+  var observing = false;
+  if (!DISABLED && LS && P && origGet && origSet && origRem && origClr) {
+    try {
+      P.getItem = function getItem(k) {
+        var v = origGet.apply(this, arguments);
+        if (v !== null && this === LS) { try { track(k); } catch (e) { /* nu strica aplicația */ } }
+        return v;
+      };
+      P.setItem = function setItem(k, v) {
+        var r = origSet.apply(this, arguments);
+        if (this === LS) { try { track(k); touch(k); } catch (e) { /* idem */ } }
+        return r;
+      };
+      P.removeItem = function removeItem(k) {
+        var r = origRem.apply(this, arguments);
+        if (this === LS) { try { untrack(k); } catch (e) { /* idem */ } }
+        return r;
+      };
+      P.clear = function clear() {
+        var r = origClr.apply(this, arguments);
+        if (this === LS) { idx = new Set(); }
+        return r;
+      };
+      observing = true;
+    } catch (e) { observing = false; }
+  }
+
+  /* ---------- FFF.store ---------- */
+  var mem = Object.create(null), frozen = false;   // fără prototip: chei ca __proto__/constructor/toString sunt chei obișnuite
+  function lsOk() { return !!(LS && origGet); }
+  var store = {
+    get: function (k, d) {
+      if (lsOk()) {
+        try { var v = origGet.call(LS, PFX + k); if (v == null) return d; return JSON.parse(v); } catch (e) { /* cade în memorie */ }
+      }
+      return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : d;
+    },
+    set: function (k, v) {
+      if (frozen) return false;
+      if (lsOk()) {
+        try { origSet.call(LS, PFX + k, JSON.stringify(v)); delete mem[k]; return true; } catch (e) { /* memorie */ }
+      }
+      mem[k] = v; return false;
+    },
+    remove: function (k) {
+      if (frozen) return;
+      if (lsOk()) { try { origRem.call(LS, PFX + k); } catch (e) { /* ignorat */ } }
+      delete mem[k];
+    },
+    keys: function () {
+      var out = [];
+      try {
+        if (LS) for (var i = 0; i < LS.length; i++) {
+          var n = LS.key(i);
+          if (n && n.indexOf(PFX) === 0 && n !== INDEX_KEY && n !== MT_KEY) out.push(n.slice(PFX.length));
+        }
+      } catch (e) { /* ignorat */ }
+      Object.keys(mem).forEach(function (k) { if (out.indexOf(k) < 0) out.push(k); });
+      return out.sort();
+    },
+    /** Cheile (nume complete din localStorage) care aparțin aplicației: indexate + ale kitului (fff.<slug>.*). */
+    indexKeys: function () {
+      var out = new Set();
+      var present = Object.create(null);
+      try { if (LS) for (var i = 0; i < LS.length; i++) present[LS.key(i)] = 1; } catch (e) { /* ignorat */ }
+      loadIdx().forEach(function (k) { if (present[k]) out.add(k); });
+      Object.keys(present).forEach(function (n) { if (n.indexOf(PFX) === 0 && n !== INDEX_KEY && n !== MT_KEY) out.add(n); });
+      return Array.from(out).sort();
+    },
+    /** Citire/scriere brută pentru modulele kitului (ocolește observatorul). */
+    raw: {
+      get: function (k) { return lsOk() ? origGet.call(LS, k) : null; },
+      set: function (k, v) { if (frozen) return; if (!lsOk()) throw new Error('no-storage'); origSet.call(LS, k, v); },
+      remove: function (k) { if (!frozen && lsOk()) origRem.call(LS, k); }
+    },
+    prefix: PFX,
+    indexKey: INDEX_KEY,
+    mtKey: MT_KEY,
+    /** Blochează orice scriere în stocare până la reîncărcare (restaurare/ștergere): handlerele pagehide/beforeunload ale aplicației
+     *  nu mai pot suprascrie datele tocmai scrise. Înlocuiește Storage.prototype.setItem/removeItem/clear cu no-op, oprește put/add/delete/clear
+     *  din IndexedDB și blochează scrierile FFF.store. NU poate opri atribuirea directă localStorage.cheie = valoare. Ireversibil (până la reload). */
+    freeze: function () {
+      if (frozen) return;
+      frozen = true;
+      var noop = function () {};
+      if (P) ['setItem', 'removeItem', 'clear'].forEach(function (n) {
+        try { Object.defineProperty(P, n, {value: noop, writable: true, configurable: true}); } catch (e) { try { P[n] = noop; } catch (e2) { /* ignorat */ } }
+      });
+      try {
+        var OS = window.IDBObjectStore && window.IDBObjectStore.prototype;
+        if (OS) {
+          var fake = function () {
+            return {readyState: 'pending', result: undefined, error: null, onsuccess: null, onerror: null,
+              addEventListener: noop, removeEventListener: noop, dispatchEvent: function () { return false; }};
+          };
+          ['put', 'add', 'delete', 'clear'].forEach(function (n) { try { Object.defineProperty(OS, n, {value: fake, writable: true, configurable: true}); } catch (e) { /* ignorat */ } });
+        }
+      } catch (e3) { /* ignorat */ }
+    },
+    frozen: function () { return frozen; },
+    forget: function (k) { if (observing) untrack(k); },
+    remember: function (k) { if (observing) track(k); },
+    available: function () { return lsOk(); },
+    observing: function () { return observing; }
+  };
+  F.store = store;
+
+  /* ---------- sha256 ---------- */
+  var K256 = null, H256 = null;
+  function frac(x) { return Math.floor((x - Math.floor(x)) * 4294967296) >>> 0; }
+  function initConsts() {
+    K256 = []; H256 = [];
+    for (var n = 2, c = 0; c < 64; n++) {
+      var p = true;
+      for (var d = 2; d * d <= n; d++) if (n % d === 0) { p = false; break; }
+      if (p) { if (c < 8) H256.push(frac(Math.sqrt(n))); K256.push(frac(Math.cbrt(n))); c++; }
+    }
+  }
+  function sha256js(bytes) {
+    if (!K256) initConsts();
+    var l = bytes.length, bl = l * 8;
+    var padded = new Uint8Array(((l + 9 + 63) >> 6) << 6);
+    padded.set(bytes); padded[l] = 0x80;
+    var dv = new DataView(padded.buffer);
+    dv.setUint32(padded.length - 8, Math.floor(bl / 4294967296)); dv.setUint32(padded.length - 4, bl >>> 0);
+    var h = H256.slice(), w = new Uint32Array(64);
+    function rr(x, n) { return (x >>> n) | (x << (32 - n)); }
+    for (var o = 0; o < padded.length; o += 64) {
+      for (var i = 0; i < 16; i++) w[i] = dv.getUint32(o + i * 4);
+      for (i = 16; i < 64; i++) {
+        var s0 = rr(w[i - 15], 7) ^ rr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+        var s1 = rr(w[i - 2], 17) ^ rr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+        w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+      }
+      var a = h[0], b = h[1], c = h[2], d2 = h[3], e = h[4], f = h[5], g = h[6], hh = h[7];
+      for (i = 0; i < 64; i++) {
+        var S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25), ch = (e & f) ^ (~e & g);
+        var t1 = (hh + S1 + ch + K256[i] + w[i]) | 0;
+        var S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22), mj = (a & b) ^ (a & c) ^ (b & c);
+        var t2 = (S0 + mj) | 0;
+        hh = g; g = f; f = e; e = (d2 + t1) | 0; d2 = c; c = b; b = a; a = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a) | 0; h[1] = (h[1] + b) | 0; h[2] = (h[2] + c) | 0; h[3] = (h[3] + d2) | 0;
+      h[4] = (h[4] + e) | 0; h[5] = (h[5] + f) | 0; h[6] = (h[6] + g) | 0; h[7] = (h[7] + hh) | 0;
+    }
+    return h.map(function (v) { return ('00000000' + (v >>> 0).toString(16)).slice(-8); }).join('');
+  }
+  function toBytes(x) {
+    if (typeof x === 'string') return Promise.resolve(new TextEncoder().encode(x));
+    if (x instanceof Uint8Array) return Promise.resolve(x);
+    if (x instanceof ArrayBuffer) return Promise.resolve(new Uint8Array(x));
+    if (ArrayBuffer.isView(x)) return Promise.resolve(new Uint8Array(x.buffer, x.byteOffset, x.byteLength));
+    if (x && typeof x.arrayBuffer === 'function') return x.arrayBuffer().then(function (b) { return new Uint8Array(b); });
+    return Promise.reject(new TypeError('sha256: tip neacceptat'));
+  }
+  F.sha256 = function (x) {
+    return toBytes(x).then(function (b) {
+      var sub = window.crypto && window.crypto.subtle;
+      if (sub) {
+        return sub.digest('SHA-256', b).then(function (h) {
+          return Array.prototype.map.call(new Uint8Array(h), function (v) { return ('0' + v.toString(16)).slice(-2); }).join('');
+        });
+      }
+      return sha256js(b);
+    });
+  };
+
+  /* ---------- download / pickFile ---------- */
+  F.download = function (name, data, mime) {
+    var blob = data instanceof Blob ? data : new Blob([data], {type: mime || 'application/octet-stream'});
+    var url = URL.createObjectURL(blob);
+    var a = doc.createElement('a');
+    a.href = url; a.download = name; a.hidden = true;
+    (doc.body || doc.documentElement).appendChild(a);
+    a.click();
+    setTimeout(function () { a.remove(); URL.revokeObjectURL(url); }, 4000);
+    return blob.size;
+  };
+  /** Rezolvă cu File sau null dacă utilizatorul anulează. */
+  F.pickFile = function (accept) {
+    return new Promise(function (res) {
+      var i = doc.createElement('input');
+      i.type = 'file'; i.hidden = true;
+      if (accept) i.accept = accept;
+      var done = false;
+      function fin(v) { if (done) return; done = true; i.remove(); res(v); }
+      i.addEventListener('change', function () { fin(i.files && i.files[0] ? i.files[0] : null); });
+      i.addEventListener('cancel', function () { fin(null); });
+      (doc.body || doc.documentElement).appendChild(i);
+      i.click();
+    });
+  };
+
+  /* ---------- instalare PWA (doar reținem evenimentul, nu îl blocăm) ---------- */
+  var core = F.core = {
+    version: KIT_VERSION,
+    slug: SLUG,
+    disabled: DISABLED || false,
+    installEvent: null,
+    modules: function () { return (meta('fff-modules') || '').split(',').filter(Boolean); }
+  };
+  window.addEventListener('beforeinstallprompt', function (e) { core.installEvent = e; bus.emit('installable', e); });
+  window.addEventListener('appinstalled', function () { core.installEvent = null; bus.emit('installed'); });
+
+  F.version = KIT_VERSION;
+  F.ready = function (fn) {
+    if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { fn(); }, {once: true});
+    else fn();
+  };
+  F.fmtBytes = function (n) {
+    if (n < 1024) return n + ' B';
+    if (n < 1048576) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1048576).toFixed(2) + ' MB';
+  };
+})();
+/* ---- fff-kit/store ---- */
+/* fff-kit · store — stocare cu prefix de slug: <slug>.<cheie> (JSON sigur, cote/erori prinse, migrare idempotentă a cheilor vechi).
+   Extinde FFF.store din core: get/set/remove/keys lucrează acum pe `<slug>.`; datele kitului din `fff.<slug>.*` (srs, tts) rămân citibile (rezervă la citire). */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || !F.store || !F.core || F.store.migrate) return;
+  var S = F.store, SLUG = F.core.slug, PFX = SLUG + '.', LEG = S.prefix;   // LEG = 'fff.<slug>.' (spațiul kitului, din core)
+  var old = {get: S.get, set: S.set, remove: S.remove, keys: S.keys, indexKeys: S.indexKeys};
+  var mem = Object.create(null);
+
+  function lsOk() { return S.available(); }
+  function fail(op, key, e) {
+    var q = !!(e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22 || e.code === 1014));
+    S.lastError = {op: op, key: key, quota: q, message: String(e && e.message || e)};
+    try { F.bus.emit('store:error', S.lastError); } catch (x) { /* ignorat */ }
+    return S.lastError;
+  }
+  function okKey(k) { return k != null && String(k) !== ''; }
+  function parse(raw, d) {
+    if (raw == null) return d;
+    try { return JSON.parse(raw); } catch (e) { return raw; }   // valoare migrată fără JSON (ex. „dark”): se întoarce ca șir
+  }
+
+  S.appPrefix = PFX;
+  S.lastError = null;
+
+  /** get(cheie, implicit): citește `<slug>.<cheie>`, apoi (rezervă) `fff.<slug>.<cheie>`, apoi memoria (dacă stocarea a fost indisponibilă la scriere). */
+  S.get = function (k, d) {
+    if (!okKey(k)) return d;
+    k = String(k);
+    if (lsOk()) {
+      try {
+        var v = S.raw.get(PFX + k);
+        if (v == null) v = S.raw.get(LEG + k);
+        if (v != null) return parse(v, d);
+      } catch (e) { fail('get', k, e); }
+    }
+    return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : d;
+  };
+  /** set(cheie, valoare) → true dacă a ajuns în localStorage; false dacă e înghețat, JSON invalid (circular, BigInt…), cotă depășită sau stocare indisponibilă (valoarea rămâne în memorie). `undefined` = remove. */
+  S.set = function (k, v) {
+    if (!okKey(k)) return false;
+    k = String(k);
+    if (S.frozen()) return false;
+    if (v === undefined) { S.remove(k); return true; }
+    var str;
+    try { str = JSON.stringify(v); } catch (e) { fail('set', k, e); return false; }
+    if (str === undefined) { fail('set', k, new Error('valoare neserializabilă')); return false; }
+    if (lsOk()) {
+      try { S.raw.set(PFX + k, str); delete mem[k]; return true; } catch (e) { fail('set', k, e); }
+    }
+    mem[k] = v;
+    return false;
+  };
+  S.remove = function (k) {
+    if (!okKey(k) || S.frozen()) return;
+    k = String(k);
+    if (lsOk()) { try { S.raw.remove(PFX + k); S.raw.remove(LEG + k); } catch (e) { fail('remove', k, e); } }
+    delete mem[k];
+  };
+  S.has = function (k) {
+    if (!okKey(k)) return false;
+    try { if (lsOk() && (S.raw.get(PFX + k) != null || S.raw.get(LEG + k) != null)) return true; } catch (e) { /* ignorat */ }
+    return Object.prototype.hasOwnProperty.call(mem, String(k));
+  };
+  S.keys = function () {
+    var out = Object.create(null);
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) {
+        var n = ls.key(i);
+        if (n && n.indexOf(PFX) === 0 && n !== S.indexKey && n !== S.mtKey) out[n.slice(PFX.length)] = 1;
+      }
+    } catch (e) { /* ignorat */ }
+    old.keys.call(S).forEach(function (k) { if (k !== '__keys' && k !== '__mt') out[k] = 1; });
+    Object.keys(mem).forEach(function (k) { out[k] = 1; });
+    return Object.keys(out).sort();
+  };
+  /** Cheile cu nume complet ale aplicației: indexate, `<slug>.*` și `fff.<slug>.*`. */
+  S.indexKeys = function () {
+    var out = Object.create(null);
+    old.indexKeys.call(S).forEach(function (k) { out[k] = 1; });
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) { var n = ls.key(i); if (n && n.indexOf(PFX) === 0 && n !== S.mtKey) out[n] = 1; }
+    } catch (e) { /* ignorat */ }
+    return Object.keys(out).sort();
+  };
+  /** Este `nume` (complet, din localStorage) o cheie a spațiului aplicației? */
+  S.owns = function (name) { name = String(name); return name.indexOf(PFX) === 0 || name.indexOf(LEG) === 0; };
+
+  /**
+   * migrate({'cheieVeche': 'cheieNouă', 'prefix_*': 'nou.*'}, {wrap, dryRun, dropOld}) → {moved, same, conflicts, missing, errors, frozen}.
+   *  - cheia veche = numele brut din localStorage; cheia nouă = relativă la prefix (FFF.store.get('cheieNouă')); dacă începe deja cu `<slug>.` e luată ca atare.
+   *  - copiază valoarea EXACTĂ (șirul brut), verifică citirea înapoi, abia apoi șterge cheia veche. Nu suprascrie niciodată o valoare nouă existentă:
+   *    dacă ambele există și sunt identice → doar șterge cheia veche; dacă diferă → conflict (rămân ambele; `dropOld:true` șterge totuși cheia veche).
+   *  - idempotentă: a doua rulare nu mai găsește nimic de mutat. Un șablon cu `*` (la sfârșit, în ambele chei) mută toate cheile cu acel prefix.
+   *  - wrap: 'keep' (implicit; valoarea brută e copiată, iar get() întoarce JSON-ul parsat sau șirul brut) | 'string' (valoarea veche este împachetată ca șir JSON: get() întoarce exact șirul vechi).
+   *  - nu face nimic cât timp stocarea e înghețată (restaurare în curs). Emite `store:migrated` pe FFF.bus dacă a mutat ceva. */
+  S.migrate = function (map, opt) {
+    opt = opt || {};
+    var rep = {moved: [], same: [], conflicts: [], missing: [], errors: [], frozen: false};
+    if (S.frozen()) { rep.frozen = true; return rep; }
+    if (!lsOk() || !map || typeof map !== 'object') { if (map && typeof map === 'object') rep.errors.push({key: '*', message: 'stocare indisponibilă'}); return rep; }
+    var ls = window.localStorage, names = [];
+    try { for (var i = 0; i < ls.length; i++) names.push(ls.key(i)); } catch (e) { /* ignorat */ }
+    var pairs = [];
+    Object.keys(map).forEach(function (from) {
+      var to = String(map[from]);
+      if (from.charAt(from.length - 1) === '*') {
+        var fp = from.slice(0, -1), tp = to.charAt(to.length - 1) === '*' ? to.slice(0, -1) : to;
+        names.forEach(function (n) { if (n.indexOf(fp) === 0 && n.indexOf('fff.') !== 0) pairs.push([n, tp + n.slice(fp.length)]); });
+      } else pairs.push([from, to]);
+    });
+    pairs.forEach(function (p) {
+      var from = p[0], full = p[1].indexOf(PFX) === 0 ? p[1] : PFX + p[1];
+      if (!from || from === full || from.indexOf('fff.') === 0 || full === PFX) return;
+      try {
+        var oldV = S.raw.get(from);
+        if (oldV == null) { rep.missing.push(from); return; }
+        var cur = S.raw.get(full), val = opt.wrap === 'string' ? JSON.stringify(oldV) : oldV;
+        if (cur != null) {
+          if (cur === val || cur === oldV) { if (!opt.dryRun) { S.raw.remove(from); S.forget(from); } rep.same.push(from); }
+          else if (opt.dropOld) { if (!opt.dryRun) { S.raw.remove(from); S.forget(from); } rep.conflicts.push({key: from, to: full, dropped: true}); }
+          else rep.conflicts.push({key: from, to: full});
+          return;
+        }
+        if (opt.dryRun) { rep.moved.push(from); return; }
+        S.raw.set(full, val);
+        if (S.raw.get(full) !== val) throw new Error('verificarea citirii înapoi a eșuat');
+        S.raw.remove(from); S.forget(from);
+        rep.moved.push(from);
+      } catch (e) { rep.errors.push({key: from, message: fail('migrate', from, e).message, quota: S.lastError.quota}); }
+    });
+    if (rep.moved.length && !opt.dryRun) { try { F.bus.emit('store:migrated', rep); } catch (e) { /* ignorat */ } }
+    return rep;
+  };
+})();
+/* ---- fff-kit/dialog ---- */
+/* fff-kit · dialog — un singur sistem de dialoguri: confirm/alert/prompt (promisiuni), toast/notify (aria-live), <dialog> modal accesibil. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.dialog) return;
+  var doc = document;
+  function T(k, v) { return F.t('dialog', k, v); }
+
+  var uid = 0;
+  var stack = [];   // dialogurile deschise (ultimul = cel de sus)
+
+  /* ---------- DOM mic ---------- */
+  function el(tag, cls, text) {
+    var e = doc.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function btn(label, cls) {
+    var b = el('button', 'fff-btn' + (cls ? ' ' + cls : ''), label);
+    b.type = 'button';
+    return b;
+  }
+
+  /* ---------- tema gazdei (la fel ca în label) ---------- */
+  function hostDark() {
+    function rgba(e) {
+      var m = /rgba?\(([^)]+)\)/.exec(getComputedStyle(e).backgroundColor || '');
+      if (!m) return null;
+      var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+      if (p.length > 3 && p[3] === 0) return null;
+      return p;
+    }
+    var p = (doc.body && rgba(doc.body)) || rgba(doc.documentElement);
+    if (!p) return null;
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return (0.2126 * lin(p[0]) + 0.7152 * lin(p[1]) + 0.0722 * lin(p[2])) < 0.18;
+  }
+
+  /* ---------- focus ---------- */
+  var FOCUSABLE = 'button:not([disabled]),input:not([disabled]):not([type=hidden]),textarea:not([disabled]),select:not([disabled]),a[href],summary,[tabindex]:not([tabindex="-1"])';
+  function focusables(root) {
+    return Array.prototype.filter.call(root.querySelectorAll(FOCUSABLE), function (n) {
+      return !n.hidden && !n.closest('[hidden]') && (n.offsetWidth || n.offsetHeight || n.getClientRects().length);
+    });
+  }
+
+  /**
+   * Nucleul: construiește și afișează un dialog.
+   * spec: {kind, title (șir|false), message, body(ctx) → {nodes, focus, value, validate}, buttons: [{label, value|fn, primary, danger}], cancel (valoarea la Esc/închidere),
+   *        focus: indexul butonului focalizat implicit (dacă body nu dă un câmp), small}
+   */
+  function open(spec) {
+    return new Promise(function (resolve) {
+      var id = ++uid, prev = doc.activeElement, settled = false;
+      var d = el('dialog', 'fff-dlg fff-dialog' + (spec.wide ? '' : ' fff-dlg-sm'));
+      d.setAttribute('role', 'dialog');
+      d.setAttribute('aria-modal', 'true');
+      d.setAttribute('data-fff-dialog', spec.kind || 'custom');
+      var inner = el('div', 'fff-in');
+      var titleId = 'fff-dt-' + id, msgId = 'fff-dm-' + id;
+      var hasTitle = spec.title !== false && spec.title !== '' && spec.title != null;
+      if (hasTitle) { var h = el('h2', 'fff-dt', String(spec.title)); h.id = titleId; inner.appendChild(h); }
+      var msg = null;
+      if (spec.message != null && spec.message !== '') {
+        msg = el('p', 'fff-msg', String(spec.message)); msg.id = msgId; inner.appendChild(msg);
+      }
+      if (hasTitle) {
+        d.setAttribute('aria-labelledby', titleId);
+        if (msg) d.setAttribute('aria-describedby', msgId);
+      } else if (msg) d.setAttribute('aria-labelledby', msgId);
+      else d.setAttribute('aria-label', T('title_alert'));
+      var ctx = {id: id, msgId: msg ? msgId : titleId, finish: null};
+      var body = spec.body ? spec.body(ctx) : null;
+      if (body && body.nodes) body.nodes.forEach(function (n) { inner.appendChild(n); });
+      var row = el('div', 'fff-row fff-end');
+      var btns = [];
+      function finish(v) {
+        if (settled) return;
+        settled = true;
+        stack = stack.filter(function (x) { return x !== d; });
+        try { if (d.open) d.close(); } catch (e) { /* ignorat */ }
+        d.remove();
+        try { doc.removeEventListener('focusin', trap, true); } catch (e) { /* ignorat */ }
+        if (prev && prev !== doc.body && prev.focus && doc.contains(prev)) { try { prev.focus(); } catch (e) { /* ignorat */ } }
+        resolve(v);
+      }
+      ctx.finish = finish;
+      (spec.buttons || []).forEach(function (b) {
+        var e = btn(b.label, (b.primary ? 'fff-primary' : '') + (b.danger ? ' fff-danger' : ''));
+        e.addEventListener('click', function () {
+          if (b.check) { var r = b.check(); if (r === false) return; }
+          finish(typeof b.value === 'function' ? b.value() : b.value);
+        });
+        row.appendChild(e); btns.push(e);
+      });
+      inner.appendChild(row);
+      d.appendChild(inner);
+      ctx.buttons = btns;
+      /* Esc (nativ: evenimentul cancel; rezervă fără showModal: keydown) + capcana de focus (Tab/Shift+Tab ciclează în dialog) */
+      d.addEventListener('cancel', function (e) { e.preventDefault(); finish(spec.cancel); });
+      d.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); finish(spec.cancel); return; }
+        if (e.key !== 'Tab') return;
+        var f = focusables(d);
+        if (!f.length) { e.preventDefault(); d.focus(); return; }
+        var first = f[0], last = f[f.length - 1], a = doc.activeElement;
+        if (e.shiftKey && (a === first || !d.contains(a))) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (a === last || !d.contains(a))) { e.preventDefault(); first.focus(); }
+      });
+      function trap(e) {
+        if (stack[stack.length - 1] !== d || d.contains(e.target)) return;
+        var f = focusables(d); if (f.length) f[0].focus();
+      }
+      d.setAttribute('tabindex', '-1');
+      var dark = hostDark();
+      if (dark === true) d.classList.add('fff-dark'); else if (dark === false) d.classList.add('fff-light');
+      (doc.body || doc.documentElement).appendChild(d);
+      stack.push(d);
+      if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+      doc.addEventListener('focusin', trap, true);
+      raiseToasts();
+      var target = (body && body.focus) || (btns[spec.focus == null ? btns.length - 1 : spec.focus]) || d;
+      try { target.focus(); if (body && body.select && target.select) target.select(); } catch (e) { /* ignorat */ }
+      d._fffClose = function () { finish(spec.cancel); };
+    });
+  }
+
+  function opts(o) { return o && typeof o === 'object' ? o : {}; }
+  function title(o, key) { return o.title === false ? false : (o.title != null ? o.title : T(key)); }
+
+  /* ---------- confirm / alert / prompt / show / choice ---------- */
+  /** confirm(mesaj, {title, yes, no, danger, focus:'yes'|'no'}) → Promise<boolean>. Esc / Anulează → false. Focusul implicit: „Anulează” (acțiunea sigură). */
+  function confirm(message, o) {
+    o = opts(o);
+    return open({
+      kind: 'confirm', title: title(o, 'title_confirm'), message: message, cancel: false,
+      buttons: [{label: o.no || T('cancel'), value: false}, {label: o.yes || T('yes'), value: true, primary: true, danger: !!o.danger}],
+      focus: o.focus === 'yes' ? 1 : 0
+    });
+  }
+  /** alert(mesaj, {title, ok}) → Promise<void>. */
+  function alertDlg(message, o) {
+    o = opts(o);
+    return open({kind: 'alert', title: title(o, 'title_alert'), message: message, cancel: undefined, buttons: [{label: o.ok || T('ok'), value: undefined, primary: true}], focus: 0});
+  }
+  /** prompt(mesaj, valoareImplicită, {title, yes, no, type, multiline, placeholder, maxlength, inputmode, autocomplete, required, validate(v) → șir de eroare|falsy}) → Promise<string|null>. */
+  function prompt(message, def, o) {
+    if (def && typeof def === 'object') { o = def; def = o.value; }
+    o = opts(o);
+    var input, err, ok;
+    return open({
+      kind: 'prompt', title: title(o, 'title_prompt'), message: message, cancel: null,
+      body: function (ctx) {
+        input = o.multiline ? el('textarea', 'fff-input') : el('input', 'fff-input');
+        if (!o.multiline) input.type = o.type || 'text'; else input.rows = o.rows || 4;
+        input.value = def == null ? '' : String(def);
+        input.setAttribute('aria-labelledby', ctx.msgId);
+        if (o.placeholder) input.placeholder = o.placeholder;
+        if (o.maxlength) input.maxLength = o.maxlength;
+        if (o.inputmode) input.setAttribute('inputmode', o.inputmode);
+        input.autocomplete = o.autocomplete || 'off';
+        if (o.required) input.required = true;
+        err = el('p', 'fff-res fff-sm fff-bad');
+        err.id = 'fff-de-' + ctx.id; err.setAttribute('role', 'alert');
+        input.setAttribute('aria-describedby', err.id);
+        input.addEventListener('input', function () { err.textContent = ''; input.removeAttribute('aria-invalid'); });
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && !e.shiftKey && !o.multiline) { e.preventDefault(); if (ok.check() !== false) ctx.finish(input.value); }
+          else if (e.key === 'Enter' && o.multiline && (e.ctrlKey || e.metaKey)) { e.preventDefault(); if (ok.check() !== false) ctx.finish(input.value); }
+        });
+        var wrap = el('div', 'fff-field'); wrap.appendChild(input); wrap.appendChild(err);
+        return {nodes: [wrap], focus: input, select: true};
+      },
+      buttons: [{label: o.no || T('cancel'), value: null}, ok = {
+        label: o.yes || T('ok'), primary: true, value: function () { return input.value; },
+        check: function () {
+          var bad = null;
+          if (o.required && !String(input.value).trim()) bad = T('err_required');
+          else if (typeof o.validate === 'function') { try { bad = o.validate(input.value) || null; } catch (e) { bad = String(e && e.message || e); } }
+          if (bad) { err.textContent = String(bad); input.setAttribute('aria-invalid', 'true'); input.focus(); return false; }
+          return true;
+        }
+      }]
+    });
+  }
+  /** show(mesaj, text, {title, ok}) → Promise<void>: text în citire, selectat (pentru copiere). */
+  function showText(message, text, o) {
+    o = opts(o);
+    return open({
+      kind: 'show', title: title(o, 'title_show'), message: message, cancel: undefined,
+      body: function (ctx) {
+        var ta = el('textarea', 'fff-input fff-ta');
+        ta.readOnly = true; ta.rows = o.rows || 3; ta.value = String(text == null ? '' : text);
+        ta.setAttribute('aria-labelledby', ctx.msgId);
+        return {nodes: [ta], focus: ta, select: true};
+      },
+      buttons: [{label: o.ok || T('ok'), value: undefined, primary: true}]
+    });
+  }
+  /** choice(mesaj, [{label, value, primary, danger}], {title}) → Promise<valoare|null>. Primul buton primește focusul. */
+  function choice(message, buttons, o) {
+    o = opts(o);
+    return open({
+      kind: 'choice', title: title(o, 'title_confirm'), message: message, cancel: null,
+      buttons: (buttons || []).map(function (b) { return {label: b.label, value: b.value, primary: !!b.primary, danger: !!b.danger}; }), focus: 0
+    });
+  }
+
+  /* ---------- toast / notify (regiuni aria-live) ---------- */
+  var regions = null, regTimer = 0, toasts = [], pend = [];
+  function ensureRegions(cb) {
+    if (regions) return cb();
+    F.ready(function () {
+      if (regions) return cb();
+      var wrap = el('div', 'fff-toasts');
+      wrap.setAttribute('data-fff-toasts', '');
+      var pol = el('div', 'fff-toast-reg'); pol.setAttribute('role', 'status'); pol.setAttribute('aria-live', 'polite'); pol.setAttribute('aria-relevant', 'additions');
+      var ass = el('div', 'fff-toast-reg'); ass.setAttribute('role', 'alert'); ass.setAttribute('aria-live', 'assertive'); ass.setAttribute('aria-relevant', 'additions');
+      wrap.appendChild(pol); wrap.appendChild(ass);
+      if (typeof wrap.showPopover === 'function') wrap.setAttribute('popover', 'manual');   // strat superior: vizibil și deasupra unui <dialog> modal
+      (doc.body || doc.documentElement).appendChild(wrap);
+      if (typeof wrap.showPopover === 'function') { try { wrap.showPopover(); } catch (e) { /* ignorat */ } }
+      regions = {wrap: wrap, polite: pol, assertive: ass};
+      setTimeout(cb, 80);   // regiunea trebuie să existe în arborele de accesibilitate înainte de a primi text
+    });
+  }
+  function raiseToasts() {
+    if (!regions || !toasts.length || typeof regions.wrap.showPopover !== 'function') return;
+    try { regions.wrap.hidePopover(); regions.wrap.showPopover(); } catch (e) { /* ignorat */ }
+  }
+  function dropRegionsLater() {
+    clearTimeout(regTimer);
+    regTimer = setTimeout(function () {
+      if (toasts.length || !regions) return;
+      regions.wrap.remove(); regions = null;   // nu rămâne în outerHTML-ul aplicațiilor care își serializează pagina
+    }, 1500);
+  }
+  var TYPES = {info: 1, success: 1, warning: 1, error: 1};
+  /**
+   * toast(mesaj, {type:'info'|'success'|'warning'|'error', timeout (ms; 0 = rămâne până îl închizi), action:{label, onClick}}) → {close(), el}.
+   * error/warning: regiune assertive (role=alert); restul: polite (role=status). Timpul se oprește la hover/focus.
+   */
+  function toast(message, o) {
+    o = opts(o);
+    var type = TYPES[o.type] ? o.type : 'info';
+    var timeout = o.timeout != null ? o.timeout : (type === 'error' ? 8000 : 4500);
+    var handle = {el: null, close: function () { handle._closed = true; if (handle._close) handle._close(); }};
+    pend.push(handle);
+    ensureRegions(function () {
+      pend = pend.filter(function (x) { return x !== handle; });
+      if (handle._closed) { dropRegionsLater(); return; }
+      var t = el('div', 'fff-toast fff-toast-' + type);
+      t.setAttribute('data-type', type);
+      var sr = el('span', 'fff-sr', T('sr_' + type) + ': ');
+      var tx = el('span', 'fff-toast-msg', String(message));
+      t.appendChild(sr); t.appendChild(tx);
+      if (o.action && o.action.label) {
+        var ab = btn(String(o.action.label), 'fff-toast-act');
+        ab.addEventListener('click', function () { try { if (o.action.onClick) o.action.onClick(); } finally { close(); } });
+        t.appendChild(ab);
+      }
+      var xb = btn('×', 'fff-toast-x');
+      xb.setAttribute('aria-label', T('dismiss'));
+      xb.addEventListener('click', function () { close(); });
+      t.appendChild(xb);
+      var reg = (type === 'error' || type === 'warning') ? regions.assertive : regions.polite;
+      while (toasts.length >= 4) toasts[0].close();
+      reg.appendChild(t);
+      var rec = {close: close}, timer = 0, paused = false, left = timeout;
+      toasts.push(rec); handle.el = t;
+      function arm() { clearTimeout(timer); if (timeout > 0 && !paused) { var s = Date.now(); timer = setTimeout(close, left); rec._s = s; } }
+      function pause() { if (paused) return; paused = true; clearTimeout(timer); if (rec._s) left = Math.max(1000, left - (Date.now() - rec._s)); }
+      function resume() { paused = false; arm(); }
+      t.addEventListener('mouseenter', pause); t.addEventListener('mouseleave', resume);
+      t.addEventListener('focusin', pause); t.addEventListener('focusout', resume);
+      function close() {
+        clearTimeout(timer);
+        if (!t.parentNode) return;
+        t.remove();
+        toasts = toasts.filter(function (x) { return x !== rec; });
+        if (!toasts.length) dropRegionsLater();
+      }
+      handle._close = close;
+      arm();
+      raiseToasts();
+    });
+    return handle;
+  }
+  function closeAll() {
+    stack.slice().forEach(function (d) { if (d._fffClose) d._fffClose(); });
+    toasts.slice().forEach(function (t) { t.close(); });
+    pend.slice().forEach(function (h) { h.close(); });
+  }
+
+  F.dialog = {
+    confirm: confirm, alert: alertDlg, prompt: prompt, show: showText, choice: choice,
+    toast: toast, notify: toast, closeAll: closeAll,
+    isOpen: function () { return stack.length > 0; },
+    open: open
+  };
+
+  /* ---------- alias-uri (compatibilitate cu implementările proprii din aplicații: ffAsk/ffShow/ffPrompt) ---------- */
+  function noTitle(o) { o = opts(o); return Object.assign({title: false}, o); }
+  if (!window.ffAsk) window.ffAsk = function (msg, o) { return confirm(String(msg), noTitle(o)); };
+  if (!window.ffShow) window.ffShow = function (msg, text, o) { return showText(String(msg), text, noTitle(o)); };
+  if (!window.ffPrompt) window.ffPrompt = function (msg, def, o) { return prompt(String(msg), def, noTitle(o)); };
+})();
+/* ---- fff-kit/ux ---- */
+/* fff-kit · FFF.ux — confort și satisfacție la utilizare, același în toate aplicațiile:
+ * (1) CSS (ux.css): ținte de atingere ≥44 px pe ecrane tactile, câmpuri cu text ≥16 px (fără zoom-ul intempestiv din iOS), fără întârzierea de 300 ms
+ *     la atingere (touch-action), apăsare vizibilă, derulare lină (respectă „mișcare redusă”), cuvinte lungi rupte în loc să iasă din ecran;
+ * (2) confirmare discretă la copiere în clipboard și la salvarea unui fișier (toast), doar dacă aplicația nu și-a afișat deja propria confirmare;
+ * (3) tasta „/” duce focusul în câmpul de căutare, Esc îl părăsește; (4) legăturile/etichetele mici ne-inline primesc zonă de atingere de 44 px.
+ * Opriri: <meta name="fff-ux" content="off">, ?noux=1; pe element: data-fff-hit="off" nu se aplică; data-fff-nouxfont păstrează textul propriu al câmpului. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.ux) return;
+  var doc = document, de = doc.documentElement;
+  function T(k) { return F.t('ux', k); }
+  var OFF = false;
+  function readOff() {
+    var m = doc.querySelector('meta[name="fff-ux"]');
+    OFF = (m && /^(off|0|false)$/i.test((m.getAttribute('content') || '').trim())) || /[?&]noux=(1|true)\b/.test(location.search);
+    if (OFF) de.setAttribute('data-fff-ux', 'off');
+  }
+  function toast(msg) {
+    try { if (F.dialog && F.dialog.toast) F.dialog.toast(msg, {type: 'success', timeout: 2200}); } catch (e) { /* ignorat */ }
+  }
+
+  /* confirmare doar dacă aplicația nu a afișat deja ceva similar (urmărim modificările din momentul acțiunii până la ~450 ms după încheierea ei) */
+  function watch(re) {
+    var w = {own: false, mo: null, stop: function () { if (w.mo) w.mo.disconnect(); }};
+    try {
+      w.mo = new MutationObserver(function (ms) {
+        for (var i = 0; i < ms.length && !w.own; i++) {
+          var m = ms[i], t = '';
+          if (m.target.closest && m.target.closest('[data-fff-toasts]')) continue;
+          if (m.type === 'characterData') t = m.target.nodeValue || '';
+          else if (m.type === 'attributes') t = (m.target.textContent || '') + ' ' + (m.target.getAttribute('aria-label') || '') + ' ' + (m.target.getAttribute('title') || '');
+          else for (var j = 0; j < m.addedNodes.length; j++) t += ' ' + (m.addedNodes[j].textContent || '');
+          if (re.test(t)) w.own = true;
+        }
+      });
+      w.mo.observe(doc.body, {subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['class', 'hidden', 'aria-label', 'title']});
+    } catch (e) { /* ignorat */ }
+    return w;
+  }
+  function finish(w, msg) { setTimeout(function () { w.stop(); if (!w.own) toast(msg); }, 450); }
+  function confirmUnlessOwn(re, msg) { if (!OFF) finish(watch(re), msg); }
+  var RE_COPY = /copi|cop[ií]ad|kopier|másol|copied|copy/i, RE_SAVE = /salvat|exportat|descărc|descarg|télécharg|scaric|download|saved|export|gespeichert|letölt|mentve|baixad|guardad/i;
+
+  function patchClipboard() {
+    try {
+      var cb = navigator.clipboard;
+      if (!cb || !cb.writeText || cb.writeText.__fffux) return;
+      var orig = cb.writeText.bind(cb);
+      var w = function (t) {
+        var w = OFF ? null : watch(RE_COPY), p = orig(t);
+        if (w) { if (p && p.then) p.then(function () { finish(w, T('copied')); }, function () { w.stop(); }); else w.stop(); }
+        return p;
+      };
+      w.__fffux = true;
+      cb.writeText = w;
+    } catch (e) { /* ignorat */ }
+    doc.addEventListener('copy', function () { /* copiere manuală: nimic */ }, {passive: true});
+  }
+  function patchDownload() {
+    try {
+      var proto = HTMLAnchorElement.prototype, orig = proto.click;
+      if (orig.__fffux) return;
+      var c = function () {
+        try { if (!OFF && this.hasAttribute && this.hasAttribute('download')) { var n = this.getAttribute('download') || ''; confirmUnlessOwn(RE_SAVE, T('saved') + (n ? ': ' + n : '')); } } catch (e) { /* ignorat */ }
+        return orig.apply(this, arguments);
+      };
+      c.__fffux = true;
+      proto.click = c;
+    } catch (e) { /* ignorat */ }
+    doc.addEventListener('click', function (e) {                                  // clic real pe un <a download>
+      var a = e.target && e.target.closest && e.target.closest('a[download]');
+      if (a && !OFF) { var n = a.getAttribute('download') || ''; confirmUnlessOwn(RE_SAVE, T('saved') + (n ? ': ' + n : '')); }
+    }, true);
+  }
+
+  /* „/” → căutare */
+  function searchField() {
+    var q = doc.querySelectorAll('input[type=search],[role=searchbox],input[placeholder*="ăut" i],input[placeholder*="earch" i],input[placeholder*="echerch" i],input[placeholder*="uscar" i],input[aria-label*="ăut" i],input[aria-label*="earch" i],input[id*="search" i],input[id*="cauta" i],input[id*="caut" i],input[name*="search" i]');
+    for (var i = 0; i < q.length; i++) {
+      var e = q[i], r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+      if (r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !e.disabled && !e.readOnly) return e;
+    }
+    return null;
+  }
+  function onKey(e) {
+    if (OFF || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target, tag = t && t.tagName, typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable);
+    if (e.key === '/' && !typing) {
+      var f = searchField();
+      if (f) { e.preventDefault(); f.focus(); try { f.select(); } catch (x) { /* ignorat */ } }
+    } else if (e.key === 'Escape' && typing && t.type === 'search') { t.blur(); }
+  }
+
+  /* zonă de atingere pentru legături/etichete mici, ne-inline (butoane stilizate ca <a>), doar pe ecrane tactile */
+  function hitPass() {
+    if (OFF || !window.matchMedia || !matchMedia('(pointer:coarse)').matches) return;
+    var as = doc.querySelectorAll('a[href]:not([data-fff-hit]), [role=link]:not([data-fff-hit])'), n = 0;
+    for (var i = 0; i < as.length && n < 300; i++, n++) {
+      var a = as[i], cs = getComputedStyle(a);
+      if (cs.display === 'inline') continue;
+      var r = a.getBoundingClientRect();
+      if (r.width < 1 || r.height < 1 || r.height >= 44) continue;
+      if (cs.position === 'absolute' || cs.position === 'fixed') continue;
+      a.setAttribute('data-fff-hit', '1');
+    }
+  }
+  var hitT = 0;
+  function scheduleHit() { clearTimeout(hitT); hitT = setTimeout(hitPass, 500); }
+
+  function init() {
+    readOff();
+    if (OFF) return;
+    patchClipboard(); patchDownload();
+    doc.addEventListener('keydown', onKey);
+    scheduleHit();
+    try { new MutationObserver(scheduleHit).observe(doc.body, {childList: true, subtree: true}); } catch (e) { /* ignorat */ }
+  }
+  F.ux = {off: function () { OFF = true; de.setAttribute('data-fff-ux', 'off'); }, hitPass: hitPass, searchField: searchField, version: 1};
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
+})();
+/* ---- fff-kit/label ---- */
+/* fff-kit · label — dialogul „Transparență”: rețea, stocare, permisiuni, fișier + hash, copie de siguranță. */
+(function () {
+  'use strict';
+  var F = window.FFF;
+  if (!F || F.label) return;
+  var doc = document;
+  var DISABLED = F.core && F.core.disabled;
+  function T(k, v) { return F.t('label', k, v); }
+
+  var PERM = {
+    getUserMedia: 'cam', geolocation: 'geo', RTCPeerConnection: 'rtc', 'navigator.share': 'share', Notification: 'notif',
+    speechSynthesis: 'tts', SpeechRecognition: 'stt', clipboard: 'clip', serviceWorker: 'sw', indexedDB: 'idb',
+    localStorage: 'ls', 'Web Crypto': 'crypto', WebGL: 'webgl', WebGPU: 'webgpu', Worker: 'worker', BroadcastChannel: 'bc'
+  };
+  var SHELL = "LC_ALL=C sed -E 's/data-fff-hash=\"[0-9a-f]*\"/data-fff-hash=\"\"/g; s/\"sha256\":\"[0-9a-f]*\"/\"sha256\":\"\"/g' index.html | sha256sum";
+
+  /* ---------- info ---------- */
+  var infoCache;
+  function info() {
+    if (infoCache) return infoCache;
+    var el = doc.getElementById('fff-info'), o = null;
+    if (el) { try { o = JSON.parse(el.textContent || '{}'); } catch (e) { o = null; } }
+    infoCache = o || {};
+    infoCache._present = !!o;
+    return infoCache;
+  }
+
+  /* ---------- DOM mic ---------- */
+  function h(tag, attrs) {
+    var e = doc.createElement(tag);
+    if (attrs) for (var k in attrs) if (Object.prototype.hasOwnProperty.call(attrs, k) && attrs[k] != null) {
+      if (k === 'text') e.textContent = attrs[k]; else if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]);
+    }
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (c == null || c === false) continue;
+      e.appendChild(typeof c === 'string' ? doc.createTextNode(c) : c);
+    }
+    return e;
+  }
+  function btn(text, cls, fn) {
+    var b = h('button', {type: 'button', class: 'fff-btn' + (cls ? ' ' + cls : ''), text: text});
+    if (fn) b.addEventListener('click', fn);
+    return b;
+  }
+  var uid = 0;
+  function field(label, type, ac) {
+    var id = 'fff-f' + (++uid);
+    var i = h('input', {id: id, type: type, class: 'fff-input', autocomplete: ac || 'off'});
+    return {wrap: h('div', {class: 'fff-field'}, h('label', {for: id, text: label}), i), input: i};
+  }
+
+  /* ---------- tema gazdei ---------- */
+  function hostDark() {
+    function rgba(el) {
+      var m = /rgba?\(([^)]+)\)/.exec(getComputedStyle(el).backgroundColor || '');
+      if (!m) return null;
+      var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+      if (p.length > 3 && p[3] === 0) return null;
+      return p;
+    }
+    var p = (doc.body && rgba(doc.body)) || rgba(doc.documentElement);
+    if (!p) return null;
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return (0.2126 * lin(p[0]) + 0.7152 * lin(p[1]) + 0.0722 * lin(p[2])) < 0.18;
+  }
+
+  /* ---------- hash canonic ---------- */
+  function canonBytes(buf) {
+    var u = new Uint8Array(buf), s = '';
+    for (var i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000));
+    s = s.replace(/data-fff-hash="[0-9a-f]*"/g, 'data-fff-hash=' + '"' + '"').replace(/"sha256":"[0-9a-f]*"/g, '"sha256":' + '"' + '"');
+    var out = new Uint8Array(s.length);
+    for (var j = 0; j < s.length; j++) out[j] = s.charCodeAt(j);
+    return out;
+  }
+  function declaredHash() {
+    var a = doc.documentElement.getAttribute('data-fff-hash');
+    return /^[0-9a-f]{64}$/.test(a || '') ? a : (/^[0-9a-f]{64}$/.test(info().sha256 || '') ? info().sha256 : '');
+  }
+
+  /* ---------- dialog ---------- */
+  var dlg = null, timer = 0, lastFocus = null;
+
+  function section(id, title) {
+    var hid = 'fff-h-' + id;
+    var sec = h('section', {class: 'fff-sec', 'aria-labelledby': hid}, h('h3', {id: hid, text: title}));
+    return sec;
+  }
+
+  function storageRows(tbody, sum) {
+    var keys = F.store.indexKeys(), rows = [], total = 0;
+    var enc = new TextEncoder();
+    keys.forEach(function (k) {
+      var v = F.store.raw.get(k) || '';
+      var n = enc.encode(k).length + enc.encode(v).length;
+      total += n; rows.push([k, n]);
+    });
+    rows.sort(function (a, b) { return b[1] - a[1]; });
+    var sig = rows.length + ':' + total;
+    if (tbody._sig === sig) return;
+    tbody._sig = sig;
+    tbody.textContent = '';
+    rows.slice(0, 25).forEach(function (r) {
+      tbody.appendChild(h('tr', null, h('td', {class: 'fff-mono', text: r[0]}), h('td', {class: 'fff-num', text: F.fmtBytes(r[1])})));
+    });
+    if (rows.length > 25) tbody.appendChild(h('tr', null, h('td', {colspan: '2', text: T('store_more', {n: rows.length - 25})})));
+    sum.textContent = rows.length ? T('store_sum', {n: rows.length, size: F.fmtBytes(total)}) : T('store_none');
+    tbody.parentNode.hidden = !rows.length;
+  }
+
+  function build() {
+    var I = info(), a = F.app;
+    var name = I.name || a.name, ver = I.version || a.version, upd = I.updated || a.updated;
+    var d = h('dialog', {class: 'fff-dlg', 'aria-labelledby': 'fff-lbl-title', lang: F.lang()});
+    var dark = hostDark();
+    if (dark === true) d.classList.add('fff-dark'); else if (dark === false) d.classList.add('fff-light');
+    var inner = h('div', {class: 'fff-in'});
+    var closeB = btn('×', 'fff-x', function () { api.close(); });
+    closeB.setAttribute('aria-label', T('close'));
+    inner.appendChild(h('div', {class: 'fff-hd'}, h('h2', {id: 'fff-lbl-title', text: T('title')}), closeB));
+    inner.appendChild(h('p', {class: 'fff-lead'}, h('strong', {text: name}), ' ', h('span', {class: 'fff-mut', text: 'v ' + (ver || '?') + (upd ? ' · ' + upd : '')})));
+    if (I.description) inner.appendChild(h('p', {class: 'fff-mut', text: I.description}));
+    if (DISABLED) inner.appendChild(h('p', {class: 'fff-note', role: 'note', text: T('disabled', {reason: DISABLED})}));
+    if (I.selfModifying) inner.appendChild(h('p', {class: 'fff-note', role: 'note', text: T('self_mod')}));
+
+    /* Rețea */
+    var net = section('net', T('net_h'));
+    if (!I._present) net.appendChild(h('p', {class: 'fff-mut', text: T('net_unknown')}));
+    else {
+      var eg = I.egress || [];
+      if (!eg.length) net.appendChild(h('p', null, h('strong', {text: T('net_none')})));
+      else {
+        net.appendChild(h('p', {text: T('net_list')}));
+        var ul = h('ul', {class: 'fff-list'});
+        eg.forEach(function (e) {
+          var host = typeof e === 'string' ? e : e.host, via = typeof e === 'string' ? '' : (e.via || []).join(', ');
+          ul.appendChild(h('li', null, h('span', {class: 'fff-mono', text: host}), via ? h('span', {class: 'fff-mut', text: ' — ' + via}) : null));
+        });
+        net.appendChild(ul);
+      }
+      if (I.egressNote) net.appendChild(h('p', {class: 'fff-mut', text: I.egressNote}));
+      net.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('net_note')}));
+    }
+    inner.appendChild(net);
+
+    /* Stocare */
+    var st = section('store', T('store_h'));
+    var sum = h('p', {role: 'status'});
+    var tb = h('tbody');
+    var tbl = h('table', {class: 'fff-tbl'}, h('caption', {class: 'fff-sr', text: T('store_h')}),
+      h('thead', null, h('tr', null, h('th', {scope: 'col', text: T('store_key')}), h('th', {scope: 'col', class: 'fff-num', text: T('store_size')}))), tb);
+    st.appendChild(sum); st.appendChild(tbl);
+    if ((I.permissions || []).indexOf('indexedDB') >= 0) st.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('store_idb')}));
+    st.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('store_note')}));
+    inner.appendChild(st);
+    storageRows(tb, sum);
+    d._tick = function () { storageRows(tb, sum); };
+
+    /* Permisiuni */
+    var pm = section('perm', T('perm_h'));
+    if (!I._present) pm.appendChild(h('p', {class: 'fff-mut', text: T('net_unknown')}));
+    else {
+      var ps = I.permissions || [];
+      if (!ps.length) pm.appendChild(h('p', {text: T('perm_none')}));
+      else {
+        var pl = h('ul', {class: 'fff-list fff-cols'});
+        ps.forEach(function (p) { pl.appendChild(h('li', {text: PERM[p] ? T('perm_' + PERM[p]) : p})); });
+        pm.appendChild(pl);
+      }
+      pm.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('perm_note')}));
+    }
+    inner.appendChild(pm);
+
+    /* Fișier */
+    var fl = section('file', T('file_h'));
+    var dh = declaredHash();
+    if (I.sizeBytes) fl.appendChild(h('p', {text: T('file_size', {size: F.fmtBytes(I.sizeBytes)})}));
+    if (dh) {
+      fl.appendChild(h('p', {class: 'fff-sm'}, T('file_hash') + ' ', h('code', {class: 'fff-mono fff-break', text: dh})));
+      var res = h('p', {role: 'status', class: 'fff-res'});
+      var vb = btn(T('verify_btn'), '', function () {
+        res.className = 'fff-res'; res.textContent = '';
+        F.pickFile('.html,.htm,text/html').then(function (f) {
+          if (!f) return null;
+          return f.arrayBuffer().then(function (buf) { return F.sha256(canonBytes(buf)); }).then(function (got) {
+            if (got === dh) { res.className = 'fff-res fff-ok'; res.textContent = '✔ ' + T('verify_ok'); }
+            else { res.className = 'fff-res fff-bad'; res.textContent = '✖ ' + T('verify_bad', {got: got}); }
+          });
+        }).catch(function () { res.className = 'fff-res fff-bad'; res.textContent = T('verify_err'); });
+      });
+      fl.appendChild(h('p', null, vb));
+      fl.appendChild(res);
+      fl.appendChild(h('details', {class: 'fff-det'}, h('summary', {text: T('file_how_h')}),
+        h('p', {class: 'fff-sm', text: T('file_how')}), h('pre', {class: 'fff-pre fff-mono', tabindex: '0', 'aria-label': T('verify_cmd'), text: SHELL})));
+    } else fl.appendChild(h('p', {class: 'fff-mut', text: T('file_nohash')}));
+    inner.appendChild(fl);
+
+    /* Copie de siguranță */
+    if (F.bundle && !DISABLED) inner.appendChild(backup());
+
+    /* Kit + instalare */
+    var foot = h('div', {class: 'fff-foot'});
+    var mods = (I.kit && I.kit.modules) || F.core.modules();
+    foot.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('kit_line', {v: F.version, mods: mods.join(', ') || 'core'})}));
+    if (F.core.installEvent) {
+      var ib = btn(T('install'), 'fff-primary', function () {
+        var ev = F.core.installEvent;
+        if (!ev) return;
+        ev.prompt(); F.core.installEvent = null; ib.hidden = true;
+      });
+      foot.appendChild(ib);
+    }
+    inner.appendChild(foot);
+
+    d.appendChild(inner);
+    d.addEventListener('click', function (e) { if (e.target === d) api.close(); });
+    d.addEventListener('keydown', function (e) { if (e.key !== 'Escape') e.stopPropagation(); });
+    d.addEventListener('keyup', function (e) { e.stopPropagation(); });
+    d.addEventListener('keypress', function (e) { e.stopPropagation(); });
+    d.addEventListener('close', function () { if (dlg === d) cleanup(); });
+    return d;
+  }
+
+  /** Număr cu separator de mii după limbă (aceeași formă ca în textele traduse). */
+  function fmtNum(n) {
+    var sep = {en: ',', it: '.', de: '.'}[F.lang()] || ' ';
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  }
+
+  function backup() {
+    var bk = section('bk', T('bk_h'));
+    var status = h('p', {role: 'status', class: 'fff-res'});
+    function say(msg, kind) { status.className = 'fff-res' + (kind ? ' fff-' + kind : ''); status.textContent = msg; }
+    function fail(e) { say((e && e.message) || String(e), 'bad'); }
+    bk.appendChild(h('p', {class: 'fff-mut fff-sm', text: T('bk_hint', {iter: fmtNum(F.bundle.iterations)})}));
+
+    /* export criptat */
+    var encRow = h('div', {class: 'fff-box', hidden: ''});
+    var pw1 = field(T('bk_pw', {n: F.bundle.minPassword}), 'password', 'new-password'), pw2 = field(T('bk_pw2'), 'password', 'new-password');
+    var goEnc = btn(T('bk_go'), 'fff-primary', function () {
+      if (pw1.input.value !== pw2.input.value) return say(T('pw_mismatch'), 'bad');
+      F.bundle.export({encrypt: true, password: pw1.input.value}).then(function (r) {
+        pwStrength.textContent = '';
+        say(T('ok_export_enc', {file: r.filename, n: r.keys}), 'ok'); pw1.input.value = pw2.input.value = ''; encRow.hidden = true; encBtn.setAttribute('aria-expanded', 'false');
+      }).catch(fail);
+    });
+    var pwStrength = h('p', {role: 'status', class: 'fff-mut fff-sm fff-res'});
+    pw1.input.addEventListener('input', function () { pwStrength.textContent = pw1.input.value ? F.t('bundle', ['pw_weak', 'pw_fair', 'pw_strong'][F.bundle.passwordStrength(pw1.input.value)]) : ''; });
+    encRow.appendChild(pw1.wrap); encRow.appendChild(pwStrength); encRow.appendChild(pw2.wrap); encRow.appendChild(h('div', {class: 'fff-row'}, goEnc));
+
+    /* import */
+    var impRow = h('div', {class: 'fff-box', hidden: ''});
+    var impPw = field(T('bk_pw_file'), 'password', 'current-password');
+    var pending = null;
+    var impGo = btn(T('bk_import_go'), 'fff-primary', function () { doImport(pending, impPw.input.value); });
+    impRow.appendChild(impPw.wrap); impRow.appendChild(h('div', {class: 'fff-row'}, impGo));
+    function doImport(file, pw) {
+      F.bundle.import(file, {password: pw, reload: true}).then(function (r) {
+        if (r.cancelled) return say(T('cancelled'));
+        impRow.hidden = true; impPw.input.value = '';
+        say(T('ok_import', {n: r.keys}), 'ok');
+      }).catch(function (e) {
+        if (e && e.code === 'bad_password') { impRow.hidden = false; impPw.input.focus(); }
+        fail(e);
+      });
+    }
+
+    var expB = btn(T('bk_export'), '', function () {
+      F.bundle.export().then(function (r) { if (r.cancelled) return say(T('cancelled')); say(T('ok_export', {file: r.filename, n: r.keys}), 'ok'); }).catch(fail);
+    });
+    var encBtn = btn(T('bk_export_enc'), '', function () {
+      var open = encRow.hidden;
+      encRow.hidden = !open; encBtn.setAttribute('aria-expanded', String(open));
+      if (open) pw1.input.focus();
+    });
+    encBtn.setAttribute('aria-expanded', 'false');
+    var impBtn = btn(T('bk_import'), '', function () {
+      F.pickFile('.json,application/json').then(function (f) {
+        if (!f) return;
+        pending = f; impRow.hidden = true;
+        return F.bundle.inspect(f).then(function (m) {
+          if (m.encrypted) { impRow.hidden = false; impPw.input.focus(); say(T('enter_pw', {file: f.name})); }
+          else doImport(f);
+        });
+      }).catch(fail);
+    });
+    var wipeB = btn(T('bk_wipe'), 'fff-danger-o', function () {
+      F.bundle.wipe({reload: true}).then(function (r) {
+        if (r.cancelled) return say(T('cancelled'));
+        say(r.keys ? T('ok_wipe', {n: r.keys}) : T('nothing_to_wipe'), 'ok');
+      }).catch(fail);
+    });
+    var syncB = null;
+    if (F.sync && F.sync.supported()) {
+      syncB = btn(T('bk_sync'), '', function () {
+        F.sync.dialog({reload: true}).then(function (r) {
+          say(F.t('sync', 'result', {adopted: r.adopted, same: r.same, conflicts: r.conflicts}), 'ok');
+        }).catch(fail);
+      });
+    }
+    bk.appendChild(h('div', {class: 'fff-row'}, expB, encBtn, impBtn, wipeB));
+    var histB = null;
+    if (F.history && F.history.supported()) {
+      histB = btn(T('bk_history'), '', function () { F.history.dialog({reload: true}).catch(fail); });
+    }
+    if (syncB || histB) bk.appendChild(h('div', {class: 'fff-row'}, syncB, histB));
+    bk.appendChild(encRow); bk.appendChild(impRow); bk.appendChild(status);
+    return bk;
+  }
+
+  function cleanup() {
+    clearInterval(timer); timer = 0;
+    if (dlg) { dlg.remove(); dlg = null; }
+    if (lastFocus && lastFocus.isConnected && lastFocus.focus) { try { lastFocus.focus(); } catch (e) { /* ignorat */ } }
+    lastFocus = null;
+  }
+
+  var api = F.label = {
+    state: 'init',
+    open: function () {
+      if (dlg) return dlg;
+      infoCache = null;
+      lastFocus = doc.activeElement;
+      dlg = build();
+      (doc.body || doc.documentElement).appendChild(dlg);
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+      timer = setInterval(function () { if (dlg && dlg._tick) dlg._tick(); }, 1500);
+      F.bus.emit('label:open');
+      return dlg;
+    },
+    close: function () {
+      if (!dlg) return;
+      var d = dlg;
+      try { d.close(); } catch (e) { /* ignorat */ }
+      if (dlg === d) cleanup();
+    },
+    isOpen: function () { return !!dlg; },
+    canon: canonBytes,
+    shellCommand: SHELL
+  };
+
+  /* ---------- transformarea #app-version în buton ---------- */
+  var fallback = null;
+  function rgba(str) {
+    var m = /rgba?\(([^)]+)\)/.exec(str || '');
+    if (!m) return null;
+    var p = m[1].split(/[ ,\/]+/).map(parseFloat);
+    return [p[0], p[1], p[2], p.length > 3 ? p[3] : 1];
+  }
+  function lum(c) {
+    function f(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]);
+  }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  /** Fundalul efectiv (amestecă straturile semitransparente peste primul fundal opac; implicit alb). */
+  function effBg(el) {
+    var layers = [], n = el;
+    while (n && n.nodeType === 1) {
+      var c = rgba(getComputedStyle(n).backgroundColor);
+      if (c && c[3] > 0) { layers.push(c); if (c[3] >= 1) break; }
+      n = n.parentElement;
+    }
+    var base = layers.length && layers[layers.length - 1][3] >= 1 ? layers.pop() : [255, 255, 255, 1];
+    while (layers.length) {
+      var t = layers.pop();
+      base = [t[0] * t[3] + base[0] * (1 - t[3]), t[1] * t[3] + base[1] * (1 - t[3]), t[2] * t[3] + base[2] * (1 - t[3]), 1];
+    }
+    return base;
+  }
+  /** Butonul de rezervă din footer moștenește culoarea gazdei; dacă nu atinge 4,5:1, alege negru/alb. */
+  function fitContrast(el) {
+    try {
+      var fg = rgba(getComputedStyle(el).color), bg = effBg(el);
+      if (!fg || ratio(fg, bg) >= 4.6) return;
+      el.style.color = ratio([0, 0, 0], bg) >= ratio([255, 255, 255], bg) ? '#000' : '#fff';
+    } catch (e) { /* ignorat */ }
+  }
+  function visibleFooter() {
+    var fs = doc.querySelectorAll('footer');
+    for (var i = 0; i < fs.length; i++) if (fs[i].getClientRects().length && getComputedStyle(fs[i]).visibility !== 'hidden') return fs[i];
+    return null;
+  }
+  /* Dimensiuni minime (WCAG 2.2 · 2.5.8 țintă ≥ 24 px; text ≥ 12 px) fără a atinge layoutul aplicației:
+     inline → inline-flex doar dacă elementul e într-adevăr inline; fontul se ridică la 12 px doar acolo unde e mai mic. */
+  function fit(el) {
+    try {
+      var all = [el].concat([].slice.call(el.querySelectorAll('*'))), i, n;
+      for (i = 0; i < all.length; i++) { all[i].removeAttribute('data-fff-fs'); }
+      el.removeAttribute('data-fff-inl');
+      if (getComputedStyle(el).display === 'inline') el.setAttribute('data-fff-inl', '1');
+      for (i = 0; i < all.length; i++) {
+        n = all[i];
+        var has = false, c;
+        for (c = n.firstChild; c; c = c.nextSibling) if (c.nodeType === 3 && c.nodeValue.trim()) { has = true; break; }
+        if (has && parseFloat(getComputedStyle(n).fontSize) < 12) n.setAttribute('data-fff-fs', '1');
+      }
+    } catch (e) {}
+  }
+  var fitT = 0, fitEl = null;
+  function fitSoon() { if (fitT) return; fitT = setTimeout(function () { fitT = 0; var e = doc.querySelector('#app-version[data-fff-label]'); if (e) fit(e); }, 150); }
+  function decorate() {
+    var el = doc.getElementById('app-version');
+    if (el) {
+      if (fallback) { fallback.remove(); fallback = null; }
+      if (el.getAttribute('data-fff-label')) { if (fitEl !== el) { fitEl = el; fit(el); } api.state = 'button'; return; }
+      if (el.closest('a,button,[role="button"],[role="link"],summary,label,input,select,textarea')) { api.state = 'nested'; return; }
+      el.setAttribute('data-fff-label', '1');
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-haspopup', 'dialog');
+      el.setAttribute('title', T('open_hint'));
+      fitEl = el; fit(el);
+      api.state = 'button';
+      return;
+    }
+    if (!fallback && doc.readyState === 'complete') {
+      var ft = visibleFooter();
+      if (ft) {
+        fallback = h('button', {type: 'button', class: 'fff-chip', 'data-fff-chip': '1', 'aria-haspopup': 'dialog', title: T('open_hint'), text: T('title')});
+        fallback.addEventListener('click', function () { api.open(); });
+        ft.appendChild(fallback);
+        fitContrast(fallback);
+        api.state = 'footer';
+      } else api.state = 'none';
+    }
+  }
+  function onClick(e) {
+    var t = e.target && e.target.closest && e.target.closest('#app-version[data-fff-label]');
+    if (t) { e.preventDefault(); api.open(); }
+  }
+  function onKey(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target && e.target.closest && e.target.closest('#app-version[data-fff-label]');
+    if (t) { e.preventDefault(); api.open(); }
+  }
+  function init() {
+    // resturi dintr-o copie salvată de aplicație (outerHTML): le curățăm înainte de a le recrea
+    [].slice.call(doc.querySelectorAll('dialog.fff-dlg, [data-fff-chip]')).forEach(function (n) { n.remove(); });
+    if (DISABLED) { api.state = 'disabled'; return; }
+    decorate();
+    doc.addEventListener('click', onClick);
+    doc.addEventListener('keydown', onKey);
+    if (window.MutationObserver) {
+      var pend = false;
+      new MutationObserver(function () {
+        if (pend) return;
+        pend = true;
+        setTimeout(function () { pend = false; decorate(); }, 200);
+      }).observe(doc.body || doc.documentElement, {childList: true, subtree: true});
+    }
+    window.addEventListener('load', function () { setTimeout(decorate, 800); setTimeout(fitSoon, 900); });
+    window.addEventListener('resize', fitSoon);
+    F.onLang(function () {
+      var el = doc.querySelector('#app-version[data-fff-label]');
+      if (el) el.setAttribute('title', T('open_hint'));
+      if (dlg) { api.close(); api.open(); }
+    });
+  }
+  F.ready(init);
+})();
+</script>
+<script type="application/json" id="fff-i18n">{"dialog":{"ro":{"yes":"Da","cancel":"Anulează","ok":"OK","close":"Închide","dismiss":"Închide notificarea","title_confirm":"Confirmare","title_alert":"Atenție","title_prompt":"Introdu o valoare","title_show":"Text","err_required":"Completează acest câmp.","sr_info":"Informație","sr_success":"Reușit","sr_warning":"Avertisment","sr_error":"Eroare"},"en":{"yes":"Yes","cancel":"Cancel","ok":"OK","close":"Close","dismiss":"Dismiss notification","title_confirm":"Confirm","title_alert":"Notice","title_prompt":"Enter a value","title_show":"Text","err_required":"Please fill in this field.","sr_info":"Information","sr_success":"Success","sr_warning":"Warning","sr_error":"Error"},"fr":{"yes":"Oui","cancel":"Annuler","ok":"OK","close":"Fermer","dismiss":"Fermer la notification","title_confirm":"Confirmation","title_alert":"Attention","title_prompt":"Saisissez une valeur","title_show":"Texte","err_required":"Veuillez remplir ce champ.","sr_info":"Information","sr_success":"Réussite","sr_warning":"Avertissement","sr_error":"Erreur"},"it":{"yes":"Sì","cancel":"Annulla","ok":"OK","close":"Chiudi","dismiss":"Chiudi la notifica","title_confirm":"Conferma","title_alert":"Attenzione","title_prompt":"Inserisci un valore","title_show":"Testo","err_required":"Compila questo campo.","sr_info":"Informazione","sr_success":"Operazione riuscita","sr_warning":"Avviso","sr_error":"Errore"},"es":{"yes":"Sí","cancel":"Cancelar","ok":"OK","close":"Cerrar","dismiss":"Cerrar la notificación","title_confirm":"Confirmación","title_alert":"Atención","title_prompt":"Introduce un valor","title_show":"Texto","err_required":"Rellena este campo.","sr_info":"Información","sr_success":"Correcto","sr_warning":"Aviso","sr_error":"Error"},"pt":{"yes":"Sim","cancel":"Cancelar","ok":"OK","close":"Fechar","dismiss":"Fechar a notificação","title_confirm":"Confirmação","title_alert":"Atenção","title_prompt":"Introduza um valor","title_show":"Texto","err_required":"Preencha este campo.","sr_info":"Informação","sr_success":"Sucesso","sr_warning":"Aviso","sr_error":"Erro"},"hu":{"yes":"Igen","cancel":"Mégse","ok":"OK","close":"Bezárás","dismiss":"Értesítés bezárása","title_confirm":"Megerősítés","title_alert":"Figyelem","title_prompt":"Adj meg egy értéket","title_show":"Szöveg","err_required":"Töltsd ki ezt a mezőt.","sr_info":"Információ","sr_success":"Sikeres","sr_warning":"Figyelmeztetés","sr_error":"Hiba"},"de":{"yes":"Ja","cancel":"Abbrechen","ok":"OK","close":"Schließen","dismiss":"Benachrichtigung schließen","title_confirm":"Bestätigung","title_alert":"Hinweis","title_prompt":"Wert eingeben","title_show":"Text","err_required":"Bitte dieses Feld ausfüllen.","sr_info":"Information","sr_success":"Erfolg","sr_warning":"Warnung","sr_error":"Fehler"}},"ux":{"ro":{"copied":"Copiat","saved":"Salvat"},"en":{"copied":"Copied","saved":"Saved"},"fr":{"copied":"Copié","saved":"Enregistré"},"it":{"copied":"Copiato","saved":"Salvato"},"es":{"copied":"Copiado","saved":"Guardado"},"pt":{"copied":"Copiado","saved":"Guardado"},"de":{"copied":"Kopiert","saved":"Gespeichert"},"hu":{"copied":"Másolva","saved":"Mentve"}},"label":{"ro":{"title":"Transparență","open_hint":"Deschide eticheta de transparență","close":"Închide","disabled":"Funcțiile kitului sunt dezactivate pentru această aplicație: {reason}","self_mod":"Atenție: aplicația își poate salva propria copie (împreună cu datele tale). Suma SHA-256 declarată se aplică doar fișierului distribuit inițial.","net_h":"Rețea","net_none":"0 cereri externe declarate","net_list":"Gazde externe declarate sau permise de politica de securitate (CSP):","net_note":"Declarat la construirea fișierului, prin analiza codului; poți verifica și în fila Rețea a instrumentelor browserului.","net_unknown":"Informații indisponibile: fișierul nu conține descriptorul de transparență.","store_h":"Stocare locală","store_none":"Nicio cheie în localStorage.","store_sum":"{n} chei · {size}","store_key":"Cheie","store_size":"Mărime","store_more":"…și încă {n} chei","store_idb":"Aplicația folosește și IndexedDB, care nu este inclus în copia de siguranță.","store_note":"Datele rămân în acest browser; nimic nu este trimis.","perm_h":"Permisiuni și API-uri folosite","perm_none":"Nu au fost detectate API-uri sensibile.","perm_note":"Detectate static în codul sursă; pentru cele sensibile, browserul îți cere acordul.","perm_cam":"Cameră / microfon","perm_geo":"Locație","perm_rtc":"Conexiuni directe între browsere (WebRTC)","perm_share":"Partajare (Web Share)","perm_notif":"Notificări","perm_tts":"Sinteză vocală","perm_stt":"Recunoaștere vocală","perm_clip":"Clipboard","perm_sw":"Service worker (instalare / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fișier","file_size":"Dimensiune: {size}","file_hash":"SHA-256 declarat:","file_nohash":"Suma de control nu este declarată în acest fișier.","file_how_h":"Cum verifici","file_how":"Alege fișierul descărcat: se calculează SHA-256 după golirea câmpurilor de hash (data-fff-hash și „sha256”) și se compară cu valoarea declarată. Același calcul în terminal:","verify_btn":"Verifică un fișier descărcat…","verify_ok":"Se potrivește: fișierul este identic cu cel declarat.","verify_bad":"Nu se potrivește. Calculat: {got}","verify_err":"Fișierul nu a putut fi citit.","verify_cmd":"Comandă de verificare","bk_h":"Copie de siguranță","bk_hint":"Fișier .fff.json cu datele din localStorage ale aplicației. Varianta criptată folosește AES-GCM 256 cu cheie derivată prin PBKDF2-SHA256 ({iter} de iterații); parola nu poate fi recuperată.","bk_export":"Exportă","bk_export_enc":"Exportă criptat…","bk_import":"Importă…","bk_wipe":"Șterge datele aplicației","bk_pw":"Parolă (min. {n} caractere)","bk_pw2":"Repetă parola","bk_go":"Exportă criptat","bk_pw_file":"Parola fișierului","bk_import_go":"Importă","pw_mismatch":"Parolele nu coincid.","ok_export":"Exportat: {file} ({n} chei).","ok_export_enc":"Exportat criptat: {file} ({n} chei).","ok_import":"Importate {n} chei. Se reîncarcă pagina…","ok_wipe":"Șterse {n} chei. Se reîncarcă pagina…","nothing_to_wipe":"Nu există date de șters.","enter_pw":"Fișierul {file} este criptat: introdu parola.","cancelled":"Anulat.","kit_line":"fff-kit v{v} · module: {mods}","install":"Instalează aplicația","bk_sync":"Sincronizează între dispozitive","bk_history":"Istoric (mașina timpului)"},"en":{"title":"Transparency","open_hint":"Open the transparency label","close":"Close","disabled":"Kit features are disabled for this app: {reason}","self_mod":"Note: this app can save its own copy (together with your data). The declared SHA-256 applies only to the originally distributed file.","net_h":"Network","net_none":"0 external requests declared","net_list":"External hosts declared or allowed by the security policy (CSP):","net_note":"Declared at build time by analysing the code; you can also check the Network tab of your browser tools.","net_unknown":"Information unavailable: the file has no transparency descriptor.","store_h":"Local storage","store_none":"No keys in localStorage.","store_sum":"{n} keys · {size}","store_key":"Key","store_size":"Size","store_more":"…and {n} more keys","store_idb":"The app also uses IndexedDB, which is not included in the backup.","store_note":"Data stays in this browser; nothing is sent.","perm_h":"Permissions and APIs used","perm_none":"No sensitive APIs detected.","perm_note":"Detected statically in the source code; for sensitive ones the browser asks for your consent.","perm_cam":"Camera / microphone","perm_geo":"Location","perm_rtc":"Direct browser-to-browser connections (WebRTC)","perm_share":"Sharing (Web Share)","perm_notif":"Notifications","perm_tts":"Speech synthesis","perm_stt":"Speech recognition","perm_clip":"Clipboard","perm_sw":"Service worker (install / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Cryptography (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"File","file_size":"Size: {size}","file_hash":"Declared SHA-256:","file_nohash":"No checksum is declared in this file.","file_how_h":"How to verify","file_how":"Choose the downloaded file: its SHA-256 is computed after blanking the hash fields (data-fff-hash and \"sha256\") and compared with the declared value. The same computation in a terminal:","verify_btn":"Verify a downloaded file…","verify_ok":"Match: the file is identical to the declared one.","verify_bad":"No match. Computed: {got}","verify_err":"The file could not be read.","verify_cmd":"Verification command","bk_h":"Backup","bk_hint":"A .fff.json file with the app's localStorage data. The encrypted variant uses AES-GCM 256 with a key derived via PBKDF2-SHA256 ({iter} iterations); the password cannot be recovered.","bk_export":"Export","bk_export_enc":"Export encrypted…","bk_import":"Import…","bk_wipe":"Delete app data","bk_pw":"Password (min. {n} characters)","bk_pw2":"Repeat password","bk_go":"Export encrypted","bk_pw_file":"File password","bk_import_go":"Import","pw_mismatch":"Passwords do not match.","ok_export":"Exported: {file} ({n} keys).","ok_export_enc":"Exported encrypted: {file} ({n} keys).","ok_import":"Imported {n} keys. Reloading the page…","ok_wipe":"Deleted {n} keys. Reloading the page…","nothing_to_wipe":"There is no data to delete.","enter_pw":"The file {file} is encrypted: enter the password.","cancelled":"Cancelled.","kit_line":"fff-kit v{v} · modules: {mods}","install":"Install the app","bk_sync":"Sync between devices","bk_history":"History (time machine)"},"fr":{"title":"Transparence","open_hint":"Ouvrir l’étiquette de transparence","close":"Fermer","disabled":"Les fonctions du kit sont désactivées pour cette application : {reason}","self_mod":"Attention : cette application peut enregistrer sa propre copie (avec vos données). Le SHA-256 déclaré ne vaut que pour le fichier distribué à l’origine.","net_h":"Réseau","net_none":"0 requête externe déclarée","net_list":"Hôtes externes déclarés ou autorisés par la politique de sécurité (CSP) :","net_note":"Déclaré à la construction par analyse du code ; vous pouvez aussi vérifier dans l’onglet Réseau des outils du navigateur.","net_unknown":"Informations indisponibles : le fichier ne contient pas de descripteur de transparence.","store_h":"Stockage local","store_none":"Aucune clé dans localStorage.","store_sum":"{n} clés · {size}","store_key":"Clé","store_size":"Taille","store_more":"…et {n} clés de plus","store_idb":"L’application utilise aussi IndexedDB, non inclus dans la sauvegarde.","store_note":"Les données restent dans ce navigateur ; rien n’est envoyé.","perm_h":"Autorisations et API utilisées","perm_none":"Aucune API sensible détectée.","perm_note":"Détectées statiquement dans le code source ; pour les API sensibles, le navigateur demande votre accord.","perm_cam":"Caméra / microphone","perm_geo":"Localisation","perm_rtc":"Connexions directes entre navigateurs (WebRTC)","perm_share":"Partage (Web Share)","perm_notif":"Notifications","perm_tts":"Synthèse vocale","perm_stt":"Reconnaissance vocale","perm_clip":"Presse-papiers","perm_sw":"Service worker (installation / hors ligne)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Cryptographie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fichier","file_size":"Taille : {size}","file_hash":"SHA-256 déclaré :","file_nohash":"Aucune somme de contrôle n’est déclarée dans ce fichier.","file_how_h":"Comment vérifier","file_how":"Choisissez le fichier téléchargé : son SHA-256 est calculé après avoir vidé les champs de hachage (data-fff-hash et « sha256 ») puis comparé à la valeur déclarée. Même calcul dans un terminal :","verify_btn":"Vérifier un fichier téléchargé…","verify_ok":"Concordance : le fichier est identique à celui déclaré.","verify_bad":"Pas de concordance. Calculé : {got}","verify_err":"Le fichier n’a pas pu être lu.","verify_cmd":"Commande de vérification","bk_h":"Sauvegarde","bk_hint":"Un fichier .fff.json avec les données localStorage de l’application. La variante chiffrée utilise AES-GCM 256 avec une clé dérivée par PBKDF2-SHA256 ({iter} itérations) ; le mot de passe est irrécupérable.","bk_export":"Exporter","bk_export_enc":"Exporter chiffré…","bk_import":"Importer…","bk_wipe":"Supprimer les données de l’application","bk_pw":"Mot de passe (min. {n} caractères)","bk_pw2":"Répéter le mot de passe","bk_go":"Exporter chiffré","bk_pw_file":"Mot de passe du fichier","bk_import_go":"Importer","pw_mismatch":"Les mots de passe ne correspondent pas.","ok_export":"Exporté : {file} ({n} clés).","ok_export_enc":"Exporté chiffré : {file} ({n} clés).","ok_import":"{n} clés importées. Rechargement de la page…","ok_wipe":"{n} clés supprimées. Rechargement de la page…","nothing_to_wipe":"Aucune donnée à supprimer.","enter_pw":"Le fichier {file} est chiffré : saisissez le mot de passe.","cancelled":"Annulé.","kit_line":"fff-kit v{v} · modules : {mods}","install":"Installer l’application","bk_sync":"Synchroniser entre appareils","bk_history":"Historique (machine à remonter le temps)"},"it":{"title":"Trasparenza","open_hint":"Apri l’etichetta di trasparenza","close":"Chiudi","disabled":"Le funzioni del kit sono disattivate per questa app: {reason}","self_mod":"Attenzione: questa app può salvare una propria copia (insieme ai tuoi dati). Lo SHA-256 dichiarato vale solo per il file distribuito in origine.","net_h":"Rete","net_none":"0 richieste esterne dichiarate","net_list":"Host esterni dichiarati o consentiti dalla politica di sicurezza (CSP):","net_note":"Dichiarato in fase di costruzione tramite analisi del codice; puoi controllare anche nella scheda Rete degli strumenti del browser.","net_unknown":"Informazioni non disponibili: il file non contiene il descrittore di trasparenza.","store_h":"Archiviazione locale","store_none":"Nessuna chiave in localStorage.","store_sum":"{n} chiavi · {size}","store_key":"Chiave","store_size":"Dimensione","store_more":"…e altre {n} chiavi","store_idb":"L’app usa anche IndexedDB, non incluso nel backup.","store_note":"I dati restano in questo browser; non viene inviato nulla.","perm_h":"Permessi e API usati","perm_none":"Nessuna API sensibile rilevata.","perm_note":"Rilevate in modo statico nel codice sorgente; per quelle sensibili il browser chiede il tuo consenso.","perm_cam":"Fotocamera / microfono","perm_geo":"Posizione","perm_rtc":"Connessioni dirette tra browser (WebRTC)","perm_share":"Condivisione (Web Share)","perm_notif":"Notifiche","perm_tts":"Sintesi vocale","perm_stt":"Riconoscimento vocale","perm_clip":"Appunti","perm_sw":"Service worker (installazione / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Crittografia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"File","file_size":"Dimensione: {size}","file_hash":"SHA-256 dichiarato:","file_nohash":"In questo file non è dichiarata alcuna somma di controllo.","file_how_h":"Come verificare","file_how":"Scegli il file scaricato: ne viene calcolato lo SHA-256 dopo aver svuotato i campi hash (data-fff-hash e «sha256») e confrontato con il valore dichiarato. Lo stesso calcolo da terminale:","verify_btn":"Verifica un file scaricato…","verify_ok":"Corrisponde: il file è identico a quello dichiarato.","verify_bad":"Non corrisponde. Calcolato: {got}","verify_err":"Impossibile leggere il file.","verify_cmd":"Comando di verifica","bk_h":"Copia di sicurezza","bk_hint":"Un file .fff.json con i dati localStorage dell’app. La variante cifrata usa AES-GCM 256 con chiave derivata tramite PBKDF2-SHA256 ({iter} iterazioni); la password non è recuperabile.","bk_export":"Esporta","bk_export_enc":"Esporta cifrato…","bk_import":"Importa…","bk_wipe":"Elimina i dati dell’app","bk_pw":"Password (min. {n} caratteri)","bk_pw2":"Ripeti la password","bk_go":"Esporta cifrato","bk_pw_file":"Password del file","bk_import_go":"Importa","pw_mismatch":"Le password non coincidono.","ok_export":"Esportato: {file} ({n} chiavi).","ok_export_enc":"Esportato cifrato: {file} ({n} chiavi).","ok_import":"Importate {n} chiavi. Ricarico la pagina…","ok_wipe":"Eliminate {n} chiavi. Ricarico la pagina…","nothing_to_wipe":"Non ci sono dati da eliminare.","enter_pw":"Il file {file} è cifrato: inserisci la password.","cancelled":"Annullato.","kit_line":"fff-kit v{v} · moduli: {mods}","install":"Installa l’app","bk_sync":"Sincronizza tra dispositivi","bk_history":"Cronologia (macchina del tempo)"},"es":{"title":"Transparencia","open_hint":"Abrir la etiqueta de transparencia","close":"Cerrar","disabled":"Las funciones del kit están desactivadas para esta aplicación: {reason}","self_mod":"Atención: esta aplicación puede guardar su propia copia (junto con tus datos). El SHA-256 declarado solo vale para el archivo distribuido originalmente.","net_h":"Red","net_none":"0 solicitudes externas declaradas","net_list":"Hosts externos declarados o permitidos por la política de seguridad (CSP):","net_note":"Declarado al construir el archivo mediante análisis del código; también puedes comprobarlo en la pestaña Red de las herramientas del navegador.","net_unknown":"Información no disponible: el archivo no contiene el descriptor de transparencia.","store_h":"Almacenamiento local","store_none":"Ninguna clave en localStorage.","store_sum":"{n} claves · {size}","store_key":"Clave","store_size":"Tamaño","store_more":"…y {n} claves más","store_idb":"La aplicación también usa IndexedDB, que no se incluye en la copia de seguridad.","store_note":"Los datos permanecen en este navegador; no se envía nada.","perm_h":"Permisos y API usadas","perm_none":"No se detectaron API sensibles.","perm_note":"Detectadas de forma estática en el código fuente; para las sensibles, el navegador pide tu consentimiento.","perm_cam":"Cámara / micrófono","perm_geo":"Ubicación","perm_rtc":"Conexiones directas entre navegadores (WebRTC)","perm_share":"Compartir (Web Share)","perm_notif":"Notificaciones","perm_tts":"Síntesis de voz","perm_stt":"Reconocimiento de voz","perm_clip":"Portapapeles","perm_sw":"Service worker (instalación / sin conexión)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografía (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Archivo","file_size":"Tamaño: {size}","file_hash":"SHA-256 declarado:","file_nohash":"Este archivo no declara ninguna suma de verificación.","file_how_h":"Cómo verificar","file_how":"Elige el archivo descargado: se calcula su SHA-256 tras vaciar los campos de hash (data-fff-hash y «sha256») y se compara con el valor declarado. El mismo cálculo en una terminal:","verify_btn":"Verificar un archivo descargado…","verify_ok":"Coincide: el archivo es idéntico al declarado.","verify_bad":"No coincide. Calculado: {got}","verify_err":"No se pudo leer el archivo.","verify_cmd":"Comando de verificación","bk_h":"Copia de seguridad","bk_hint":"Un archivo .fff.json con los datos de localStorage de la aplicación. La variante cifrada usa AES-GCM 256 con clave derivada mediante PBKDF2-SHA256 ({iter} iteraciones); la contraseña no se puede recuperar.","bk_export":"Exportar","bk_export_enc":"Exportar cifrado…","bk_import":"Importar…","bk_wipe":"Borrar los datos de la aplicación","bk_pw":"Contraseña (mín. {n} caracteres)","bk_pw2":"Repite la contraseña","bk_go":"Exportar cifrado","bk_pw_file":"Contraseña del archivo","bk_import_go":"Importar","pw_mismatch":"Las contraseñas no coinciden.","ok_export":"Exportado: {file} ({n} claves).","ok_export_enc":"Exportado cifrado: {file} ({n} claves).","ok_import":"{n} claves importadas. Recargando la página…","ok_wipe":"{n} claves borradas. Recargando la página…","nothing_to_wipe":"No hay datos que borrar.","enter_pw":"El archivo {file} está cifrado: introduce la contraseña.","cancelled":"Cancelado.","kit_line":"fff-kit v{v} · módulos: {mods}","install":"Instalar la aplicación","bk_sync":"Sincronizar entre dispositivos","bk_history":"Historial (máquina del tiempo)"},"pt":{"title":"Transparência","open_hint":"Abrir a etiqueta de transparência","close":"Fechar","disabled":"As funções do kit estão desativadas para esta aplicação: {reason}","self_mod":"Atenção: esta aplicação pode guardar a sua própria cópia (juntamente com os seus dados). O SHA-256 declarado aplica-se apenas ao ficheiro distribuído originalmente.","net_h":"Rede","net_none":"0 pedidos externos declarados","net_list":"Anfitriões externos declarados ou permitidos pela política de segurança (CSP):","net_note":"Declarado na construção do ficheiro, por análise do código; pode também verificar no separador Rede das ferramentas do navegador.","net_unknown":"Informação indisponível: o ficheiro não contém o descritor de transparência.","store_h":"Armazenamento local","store_none":"Nenhuma chave em localStorage.","store_sum":"{n} chaves · {size}","store_key":"Chave","store_size":"Tamanho","store_more":"…e mais {n} chaves","store_idb":"A aplicação usa também IndexedDB, que não está incluído na cópia de segurança.","store_note":"Os dados ficam neste navegador; nada é enviado.","perm_h":"Permissões e APIs usadas","perm_none":"Não foram detetadas APIs sensíveis.","perm_note":"Detetadas de forma estática no código-fonte; para as sensíveis, o navegador pede o seu consentimento.","perm_cam":"Câmara / microfone","perm_geo":"Localização","perm_rtc":"Ligações diretas entre navegadores (WebRTC)","perm_share":"Partilha (Web Share)","perm_notif":"Notificações","perm_tts":"Síntese de voz","perm_stt":"Reconhecimento de voz","perm_clip":"Área de transferência","perm_sw":"Service worker (instalação / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Criptografia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Ficheiro","file_size":"Tamanho: {size}","file_hash":"SHA-256 declarado:","file_nohash":"Este ficheiro não declara nenhuma soma de verificação.","file_how_h":"Como verificar","file_how":"Escolha o ficheiro descarregado: o seu SHA-256 é calculado após esvaziar os campos de hash (data-fff-hash e «sha256») e comparado com o valor declarado. O mesmo cálculo num terminal:","verify_btn":"Verificar um ficheiro descarregado…","verify_ok":"Coincide: o ficheiro é idêntico ao declarado.","verify_bad":"Não coincide. Calculado: {got}","verify_err":"Não foi possível ler o ficheiro.","verify_cmd":"Comando de verificação","bk_h":"Cópia de segurança","bk_hint":"Um ficheiro .fff.json com os dados de localStorage da aplicação. A variante cifrada usa AES-GCM 256 com chave derivada por PBKDF2-SHA256 ({iter} iterações); a palavra-passe não pode ser recuperada.","bk_export":"Exportar","bk_export_enc":"Exportar cifrado…","bk_import":"Importar…","bk_wipe":"Apagar os dados da aplicação","bk_pw":"Palavra-passe (mín. {n} caracteres)","bk_pw2":"Repita a palavra-passe","bk_go":"Exportar cifrado","bk_pw_file":"Palavra-passe do ficheiro","bk_import_go":"Importar","pw_mismatch":"As palavras-passe não coincidem.","ok_export":"Exportado: {file} ({n} chaves).","ok_export_enc":"Exportado cifrado: {file} ({n} chaves).","ok_import":"{n} chaves importadas. A recarregar a página…","ok_wipe":"{n} chaves apagadas. A recarregar a página…","nothing_to_wipe":"Não há dados para apagar.","enter_pw":"O ficheiro {file} está cifrado: introduza a palavra-passe.","cancelled":"Cancelado.","kit_line":"fff-kit v{v} · módulos: {mods}","install":"Instalar a aplicação","bk_sync":"Sincronizar entre dispositivos","bk_history":"Histórico (máquina do tempo)"},"hu":{"title":"Átláthatóság","open_hint":"Az átláthatósági címke megnyitása","close":"Bezárás","disabled":"A kit funkciói ki vannak kapcsolva ennél az alkalmazásnál: {reason}","self_mod":"Figyelem: ez az alkalmazás képes saját másolatot menteni (az adataiddal együtt). A megadott SHA-256 csak az eredetileg terjesztett fájlra érvényes.","net_h":"Hálózat","net_none":"0 külső kérés megadva","net_list":"A biztonsági irányelv (CSP) által megadott vagy engedélyezett külső gazdák:","net_note":"Az összeállításkor a kód elemzésével megadva; a böngésző eszközeinek Hálózat lapján is ellenőrizheted.","net_unknown":"Az információ nem érhető el: a fájl nem tartalmaz átláthatósági leírót.","store_h":"Helyi tárolás","store_none":"Nincs kulcs a localStorage-ban.","store_sum":"{n} kulcs · {size}","store_key":"Kulcs","store_size":"Méret","store_more":"…és még {n} kulcs","store_idb":"Az alkalmazás IndexedDB-t is használ, amely nem része a biztonsági mentésnek.","store_note":"Az adatok ebben a böngészőben maradnak; semmi sem kerül elküldésre.","perm_h":"Használt engedélyek és API-k","perm_none":"Nem található érzékeny API.","perm_note":"Statikusan, a forráskódban észlelve; az érzékenyeknél a böngésző a hozzájárulásodat kéri.","perm_cam":"Kamera / mikrofon","perm_geo":"Helyadat","perm_rtc":"Közvetlen böngésző–böngésző kapcsolatok (WebRTC)","perm_share":"Megosztás (Web Share)","perm_notif":"Értesítések","perm_tts":"Beszédszintézis","perm_stt":"Beszédfelismerés","perm_clip":"Vágólap","perm_sw":"Service worker (telepítés / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Kriptográfia (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Fájl","file_size":"Méret: {size}","file_hash":"Megadott SHA-256:","file_nohash":"Ebben a fájlban nincs megadva ellenőrző összeg.","file_how_h":"Hogyan ellenőrizd","file_how":"Válaszd ki a letöltött fájlt: a program kiszámolja az SHA-256 értéket a hash mezők (data-fff-hash és „sha256”) kiürítése után, és összeveti a megadottal. Ugyanez terminálban:","verify_btn":"Letöltött fájl ellenőrzése…","verify_ok":"Egyezik: a fájl megegyezik a megadottal.","verify_bad":"Nem egyezik. Számított: {got}","verify_err":"A fájlt nem sikerült beolvasni.","verify_cmd":"Ellenőrző parancs","bk_h":"Biztonsági mentés","bk_hint":"Egy .fff.json fájl az alkalmazás localStorage-adataival. A titkosított változat AES-GCM 256-ot használ, PBKDF2-SHA256-tal ({iter} iteráció) származtatott kulccsal; a jelszó nem állítható vissza.","bk_export":"Exportálás","bk_export_enc":"Titkosított exportálás…","bk_import":"Importálás…","bk_wipe":"Az alkalmazás adatainak törlése","bk_pw":"Jelszó (legalább {n} karakter)","bk_pw2":"Jelszó újra","bk_go":"Titkosított exportálás","bk_pw_file":"A fájl jelszava","bk_import_go":"Importálás","pw_mismatch":"A jelszavak nem egyeznek.","ok_export":"Exportálva: {file} ({n} kulcs).","ok_export_enc":"Titkosítva exportálva: {file} ({n} kulcs).","ok_import":"{n} kulcs importálva. Az oldal újratöltése…","ok_wipe":"{n} kulcs törölve. Az oldal újratöltése…","nothing_to_wipe":"Nincs törölhető adat.","enter_pw":"A(z) {file} fájl titkosított: add meg a jelszót.","cancelled":"Megszakítva.","kit_line":"fff-kit v{v} · modulok: {mods}","install":"Alkalmazás telepítése","bk_sync":"Szinkronizálás eszközök között","bk_history":"Előzmények (időgép)"},"de":{"title":"Transparenz","open_hint":"Transparenz-Etikett öffnen","close":"Schließen","disabled":"Die Kit-Funktionen sind für diese App deaktiviert: {reason}","self_mod":"Hinweis: Diese App kann eine eigene Kopie speichern (samt deiner Daten). Der angegebene SHA-256 gilt nur für die ursprünglich verteilte Datei.","net_h":"Netzwerk","net_none":"0 externe Anfragen angegeben","net_list":"Externe Hosts, die angegeben oder von der Sicherheitsrichtlinie (CSP) erlaubt sind:","net_note":"Beim Erstellen per Code-Analyse angegeben; du kannst es auch im Netzwerk-Tab der Browser-Werkzeuge prüfen.","net_unknown":"Informationen nicht verfügbar: Die Datei enthält keinen Transparenz-Deskriptor.","store_h":"Lokaler Speicher","store_none":"Keine Schlüssel in localStorage.","store_sum":"{n} Schlüssel · {size}","store_key":"Schlüssel","store_size":"Größe","store_more":"…und {n} weitere Schlüssel","store_idb":"Die App nutzt auch IndexedDB, das nicht in der Sicherung enthalten ist.","store_note":"Die Daten bleiben in diesem Browser; nichts wird gesendet.","perm_h":"Verwendete Berechtigungen und APIs","perm_none":"Keine sensiblen APIs erkannt.","perm_note":"Statisch im Quelltext erkannt; bei sensiblen fragt der Browser nach deiner Zustimmung.","perm_cam":"Kamera / Mikrofon","perm_geo":"Standort","perm_rtc":"Direkte Browser-zu-Browser-Verbindungen (WebRTC)","perm_share":"Teilen (Web Share)","perm_notif":"Benachrichtigungen","perm_tts":"Sprachsynthese","perm_stt":"Spracherkennung","perm_clip":"Zwischenablage","perm_sw":"Service Worker (Installation / offline)","perm_idb":"IndexedDB","perm_ls":"localStorage","perm_crypto":"Kryptografie (Web Crypto)","perm_webgl":"WebGL","perm_webgpu":"WebGPU","perm_worker":"Web Worker","perm_bc":"BroadcastChannel","file_h":"Datei","file_size":"Größe: {size}","file_hash":"Angegebener SHA-256:","file_nohash":"In dieser Datei ist keine Prüfsumme angegeben.","file_how_h":"So prüfst du","file_how":"Wähle die heruntergeladene Datei: Ihr SHA-256 wird nach dem Leeren der Hash-Felder (data-fff-hash und „sha256“) berechnet und mit dem angegebenen Wert verglichen. Dieselbe Berechnung im Terminal:","verify_btn":"Heruntergeladene Datei prüfen…","verify_ok":"Übereinstimmung: Die Datei ist identisch mit der angegebenen.","verify_bad":"Keine Übereinstimmung. Berechnet: {got}","verify_err":"Die Datei konnte nicht gelesen werden.","verify_cmd":"Prüfbefehl","bk_h":"Sicherung","bk_hint":"Eine .fff.json-Datei mit den localStorage-Daten der App. Die verschlüsselte Variante nutzt AES-GCM 256 mit einem per PBKDF2-SHA256 ({iter} Iterationen) abgeleiteten Schlüssel; das Passwort ist nicht wiederherstellbar.","bk_export":"Exportieren","bk_export_enc":"Verschlüsselt exportieren…","bk_import":"Importieren…","bk_wipe":"App-Daten löschen","bk_pw":"Passwort (mind. {n} Zeichen)","bk_pw2":"Passwort wiederholen","bk_go":"Verschlüsselt exportieren","bk_pw_file":"Passwort der Datei","bk_import_go":"Importieren","pw_mismatch":"Die Passwörter stimmen nicht überein.","ok_export":"Exportiert: {file} ({n} Schlüssel).","ok_export_enc":"Verschlüsselt exportiert: {file} ({n} Schlüssel).","ok_import":"{n} Schlüssel importiert. Seite wird neu geladen…","ok_wipe":"{n} Schlüssel gelöscht. Seite wird neu geladen…","nothing_to_wipe":"Keine Daten zum Löschen vorhanden.","enter_pw":"Die Datei {file} ist verschlüsselt: Passwort eingeben.","cancelled":"Abgebrochen.","kit_line":"fff-kit v{v} · Module: {mods}","install":"App installieren","bk_sync":"Zwischen Geräten synchronisieren","bk_history":"Verlauf (Zeitmaschine)"}}}</script>
+<!--fff:kit:end-->
+<!--fff:info:start-->
+<script type="application/json" id="fff-info">{"schema":1,"slug":"descantar","name":"DESCÂNTAR — bobi și descântece","version":"1.2.0","updated":"2026-11-14","description":"DESCÂNTAR — dat în bobi (41 de boabe, metoda 3×3, varianta oltenească) și descântece tradiționale, în 8 limbi. Un singur fișier, offline.","egress":[],"permissions":["clipboard","localStorage","Web Crypto"],"storageKeys":["descantar_"],"sizeBytes":189319,"sha256":"e06cd75db015e14622b75f06b168b0a81668d9bc36d7cfbfd3f55a5a42acfc6b","csp":{"present":true,"directives":{"default-src":"'none'","style-src":"'unsafe-inline'","script-src":"sha256×2","img-src":"data:","connect-src":"'none'","base-uri":"'none'","form-action":"'none'"},"scriptInline":"hash","connect":"'none'"},"features":{"export":false,"import":false,"i18n":[],"pwa":{"manifest":false,"serviceWorker":false},"modules":["core","store","dialog","ux","label"]},"kit":{"version":"1.5.0","modules":["core","store","dialog","ux","label"]},"selfSerializing":false}</script>
+<!--fff:info:end-->
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1a120d">
+<meta name="description" content="DESCÂNTAR — dat în bobi (41 de boabe, metoda 3×3, varianta oltenească) și descântece tradiționale, în 8 limbi. Un singur fișier, offline.">
+<meta name="application-version" content="1.2.0">
+<meta name="last-updated" content="2026-11-14">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-kdrlsbBqOCo6r07NrEwznajPlFjGmPBwAKtD+QDCpwo=' 'sha256-D6u4/L1dcprTBYB6QBscNv1z/Q8Bv7UtM/jesajpzEw='; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>DESCÂNTAR — bobi și descântece</title>
+<style>
+:root{--bg:#1a120d;--panel:#271b13;--panel2:#33241a;--ink:#f2e8d5;--mut:#b7a587;--acc:#e0a93f;--red:#b8412c;--ok:#7fb069;--blue:#6fa8dc}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Georgia,'Times New Roman',serif;-webkit-text-size-adjust:100%}
+body{padding-bottom:40px;max-width:760px;margin:0 auto}
+header{padding:14px 14px 4px;display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+h1{margin:0;font-size:1.4rem;letter-spacing:.08em;color:var(--acc)}
+h1 small{display:block;font-size:.74rem;letter-spacing:.02em;color:var(--mut);font-weight:normal}
+select,input[type=text]{font:inherit;background:var(--panel2);color:var(--ink);border:1px solid #4a3626;border-radius:10px;padding:8px 10px}
+input[type=text]{width:100%}
+#lang{width:auto}
+nav{display:flex;gap:4px;padding:8px 10px;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid #3a2a1d}
+nav button{flex:1;font:inherit;font-size:.86rem;padding:9px 4px;border:0;border-radius:10px;background:transparent;color:var(--mut);cursor:pointer}
+nav button.on{background:var(--panel2);color:var(--acc);font-weight:bold}
+main{padding:10px}
+section{display:none}section.on{display:block}
+.card{background:var(--panel);border-radius:14px;padding:12px;margin:0 0 12px;border:1px solid #3a2a1d}
+.card h2{margin:0 0 8px;font-size:1.05rem;color:var(--acc)}
+label{display:block;font-size:.85rem;color:var(--mut);margin:8px 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:.85rem;border:1px solid #5a4430;background:var(--panel2);color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.chip.on{background:var(--acc);color:#2a1a08;border-color:var(--acc);font-weight:bold}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{font:inherit;border:0;border-radius:12px;padding:11px 16px;background:var(--acc);color:#2a1a08;font-weight:bold;cursor:pointer}
+.btn.sec{background:var(--panel2);color:var(--ink);border:1px solid #5a4430}
+.btn:disabled{opacity:.4}
+.hint{color:var(--mut);font-size:.9rem;margin:0 0 8px}
+.table{position:relative;width:100%;padding-bottom:64%;border-radius:12px;border:3px solid #3b2415;overflow:hidden;background:linear-gradient(90deg,rgba(0,0,0,.2) 50%,transparent 50%) 0 0/30px 30px,linear-gradient(0deg,rgba(0,0,0,.2) 50%,transparent 50%) 0 0/30px 30px,#7a2a1c}
+.bean{position:absolute;width:7.4%;aspect-ratio:1.6;border-radius:50%/55%;background:radial-gradient(ellipse at 35% 30%,#fff7e3 0,#eadcb5 55%,#c9b583 100%);box-shadow:0 1px 3px #000a;transform:translate(-50%,-50%) rotate(var(--rot,0deg));transition:left .8s ease,top .8s ease,transform .8s ease;left:50%;top:50%}
+.bean::after{content:"";position:absolute;left:42%;top:38%;width:22%;height:18%;border-radius:50%;background:#6b5535;opacity:.75}
+.pebble{width:8.6%;aspect-ratio:1.15;border-radius:45% 55% 50% 50%;background:radial-gradient(ellipse at 35% 30%,#b5b5b5,#5d5d5d)}
+.pebble::after{display:none}
+.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:8px 2px;margin:6px 0}
+.rb{position:relative;height:28px;border:0;background:none;padding:0;cursor:pointer}
+.rb i{display:block;width:26px;height:16px;margin:6px auto;border-radius:50%/55%;background:radial-gradient(ellipse at 35% 30%,#fff7e3,#eadcb5 55%,#c9b583);box-shadow:0 1px 2px #000a;outline:2px solid transparent}
+.rb.g0 i{outline-color:var(--acc)}.rb.g1 i{outline-color:var(--ok)}.rb.g2 i{outline-color:var(--blue)}
+.rb.cut::after{content:"";position:absolute;right:-2px;top:2px;bottom:2px;width:3px;background:var(--red);border-radius:2px}
+.rb:disabled{opacity:.45}
+.pile{background:var(--panel2);border-radius:12px;padding:10px;margin:0 0 8px;border-left:5px solid var(--acc)}
+.pile.p1{border-color:var(--ok)}.pile.p2{border-color:var(--blue)}
+.pile .ph{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:4px}
+.tri{display:inline-flex;gap:2px;margin:3px 6px 3px 0;padding:3px 5px;border-radius:8px;background:#0004}
+.tri.left{background:#e0a93f33;outline:1px solid var(--acc)}
+.mb{display:block;width:15px;height:9px;border-radius:50%/55%;background:radial-gradient(ellipse at 35% 30%,#fff7e3,#d9c898)}
+.q{font-style:italic;color:var(--mut);margin:0 0 8px}
+.rc{background:var(--panel2);border-radius:12px;padding:10px 12px;margin:0 0 8px}
+.rc .rh{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--acc);font-size:.92rem}
+.rc .rh span{color:var(--mut)}
+.rc p{margin:6px 0}
+.sg{color:#d8c7a2;font-size:.92rem}
+.pb{color:#a9b6c4;font-size:.9rem}
+.verd{border:1px solid var(--acc);border-radius:12px;padding:10px 12px;margin-top:6px}
+.verd b{color:var(--acc)}
+details{background:var(--panel);border:1px solid #3a2a1d;border-radius:12px;margin:0 0 8px}
+summary{cursor:pointer;padding:12px;font-weight:bold;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center}
+summary::-webkit-details-marker{display:none}
+.tag{font-size:.72rem;font-weight:normal;color:#2a1a08;background:var(--acc);border-radius:20px;padding:2px 9px;white-space:nowrap}
+.dbody{padding:0 12px 12px}
+.dbody h3{margin:10px 0 3px;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.dbody ul,.dbody ol{margin:0;padding-left:20px}
+.verse{white-space:pre-line;font-style:italic;background:#00000033;border-left:3px solid var(--acc);padding:10px 12px;border-radius:0 10px 10px 0;margin:4px 0}
+.big{width:100%;font-size:1.2rem;padding:16px}
+.cnt{font-size:2rem;text-align:center;color:var(--acc);margin:6px 0}
+.moon{display:flex;align-items:center;gap:12px}
+.moon .mi{font-size:2.6rem;line-height:1}
+.small{font-size:.85rem;color:var(--mut)}
+.hrow{display:flex;gap:8px;align-items:center;justify-content:space-between;background:var(--panel2);border-radius:12px;padding:10px 12px;margin:0 0 8px}
+.hrow div{min-width:0}.hrow .ht{font-size:.8rem;color:var(--mut)}
+.mx{display:grid;gap:6px}.mxr{display:grid;grid-template-columns:72px repeat(3,1fr);gap:6px;align-items:center}.mxr>b{font-size:.8rem;color:var(--mut)}.mc{background:var(--panel2);border-radius:10px;text-align:center;padding:6px 2px;border-bottom:3px solid}.mc.od{border-color:var(--ok)}.mc.ev{border-color:var(--red)}.mv{display:block;font-size:1.6rem;color:var(--acc);line-height:1.1}
+footer{padding:14px;text-align:center;color:var(--mut);font-size:.8rem}
+footer a{color:var(--acc)}
+.note{font-size:.82rem;color:var(--mut);margin:8px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>DESCÂNTAR<small data-i="app_sub"></small></h1>
+  <select id="lang" aria-label="Language"></select>
+</header>
+<nav>
+  <button data-tab="bobi" class="on" data-i="tab_bobi"></button>
+  <button data-tab="desc" data-i="tab_desc"></button>
+  <button data-tab="hist" data-i="tab_hist"></button>
+  <button data-tab="about" data-i="tab_about"></button>
+</nav>
+<main>
+<section id="s-bobi" class="on">
+  <div class="card">
+    <label for="q" data-i="q_label"></label>
+    <input type="text" id="q" maxlength="160" data-ph="q_ph">
+    <label data-i="topic_label"></label>
+    <div class="chips" id="topics"></div>
+    <label data-i="mode_l"></label>
+    <div class="chips" id="modes"></div>
+  </div>
+  <details id="guide"><summary><span data-i="guide_l"></span><span class="tag">3×3</span></summary><div class="dbody"><div class="verse" id="gtext"></div><div class="btns"><button class="btn sec" id="gcpy" data-i="b_copy"></button></div></div></details>
+  <div class="card" id="stage"></div>
+  <div id="result"></div>
+  <p class="note" data-i="disc_short"></p>
+  <p class="note" data-i="note_content"></p>
+</section>
+
+<section id="s-desc">
+  <div class="card"><h2 data-i="m_title"></h2><div id="moon"></div></div>
+  <div class="card">
+    <h2 data-i="k_title"></h2>
+    <div class="chips" id="ktargets"></div>
+    <div class="cnt" id="kcount">0 / 3</div>
+    <button class="btn big" id="kbtn" data-i="k_btn"></button>
+    <div class="btns"><button class="btn sec" id="kreset" data-i="k_reset"></button></div>
+    <p class="note" id="kdone"></p>
+  </div>
+  <div class="chips" id="chips" style="margin:0 0 10px"></div>
+  <div id="dlist"></div>
+  <div class="card" id="gen">
+    <h2 data-i="g_title"></h2>
+    <label data-i="g_purpose"></label><select id="gp" style="width:100%"></select>
+    <label data-i="g_name"></label><input type="text" id="gn" maxlength="60">
+    <label data-i="g_elem"></label><select id="ge" style="width:100%"></select>
+    <div class="btns"><button class="btn" id="gmake" data-i="g_make"></button><button class="btn sec" id="gcopy" data-i="b_copy"></button></div>
+    <div class="verse" id="gout" style="display:none"></div>
+  </div>
+</section>
+
+<section id="s-hist"><div id="hlist"></div><div class="btns"><button class="btn sec" id="hclear" data-i="h_clear"></button></div></section>
+
+<section id="s-about">
+  <div class="card">
+    <h2>DESCÂNTAR</h2>
+    <p data-i="about_txt"></p>
+    <p data-i="disc_long"></p>
+    <p class="small" data-i="ver"></p>
+    <p class="small" data-i="lic"></p>
+    <div class="btns"><a class="btn" href="https://buymeacoffee.com/echo.of.the.strings" target="_blank" rel="noopener" data-i="bmc" style="text-decoration:none"></a></div>
+  </div>
+</section>
+</main>
+<footer>MIT · © Alexandru-Ionuț Chiuță (Alexio) · <span id="app-version">v1.2.0</span></footer>
+
+<script>
+'use strict';
+/* ====== utilități ====== */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LANGS=[['ro','Română'],['en','English'],['fr','Français'],['it','Italiano'],['es','Español'],['pt','Português'],['de','Deutsch'],['hu','Magyar']];
+let li=0;
+const T={};function D(k,...a){T[k]=a}
+const t=k=>(T[k]&&(T[k][li]||T[k][0]))||k;
+const store={get(k,d){try{const v=localStorage.getItem('descantar_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('descantar_'+k,JSON.stringify(v))}catch(e){}}};
+const rnd=n=>{if(window.crypto&&crypto.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n}return Math.floor(Math.random()*n)};
+const pick=a=>a[rnd(a.length)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function sample(a,n){const b=[...a],o=[];while(o.length<n&&b.length){o.push(b.splice(rnd(b.length),1)[0])}return o}
+function copyText(s,btn){const done=()=>{if(btn){const o=btn.textContent;btn.textContent=t('b_copied');setTimeout(()=>btn.textContent=o,1200)}};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(done,()=>fb())}else fb();
+  function fb(){const ta=document.createElement('textarea');ta.value=s;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove();done()}}
+
+/* ====== texte UI în 8 limbi: ro,en,fr,it,es,pt,de,hu ====== */
+D('app_sub','bobi și descântece','beans & charms','haricots & incantations','fagioli e incantesimi','frijoles y ensalmos','feijões e benzeduras','Bohnen & Zaubersprüche','babavetés és ráolvasások');
+D('tab_bobi','Dat în bobi','Bean divination','Haricots','Fagioli','Frijoles','Feijões','Bohnen','Babavetés');
+D('tab_desc','Descântece','Charms','Incantations','Incantesimi','Ensalmos','Benzeduras','Sprüche','Ráolvasások');
+D('tab_hist','Istoric','History','Historique','Cronologia','Historial','Histórico','Verlauf','Előzmények');
+D('tab_about','Despre','About','À propos','Info','Acerca de','Sobre','Info','Névjegy');
+D('q_label','Întrebarea ta (opțional)','Your question (optional)','Votre question (facultatif)','La tua domanda (facoltativa)','Tu pregunta (opcional)','A tua pergunta (opcional)','Deine Frage (optional)','Kérdésed (nem kötelező)');
+D('q_ph','Gândește-te la ea sau scrie-o aici…','Think of it or write it here…','Pensez-y ou écrivez-la ici…','Pensaci o scrivila qui…','Piénsala o escríbela aquí…','Pensa nela ou escreve-a aqui…','Denk daran oder schreib sie hier auf…','Gondolj rá, vagy írd ide…');
+D('topic_label','Tema','Topic','Thème','Tema','Tema','Tema','Thema','Téma');
+D('mode_l','Metoda','Method','Méthode','Metodo','Método','Método','Methode','Módszer');
+D('mode_3','În trei grămezi','Three piles','Trois tas','Tre mucchi','Tres montones','Três montes','Drei Haufen','Három kupac');
+D('mode_9','Ca la carte (3×3)','The traditional way (3×3)','Version traditionnelle (3×3)','Versione tradizionale (3×3)','Versión tradicional (3×3)','Versão tradicional (3×3)','Traditionell (3×3)','Hagyományos (3×3)');
+D('mode_o','Oltenia (3×3)','Oltenia (3×3)','Olténie (3×3)','Oltenia (3×3)','Oltenia (3×3)','Oltênia (3×3)','Oltenien (3×3)','Olténia (3×3)');
+D('h_cut9','Atinge opt boabe: șirul se taie în nouă grămezi (3 rânduri × 3). Din fiecare grămadă se scot câte patru; restul de 1–4 boabe contează.','Tap eight beans: the row is cut into nine piles (3 rows × 3). Each pile is counted off by fours; the remainder of 1–4 beans counts.','Touchez huit haricots : la rangée est coupée en neuf tas (3 rangs × 3). Chaque tas est compté par quatre ; le reste de 1 à 4 haricots compte.','Tocca otto fagioli: la fila si divide in nove mucchi (3 file × 3). Ogni mucchio si conta a quattro a quattro; conta il resto di 1–4 fagioli.','Toca ocho frijoles: la fila se corta en nueve montones (3 filas × 3). Cada montón se cuenta de cuatro en cuatro; cuenta el resto de 1–4 frijoles.','Toca em oito feijões: a fila é cortada em nove montes (3 linhas × 3). Cada monte conta-se de quatro em quatro; conta o resto de 1–4 feijões.','Tippe acht Bohnen an: Die Reihe wird in neun Haufen geteilt (3 Reihen × 3). Jeder Haufen wird in Vierern abgezählt; der Rest von 1–4 Bohnen zählt.','Érints meg nyolc babot: a sor kilenc kupacra oszlik (3 sor × 3). Minden kupacból négyesével veszel ki; az 1–4 bab maradék számít.');
+D('r_head','Capul','Head','Tête','Testa','Cabeza','Cabeça','Kopf','Fej');
+D('r_heart','Inima','Heart','Cœur','Cuore','Corazón','Coração','Herz','Szív');
+D('r_feet','Picioarele','Feet','Pieds','Piedi','Pies','Pés','Füße','Lábak');
+D('warn_twice','Tradiția spune: nu da în bobi de două ori în aceeași zi pentru aceeași întrebare; bobii se pizmuiesc.','Tradition says: do not read the beans twice a day for the same question; the beans get jealous.','La tradition dit : ne pas tirer les haricots deux fois le même jour pour la même question ; ils se vexent.','La tradizione dice: non leggere i fagioli due volte lo stesso giorno per la stessa domanda; si offendono.','La tradición dice: no eches los frijoles dos veces el mismo día por la misma pregunta; se ofenden.','A tradição diz: não leias os feijões duas vezes no mesmo dia para a mesma pergunta; eles ofendem-se.','Die Überlieferung sagt: nicht zweimal am Tag für dieselbe Frage; die Bohnen werden eifersüchtig.','A hagyomány szerint ne vess babot kétszer ugyanazon a napon ugyanarra a kérdésre; a babok megsértődnek.');
+D('guide_l','Ghid','Guide','Guide','Guida','Guía','Guia','Anleitung','Útmutató');
+D('tp_g','General','General','Général','Generale','General','Geral','Allgemein','Általános');
+D('tp_d','Dragoste','Love','Amour','Amore','Amor','Amor','Liebe','Szerelem');
+D('tp_b','Bani','Money','Argent','Denaro','Dinero','Dinheiro','Geld','Pénz');
+D('tp_c','Drum','Journey','Voyage','Viaggio','Viaje','Viagem','Reise','Út');
+D('tp_a','Casă','Home','Foyer','Casa','Hogar','Lar','Zuhause','Otthon');
+D('tp_m','Muncă','Work','Travail','Lavoro','Trabajo','Trabalho','Arbeit','Munka');
+D('b_shuffle','Amestecă','Shuffle','Mélanger','Mescola','Mezclar','Misturar','Mischen','Keverd meg');
+D('b_row','Întinde în șir →','Lay in a row →','Aligner →','Disponi in fila →','Alinear →','Alinhar →','In Reihe legen →','Sorba rendezés →');
+D('b_rand','Taie la întâmplare','Cut at random','Couper au hasard','Taglia a caso','Cortar al azar','Cortar ao acaso','Zufällig teilen','Véletlen vágás');
+D('b_count','Numără','Count','Compter','Conta','Contar','Contar','Zählen','Számolj');
+D('b_again','De la capăt','Start over','Recommencer','Ricomincia','Empezar de nuevo','Recomeçar','Neu beginnen','Elölről');
+D('b_copy','Copiază','Copy','Copier','Copia','Copiar','Copiar','Kopieren','Másolás');
+D('b_copied','Copiat','Copied','Copié','Copiato','Copiado','Copiado','Kopiert','Másolva');
+D('h_table','Trei pietricele și patruzeci și una de boabe stau pe ștergar. Amestecă-le cu gândul la întrebare.','Three pebbles and forty-one beans lie on the cloth. Shuffle them while thinking of your question.','Trois cailloux et quarante et un haricots sont sur la nappe. Mélangez-les en pensant à votre question.','Tre sassolini e quarantuno fagioli sul panno. Mescolali pensando alla tua domanda.','Tres guijarros y cuarenta y un frijoles sobre el paño. Mézclalos pensando en tu pregunta.','Três seixos e quarenta e um feijões sobre a toalha. Mistura-os a pensar na tua pergunta.','Drei Kiesel und einundvierzig Bohnen liegen auf dem Tuch. Mische sie mit Gedanken an deine Frage.','Három kavics és negyvenegy bab fekszik az abroszon. Keverd meg őket a kérdésedre gondolva.');
+D('h_cut','Atinge două boabe: șirul se taie în trei grămezi (trecut, prezent, viitor).','Tap two beans: the row is cut into three piles (past, present, future).','Touchez deux haricots : la rangée est coupée en trois tas (passé, présent, avenir).','Tocca due fagioli: la fila si divide in tre mucchi (passato, presente, futuro).','Toca dos frijoles: la fila se corta en tres montones (pasado, presente, futuro).','Toca em dois feijões: a fila é cortada em três montes (passado, presente, futuro).','Tippe zwei Bohnen an: Die Reihe wird in drei Haufen geteilt (Vergangenheit, Gegenwart, Zukunft).','Érints meg két babot: a sor három kupacra oszlik (múlt, jelen, jövő).');
+D('cuts_l','Tăieturi','Cuts','Coupes','Tagli','Cortes','Cortes','Schnitte','Vágások');
+D('p_past','Trecut','Past','Passé','Passato','Pasado','Passado','Vergangenheit','Múlt');
+D('p_pres','Prezent','Present','Présent','Presente','Presente','Presente','Gegenwart','Jelen');
+D('p_fut','Viitor','Future','Avenir','Futuro','Futuro','Futuro','Zukunft','Jövő');
+D('s1','Boabă singură','Single bean','Haricot seul','Fagiolo solo','Frijol solo','Feijão só','Einzelne Bohne','Magányos bab');
+D('s2','Pereche','Pair','Paire','Coppia','Pareja','Par','Paar','Pár');
+D('s3','Cunună','Crown','Couronne','Corona','Corona','Coroa','Krone','Koszorú');
+D('u_beans','boabe','beans','haricots','fagioli','frijoles','feijões','Bohnen','bab');
+D('sign_l','Semn','Sign','Signe','Segno','Señal','Sinal','Zeichen','Jel');
+D('verdict_l','Sfatul bobilor','What the beans say','Ce disent les haricots','Il consiglio dei fagioli','El consejo de los frijoles','O conselho dos feijões','Der Rat der Bohnen','A babok tanácsa');
+D('sugg_l','Descântec potrivit','A fitting charm','Une incantation adaptée','Un incantesimo adatto','Un ensalmo adecuado','Uma benzedura adequada','Ein passender Spruch','Hozzáillő ráolvasás');
+D('open_l','Deschide','Open','Ouvrir','Apri','Abrir','Abrir','Öffnen','Megnyit');
+D('note_content','Textele tradiționale (interpretări, descântece) sunt în limba română.','Traditional texts (readings, charms) are in Romanian.','Les textes traditionnels (lectures, incantations) sont en roumain.','I testi tradizionali (letture, incantesimi) sono in rumeno.','Los textos tradicionales (lecturas, ensalmos) están en rumano.','Os textos tradicionais (leituras, benzeduras) estão em romeno.','Die traditionellen Texte (Deutungen, Sprüche) sind auf Rumänisch.','A hagyományos szövegek (jóslatok, ráolvasások) románul vannak.');
+D('disc_short','Tradiție populară pentru divertisment — nu sfat medical, juridic sau financiar.','Folk tradition for entertainment — not medical, legal or financial advice.','Tradition populaire à titre de divertissement — pas un avis médical, juridique ou financier.','Tradizione popolare a scopo di intrattenimento — non è un consiglio medico, legale o finanziario.','Tradición popular de entretenimiento — no es consejo médico, legal ni financiero.','Tradição popular para entretenimento — não é aconselhamento médico, jurídico ou financeiro.','Volkstradition zur Unterhaltung — keine medizinische, rechtliche oder finanzielle Beratung.','Népi hagyomány szórakozásra — nem orvosi, jogi vagy pénzügyi tanács.');
+D('f_all','Toate','All','Tous','Tutti','Todos','Todos','Alle','Mind');
+D('c_prot','Protecție','Protection','Protection','Protezione','Protección','Proteção','Schutz','Védelem');
+D('c_calm','Liniște','Calm','Apaisement','Calma','Calma','Calma','Ruhe','Nyugalom');
+D('c_fam','Familie','Family','Famille','Famiglia','Familia','Família','Familie','Család');
+D('c_spor','Spor','Abundance','Abondance','Abbondanza','Abundancia','Abundância','Fülle','Bőség');
+D('c_thx','Mulțumire','Gratitude','Gratitude','Gratitudine','Gratitud','Gratidão','Dank','Hála');
+D('d_when','Când','When','Quand','Quando','Cuándo','Quando','Wann','Mikor');
+D('d_mat','Ce îți trebuie','You will need','Il vous faut','Occorrente','Necesitas','Vais precisar','Du brauchst','Szükséges');
+D('d_steps','Cum se face','How it is done','Comment faire','Come si fa','Cómo se hace','Como se faz','So geht es','Menete');
+D('d_text','Cuvintele','The words','Les paroles','Le parole','Las palabras','As palavras','Die Worte','A szavak');
+D('d_note','De știut','Good to know','À savoir','Da sapere','Conviene saber','Bom saber','Gut zu wissen','Tudnivaló');
+D('k_title','Contor de rostiri','Recitation counter','Compteur de récitations','Contatore di recitazioni','Contador de recitaciones','Contador de recitações','Sprechzähler','Mondásszámláló');
+D('k_btn','Am rostit','Recited','Récité','Recitato','Recitado','Recitado','Gesprochen','Elmondtam');
+D('k_done','Pecetluit. Așa să fie!','Sealed. So be it!','Scellé. Ainsi soit-il !','Sigillato. Così sia!','Sellado. ¡Así sea!','Selado. Assim seja!','Besiegelt. So sei es!','Megpecsételve. Úgy legyen!');
+D('k_reset','Resetează','Reset','Réinitialiser','Azzera','Reiniciar','Repor','Zurücksetzen','Nullázás');
+D('g_title','Croiește un descântec','Craft a charm','Composer une incantation','Componi un incantesimo','Compón un ensalmo','Compõe uma benzedura','Spruch gestalten','Állíts össze egy ráolvasást');
+D('g_purpose','Scop','Purpose','But','Scopo','Propósito','Propósito','Zweck','Cél');
+D('g_name','Pentru (nume, opțional)','For (name, optional)','Pour (nom, facultatif)','Per (nome, facoltativo)','Para (nombre, opcional)','Para (nome, opcional)','Für (Name, optional)','Kinek (név, nem kötelező)');
+D('g_elem','Element','Element','Élément','Elemento','Elemento','Elemento','Element','Elem');
+D('e_water','Apă','Water','Eau','Acqua','Agua','Água','Wasser','Víz');
+D('e_fire','Foc','Fire','Feu','Fuoco','Fuego','Fogo','Feuer','Tűz');
+D('e_earth','Pământ','Earth','Terre','Terra','Tierra','Terra','Erde','Föld');
+D('e_wind','Vânt','Wind','Vent','Vento','Viento','Vento','Wind','Szél');
+D('e_salt','Sare','Salt','Sel','Sale','Sal','Sal','Salz','Só');
+D('e_thread','Fir roșu','Red thread','Fil rouge','Filo rosso','Hilo rojo','Fio vermelho','Roter Faden','Piros fonal');
+D('g_make','Croiește','Craft','Composer','Componi','Componer','Compor','Gestalten','Összeállít');
+D('m_title','Luna acum','The moon now','La lune maintenant','La luna ora','La luna ahora','A lua agora','Der Mond jetzt','A Hold most');
+D('m0','Lună nouă','New moon','Nouvelle lune','Luna nuova','Luna nueva','Lua nova','Neumond','Újhold');
+D('m1','Crai nou','Waxing crescent','Premier croissant','Luna crescente (falce)','Creciente (primer cuarto)','Lua crescente (foice)','Zunehmende Sichel','Növő sarló');
+D('m2','Primul pătrar','First quarter','Premier quartier','Primo quarto','Cuarto creciente','Quarto crescente','Erstes Viertel','Első negyed');
+D('m3','Lună crescătoare','Waxing gibbous','Gibbeuse croissante','Gibbosa crescente','Gibosa creciente','Gibosa crescente','Zunehmender Mond','Növő hold');
+D('m4','Lună plină','Full moon','Pleine lune','Luna piena','Luna llena','Lua cheia','Vollmond','Telihold');
+D('m5','Lună descrescătoare','Waning gibbous','Gibbeuse décroissante','Gibbosa calante','Gibosa menguante','Gibosa minguante','Abnehmender Mond','Fogyó hold');
+D('m6','Ultimul pătrar','Last quarter','Dernier quartier','Ultimo quarto','Cuarto menguante','Quarto minguante','Letztes Viertel','Utolsó negyed');
+D('m7','Lună veche','Old moon (waning crescent)','Vieille lune (dernier croissant)','Luna vecchia (falce calante)','Luna vieja (menguante)','Lua velha (minguante)','Alter Mond (abnehmende Sichel)','Öreg hold (fogyó sarló)');
+D('mt_wax','Lună crescătoare: potrivită pentru început, spor, noroc, dragoste.','Growing moon: fitting for beginnings, abundance, luck and love.','Lune croissante : propice aux débuts, à l\'abondance, à la chance et à l\'amour.','Luna crescente: adatta a inizi, abbondanza, fortuna e amore.','Luna creciente: propicia para comienzos, abundancia, suerte y amor.','Lua crescente: propícia a começos, abundância, sorte e amor.','Zunehmender Mond: passend für Anfänge, Fülle, Glück und Liebe.','Növő hold: kezdetekhez, bőséghez, szerencséhez és szerelemhez illik.');
+D('mt_full','Lună plină: potrivită pentru deplinătate, mulțumire, împăcare.','Full moon: fitting for wholeness, gratitude and reconciliation.','Pleine lune : propice à la plénitude, à la gratitude et à la réconciliation.','Luna piena: adatta a pienezza, gratitudine e riconciliazione.','Luna llena: propicia para plenitud, gratitud y reconciliación.','Lua cheia: propícia a plenitude, gratidão e reconciliação.','Vollmond: passend für Fülle, Dank und Versöhnung.','Telihold: teljességhez, hálához és megbékéléshez illik.');
+D('mt_wane','Lună descrescătoare: potrivită pentru dezlegare, ușurare, a lăsa greul în urmă.','Waning moon: fitting for release, relief and letting go of burdens.','Lune décroissante : propice au lâcher-prise et à l\'allègement.','Luna calante: adatta a sciogliere, alleggerire, lasciare andare il peso.','Luna menguante: propicia para soltar, aliviar y dejar atrás la carga.','Lua minguante: propícia a soltar, aliviar e deixar o peso para trás.','Abnehmender Mond: passend zum Loslassen und Erleichtern.','Fogyó hold: az elengedéshez és a megkönnyebbüléshez illik.');
+D('age_l','Vârsta lunii','Moon age','Âge de la lune','Età della luna','Edad de la luna','Idade da lua','Mondalter','A Hold kora');
+D('days_l','zile','days','jours','giorni','días','dias','Tage','nap');
+D('h_empty','Nicio citire salvată încă.','No saved readings yet.','Aucune lecture enregistrée.','Nessuna lettura salvata.','Aún no hay lecturas guardadas.','Ainda sem leituras guardadas.','Noch keine gespeicherten Deutungen.','Még nincs mentett jóslat.');
+D('h_clear','Șterge tot','Clear all','Tout effacer','Cancella tutto','Borrar todo','Apagar tudo','Alles löschen','Összes törlése');
+D('h_view','Vezi','View','Voir','Vedi','Ver','Ver','Ansehen','Megnéz');
+D('about_txt','Aplicație offline dintr-un singur fișier: fără cont, fără urmărire, fără reclame. Istoricul rămâne doar în browserul tău. Interpretările și descântecele sunt scrise în spiritul folclorului românesc, nu sunt copii ale unor culegeri.','Offline single-file app: no account, no tracking, no ads. Your history stays in your browser only. The readings and charms are written in the spirit of Romanian folklore, not copied from collections.','Application hors ligne en un seul fichier : sans compte, sans pistage, sans publicité. L\'historique reste dans votre navigateur. Les lectures et incantations sont écrites dans l\'esprit du folklore roumain, sans copier de recueils.','App offline in un solo file: senza account, senza tracciamento, senza pubblicità. La cronologia resta solo nel tuo browser. Letture e incantesimi sono scritti nello spirito del folclore romeno, non copiati da raccolte.','Aplicación sin conexión en un solo archivo: sin cuenta, sin rastreo, sin anuncios. El historial queda solo en tu navegador. Las lecturas y ensalmos están escritos en el espíritu del folclore rumano, no copiados de recopilaciones.','Aplicação offline num único ficheiro: sem conta, sem rastreio, sem anúncios. O histórico fica só no teu navegador. As leituras e benzeduras são escritas no espírito do folclore romeno, não copiadas de coletâneas.','Offline-App in einer einzigen Datei: ohne Konto, ohne Tracking, ohne Werbung. Der Verlauf bleibt nur in deinem Browser. Deutungen und Sprüche sind im Geist der rumänischen Folklore verfasst, nicht aus Sammlungen kopiert.','Offline, egyetlen fájlból álló alkalmazás: fiók, követés és reklám nélkül. Az előzmények csak a böngésződben maradnak. A jóslatok és ráolvasások a román folklór szellemében készültek, nem gyűjteményekből másolva.');
+D('disc_long','Dat în bobi și descântecele sunt tradiții populare, oferite aici ca patrimoniu cultural și divertisment. Nu sunt sfat medical, juridic sau financiar și nu înlocuiesc medicul, avocatul ori consilierul. La orice durere sau boală, mergi la medic.','Bean divination and charms are folk traditions, offered here as cultural heritage and entertainment. They are not medical, legal or financial advice and do not replace a doctor, lawyer or adviser. For any pain or illness, see a doctor.','Les haricots et les incantations sont des traditions populaires, présentées ici comme patrimoine culturel et divertissement. Ils ne constituent pas un avis médical, juridique ou financier et ne remplacent ni médecin, ni avocat, ni conseiller. En cas de douleur ou de maladie, consultez un médecin.','La divinazione con i fagioli e gli incantesimi sono tradizioni popolari, qui offerte come patrimonio culturale e intrattenimento. Non sono consigli medici, legali o finanziari e non sostituiscono medico, avvocato o consulente. In caso di dolore o malattia, rivolgiti a un medico.','La adivinación con frijoles y los ensalmos son tradiciones populares, ofrecidas aquí como patrimonio cultural y entretenimiento. No son consejo médico, legal ni financiero y no sustituyen al médico, abogado o asesor. Ante cualquier dolor o enfermedad, acude al médico.','A adivinhação com feijões e as benzeduras são tradições populares, aqui oferecidas como património cultural e entretenimento. Não são aconselhamento médico, jurídico ou financeiro e não substituem médico, advogado ou consultor. Perante qualquer dor ou doença, consulta um médico.','Bohnenorakel und Sprüche sind Volkstraditionen, hier als Kulturerbe und zur Unterhaltung angeboten. Sie sind keine medizinische, rechtliche oder finanzielle Beratung und ersetzen weder Arzt noch Anwalt noch Berater. Bei Schmerzen oder Krankheit geh zum Arzt.','A babavetés és a ráolvasások népi hagyományok, itt kulturális örökségként és szórakozásként kínáljuk őket. Nem orvosi, jogi vagy pénzügyi tanácsok, és nem helyettesítik az orvost, ügyvédet vagy tanácsadót. Fájdalom vagy betegség esetén fordulj orvoshoz.');
+D('ver','Versiune: 1.2 · Ultima actualizare: 8 noiembrie 2026','Version: 1.2 · Last updated: 8 November 2026','Version : 1.2 · Dernière mise à jour : 8 novembre 2026','Versione: 1.2 · Ultimo aggiornamento: 8 novembre 2026','Versión: 1.2 · Última actualización: 8 de noviembre de 2026','Versão: 1.2 · Última atualização: 8 de novembro de 2026','Version: 1.2 · Letzte Aktualisierung: 8. November 2026','Verzió: 1.2 · Utolsó frissítés: 2026. november 8.');
+D('lic','Licență MIT · © Alexandru-Ionuț Chiuță (Alexio)','MIT license · © Alexandru-Ionuț Chiuță (Alexio)','Licence MIT · © Alexandru-Ionuț Chiuță (Alexio)','Licenza MIT · © Alexandru-Ionuț Chiuță (Alexio)','Licencia MIT · © Alexandru-Ionuț Chiuță (Alexio)','Licença MIT · © Alexandru-Ionuț Chiuță (Alexio)','MIT-Lizenz · © Alexandru-Ionuț Chiuță (Alexio)','MIT licenc · © Alexandru-Ionuț Chiuță (Alexio)');
+D('bmc','Cumpără-mi o cafea','Buy me a coffee','Offrez-moi un café','Offrimi un caffè','Invítame a un café','Paga-me um café','Spendiere mir einen Kaffee','Hívj meg egy kávéra');
+
+/* ====== conținut folcloric (română) ====== */
+const TOPICS=['g','d','b','c','a','m'];
+/* READ[topic][poziție][stare-1] ; stare 1=boabă singură, 2=pereche, 3=cunună */
+const READ={
+g:[["Ai purtat mult singur/ă; o grijă veche încă ține loc în inimă.","Cineva ți-a stat alături și încă îi porți binele.","Un cerc s-a închis în urma ta; ce a fost de împlinit s-a împlinit."],
+   ["Ești la răscruce de gând; așteaptă un semn, nu grăbi pasul.","Două lucruri se cântăresc acum: ascultă și inima, și socoteala.","Stai la masa belșugului: ai mai mult decât crezi, numără cu recunoștință."],
+   ["Vine o veste mică, dar care schimbă direcția.","Se apropie o întâlnire sau o înțelegere bună.","Se coace o împlinire; răbdarea îți va fi răsplătită."]],
+d:[["O iubire neterminată încă îți umblă prin amintiri.","A fost o legătură bună, cu rădăcini care încă se simt.","O poveste s-a încheiat frumos; lasă-o să-și facă rostul."],
+   ["Inima e singură, dar nu pustie; se pregătește de ceva.","Doi se apropie: fie tu și cineva, fie tu și tine însuți/însăți.","Inima e plină; ai grijă să nu ceri mai mult decât se poate da."],
+   ["Un sentiment nou se arată pe nesimțite.","O întâlnire de suflet sau o împăcare e aproape.","Se pregătește o legătură care prinde rădăcină, cu gând și cu faptă."]],
+b:[["Un început șubred te-a învățat să fii econom.","Un câștig a venit cu sprijinul cuiva.","Un belșug de odinioară te-a învățat prețul lucrurilor."],
+   ["Punga e ușoară, dar cumpătul e greu; ține socoteala.","Intrările și ieșirile se echilibrează; ocolește împrumuturile.","Spor la casă; împarte-l cu măsură."],
+   ["Nu te grăbi la afaceri noi; deschide bine ochii.","Un câștig ajunge pe două căi; fii atent/ă la un parteneriat.","Rodul muncii se strânge; ce semeni acum dă recoltă."]],
+c:[["O plecare făcută în grabă; mai ai ceva de lămurit în urmă.","Un drum făcut cu tovarăș bun a fost la rost.","Un drum lung s-a încheiat cu bine."],
+   ["Încă nu e ceasul plecării; pregătește bagajul.","Două căi se deschid; alege-o pe cea care-ți dă liniște.","Drumul e deschis; ia cu tine puțină sare și multă răbdare."],
+   ["O călătorie scurtă sau o veste adusă de departe.","Un drum cu însoțitor, care duce la o întâlnire importantă.","Un drum mare și binecuvântat, cu întoarcere cu sporuri."]],
+a:[["O tăcere veche din casă încă nu s-a topit.","Cineva din neam te-a ocrotit; poartă-i amintirea cu cinste.","Masa mare a familiei a rămas în amintire; păstrează obiceiul."],
+   ["Grijile mici ale casei au nevoie de o vorbă bună.","Doi din casă trebuie să se înțeleagă; ascultă mai mult decât vorbești.","Casa e plină de rost; mulțumește pentru ce ai."],
+   ["O veste bate la poartă, de la rude sau de la prieteni.","O împăcare în familie sau un oaspete drag.","Sărbătoare sau bucurie la masă mare."]],
+m:[["Ai muncit singur/ă și truda nu ți s-a văzut.","Un coleg sau un mentor ți-a fost reazem.","O lucrare dusă la capăt îți dă acum greutate."],
+   ["Încă un pas mic și rezultatul se arată; nu te opri.","Se cere colaborare; împarte sarcina.","Ești la rodul muncii; ai grijă să nu te risipești."],
+   ["O propunere neașteptată; cântărește-o cu răbdare.","Un parteneriat sau o schimbare de echipă te ajută.","Recunoaștere și stabilitate: ai muncit pe temei."]]
+};
+const SIGNS=[
+['🛤️','Drum','o mișcare, o plecare sau o schimbare de loc'],
+['✉️','Scrisoare','o veste, un mesaj, o hârtie de semnat'],
+['🚶','Om străin','un chip nou intră în povestea ta'],
+['🪙','Ban','un câștig sau o cheltuială cu rost'],
+['🏠','Casă','o hotărâre sau o schimbare legată de locuință'],
+['❤️','Inimă','un sentiment adevărat cere ascultare'],
+['👁️','Ochi','cineva te privește; fii atent/ă la ce spui și cui spui'],
+['💧','Lacrimă','o ușurare vine după o apăsare'],
+['🔒','Lacăt','o piedică sau un lucru care trebuie lăsat să aștepte'],
+['🗝️','Cheie','o soluție este mai aproape decât crezi'],
+['⭐','Stea','noroc și călăuzire'],
+['🕊️','Pasăre','veste bună și liniște']
+];
+const PEB=["Piatră în trecut: o greutate veche care încă mai apasă; iartă și lasă-o să cadă.","Piatră în prezent: o piedică de moment; ocolește-o, nu o lovi cu piciorul.","Piatră în viitor: o încercare care te va întări, dacă o primești cu răbdare."];
+const VERD={
+'1,1,3':"Cununa vine după două boabe singure: după răbdare și singurătate, o împlinire.",
+'1,2,2':"Pereche peste pereche: sprijin și înțelegere; nu rămâne singur/ă în hotărâri.",
+'2,3,3':"Belșug dublu: darurile sunt mari; poartă-le cu smerenie și împarte-le."
+};
+const ADV=["Ce-i scris, în bobi se arată, dar ce-i de făcut, tot tu faci.","Pașii mici, făcuți cu bună credință, ajung departe.","Vorba bună deschide mai multe uși decât cheia.","Nu căuta liniștea în afară; se așază întâi înlăuntru.","Fii recunoscător/oare pentru ce ai, și mai vine.","Măsoară de trei ori, hotărăște o dată.","Cine seamănă cu răbdare, culege cu bucurie.","Cu apă limpede se spală și gândul.","Ce nu poți schimba azi, lasă-l să se așeze până mâine.","Să nu faci altuia ce nu ți-ai dori ție.","Dimineața e mai înțeleaptă decât seara.","Sfatul bobilor e oglindă: uită-te și hotărăște tu."];
+const SUGG={g:'thx',d:'ursita',b:'spor',c:'drum',a:'impacare',m:'luna'};
+
+/* descântece — texte originale, în spiritul folclorului; nicio formulă nu cere vătămarea cuiva */
+const DESC=[
+{id:'deochi',cat:'prot',t:'De deochi',cand:'Dimineața, înainte de răsărit; tradițional marți sau joi.',
+ mat:['apă neîncepută într-un pahar sau castron','trei boabe de sare','un fir roșu (opțional)'],
+ pas:['Stai cu fața spre răsărit și pune apa înaintea ta.','Ține palma deasupra apei și rostește descântecul de trei ori, suflând ușor peste apă la fiecare încheiere.','Atinge-ți fruntea cu un deget umed. Apa nu se bea.','Toarnă apa la rădăcina unui copac sau în pământ, fără să te uiți în urmă.'],
+ txt:"Deochi, deochetură,\nieși din ochi, din gene, din sprâncene,\ndin frunte, din tâmple, din suflet.\nDe ești de la ochi negri, mergi în pământ negru;\nde ești de la ochi albaștri, mergi în apă albastră;\nde ești de la ochi verzi, mergi în iarbă verde;\nde ești de la ochi căprui, mergi în lemn bătrân.\nEu te las, tu mă lași,\neu cu bine, tu cu pace.\nCum se duce roua la soare,\nașa să te duci și tu din mine,\nși să rămână frunte curată,\nochi limpede, inimă ușoară.\nCuvântul meu — lacăt,\napa — cheie.\nAșa să fie!",
+ nota:'Descântecul este un obicei popular de liniștire; dacă ai o suferință reală (durere de cap, febră), mergi la medic.'},
+{id:'frica',cat:'calm',t:'De frică',cand:'Seara, când casa s-a liniștit.',
+ mat:['o lumânare mică (supraveghează flacăra)','un pahar cu apă'],
+ pas:['Așază-te drept, cu picioarele pe podea.','Respiră adânc de trei ori.','Rostește descântecul încet, uitându-te la flacără.','Stinge lumânarea cu grijă și bea câteva înghițituri de apă.'],
+ txt:"Frică, fricuță,\nde-ai ieșit din noapte, intră-n noapte;\nde-ai ieșit din umbră, intră-n umbră;\nde-ai ieșit din zgomot, intră-n tăcere.\nInima mea nu-i masă pentru tine,\nc-a ei casă-i de lumină.\nCum se duce ceața de pe deal\ncând răsare soarele,\nașa să se ducă frica din mine,\nși să rămână pace,\nrăsuflare lungă,\npicior sigur.\nCuvântul meu — lumină,\nrăsuflarea mea — lanț.\nAșa să fie!",
+ nota:'Dacă frica sau neliniștea te însoțesc de multe zile, vorbește cu un om apropiat sau cu un specialist.'},
+{id:'somn',cat:'fam',t:'De somn (cântec de leagăn)',cand:'Seara, la culcare.',
+ mat:['o pernă moale','o lumină slabă'],
+ pas:['Așază copilul (sau pe tine) comod.','Rostește încet, în ritm de leagăn, de trei ori.','Încheie cu o mângâiere pe frunte.'],
+ txt:"Vino, somn, de la pădure,\ncu pași moi de iarbă sură,\ncu tălpi de cețuri blânde.\nVino, somn, pe geană,\nca fluturele pe floare.\nTaie-i grija ca pe pâine,\ndă-i în dar un vis cu stele,\nun vis lung cât toată noaptea\nși un răsărit cu soare.\nEu stau lângă tine,\nluna stă la fereastră,\nîngerul stă la căpătâi.\nDormi, dormi, dormi,\nsomnul bun reface ziua.",
+ nota:''},
+{id:'dor',cat:'calm',t:'De dor',cand:'La amurg, la fereastră.',
+ mat:['o fereastră deschisă puțin','un pahar cu apă'],
+ pas:['Gândește-te cu blândețe la persoana de care îți e dor.','Rostește descântecul spre fereastră.','Bea apa și lasă dorul să se așeze.'],
+ txt:"Dor, dorule,\nnu mai arde la fereastră,\nnu mai bate-n geam de seară.\nDu-te, dor, pe unde-i dorul,\ndu-i veste că-i gândesc,\nc-am pentru el bine-n suflet,\nc-i-l port cu drag și pace.\nȘi când ți-ai spus păsul,\nîntoarce-te ușor,\nca frunza pe apă,\nca fumul pe vânt,\nși lasă-mi inima\nlimpede ca lacul.\nAșa să fie!",
+ nota:'Descântecul trimite bine, nu leagă și nu cheamă pe nimeni cu sila.'},
+{id:'spor',cat:'spor',t:'De spor la casă și la masă',cand:'Pe lună crescătoare, dimineața.',
+ mat:['o felie de pâine','un pumn de grâu','puțină sare','o monedă'],
+ pas:['Așază pe masă pâinea, grâul, sarea și moneda.','Rostește descântecul de trei ori peste ele.','Păstrează moneda în portofel, împarte pâinea cu cineva, iar grâul lasă-l păsărilor.'],
+ txt:"Spor, sporule,\nbate la ușa mea:\nîn masă cu pâine,\nîn casă cu pace,\nîn pungă cu bănuț,\nîn mână cu sănătate.\nCe-i puțin să crească,\nce-i mult să se împartă,\nce-i gol să se umple,\nce-i plin să se păstreze.\nCum crește aluatul în covată,\ncum crește iarba după ploaie,\nașa să crească sporul în casa mea,\nnu din lacrimi de alții,\nci din muncă și din bine.\nAșa să fie!",
+ nota:'Sporul vine din muncă; descântecul e o rugă de nădejde, nu o garanție financiară.'},
+{id:'drum',cat:'road',t:'De drum bun',cand:'Înainte de plecare.',
+ mat:['puțină sare în buzunar','un pahar de apă'],
+ pas:['Stai în prag cu fața spre drum.','Rostește descântecul o dată, încet.','Bea o înghițitură de apă, pune sarea în buzunar și pleacă fără să te întorci din prag.'],
+ txt:"Drum, drumule,\ncale deschisă\nmie și celor cu mine:\nfără piatră în picior,\nfără umbră în gând,\nfără întâlniri rele.\nSoarele în frunte,\nluna în spate,\nbun-venit la sosire,\nbun-venit la întoarcere.\nCum se duce apa la vale,\nașa să ne ducă drumul,\nușor și cu bine.\nAșa să fie!",
+ nota:''},
+{id:'impacare',cat:'fam',t:'De împăcare',cand:'Seara, după ce vâlvătaia s-a mai potolit.',
+ mat:['două pahare cu apă','o bucată de pâine'],
+ pas:['Pune cele două pahare unul lângă altul.','Rostește descântecul peste ele.','Dacă se poate, bea apă din pahar împreună cu cealaltă persoană; dacă nu, bea tu și lasă celălalt pahar pe masă până dimineața.'],
+ txt:"Vorbă lină, vorbă aprinsă,\nia-ți focul și te stinge în apă.\nCuvânt aspru, cuvânt sec,\nmoaie-te în lapte cald.\nCe-am zis în grabă,\nsă se desfacă-n răbdare;\nce-am auzit în supărare,\nsă se așeze în iertare.\nNu ca să câștig eu,\nnu ca să câștigi tu,\nci ca să câștige casa.\nDoi stăm la masă\nși o pâine frângem.\nAșa să fie!",
+ nota:'Descântecul nu înlocuiește conversația sincer-adevărată; deschide drumul spre ea.'},
+{id:'ursita',cat:'love',t:'De ursită (dragoste dreaptă)',cand:'Pe lună nouă, seara.',
+ mat:['un fir roșu sau de lână','o lumânare mică'],
+ pas:['Leagă firul liber în jurul degetului mic de la mâna stângă, fără să-l strângi.','Rostește descântecul de trei ori.','Păstrează firul într-un loc ales, ca amintire a hotărârii de a rămâne deschis/ă.'],
+ txt:"Ursită, ursitoare,\ncare mi-ai scris la naștere\ncu fir de aur, cu fir de lână,\nnu-ți cer să legi pe nimeni,\nnici să muți inimi din loc.\nÎți cer să mă pregătești:\ncu inimă deschisă,\ncu ochi limpezi,\ncu vorbă dreaptă.\nCine-mi este dat cu bine\nsă vină pe cale cu bine,\nși eu pe-a lui/ei să fiu bun/bună.\nȘi de nu-i acum,\nsă mă găsească răbdarea\nși să mă țină în lumină.\nAșa să fie!",
+ nota:'Acest descântec nu urmărește să influențeze voința altei persoane.'},
+{id:'luna',cat:'spor',t:'De noroc la lună nouă',cand:'Prima seară în care se vede luna nouă.',
+ mat:['o monedă mică (opțională)'],
+ pas:['Privește luna dintr-un loc deschis.','Rostește descântecul o singură dată, cu mâna pe inimă.','Mulțumește în gând și intră în casă.'],
+ txt:"Lună nouă, lună tânără,\neu te-am văzut întâi,\nnoroc să-mi aduci întâi.\nCum te face cerul din fir de argint,\nașa să-mi faci cărarea.\nCe-i bun să-mi crească cu tine,\nce-i greu să mi se micșoreze.\nSă-ți fie mulțumirea mea\npe cerul tău, cu pace,\npână te vei umple.\nAșa să fie!",
+ nota:''},
+{id:'cap',cat:'calm',t:'De cap încărcat (gânduri grele)',cand:'Dimineața, la lumina zilei.',
+ mat:['un pahar cu apă curată'],
+ pas:['Stai la fereastră sau afară.','Pune mâna pe frunte, rostește descântecul încet.','Bea apa în trei înghițituri.'],
+ txt:"Gând greu, gând negru,\nnu-ți faci cuib în capul meu.\nEu te-am primit, te-am ascultat,\nacum te las.\nDu-te-n apă curgătoare,\ndu-te-n vânt de dimineață.\nCapul meu, vas curat,\nlimpede ca izvorul,\nușor ca pana.\nGânduri bune să încapă,\ngânduri rele să se strecoare.\nAșa să fie!",
+ nota:'Este un obicei de liniștire, nu un tratament. Dacă durerea de cap persistă sau e însoțită de alte semne, mergi la medic.'},
+{id:'thx',cat:'thx',t:'De mulțumire (la masă)',cand:'Înainte de masă sau seara.',
+ mat:['pâine și apă'],
+ pas:['Așază-te la masă, ia pâinea în mână.','Rostește mulțumirea.','Frânge pâinea și împarte-o.'],
+ txt:"Mulțumesc pâinii care-a încolțit,\nmâinilor care-au frământat,\npământului care a purtat,\nsoarelui care a copt,\napei care a dat.\nSă fie masa mea binecuvântată,\ncasa mea plină de pace.\nSă am ce da celui flămând,\nce lua dacă-mi lipsește\nși inimă să mulțumesc mereu.",
+ nota:''},
+{id:'casa',cat:'prot',t:'De seară pentru casă',cand:'Seara, înainte de culcare.',
+ mat:['puțină sare','un fir de busuioc (sau altă plantă aromată)'],
+ pas:['Presară un strop de sare în pragul ușii.','Pune busuiocul într-un colț al camerei.','Rostește descântecul în mijlocul casei.'],
+ txt:"Pe prag cu sare,\npe fereastră cu lumină,\nîn colț cu busuioc,\nîn mijloc cu pace.\nCe intră cu bine\nsă se ospăteze;\nce intră cu rău\nsă se întoarcă din prag.\nCasa mea, casă de lumină.\nSomn bun celor dinăuntru,\ndrum bun celor din afară.",
+ nota:''}
+];
+const CATS=['prot','calm','fam','love','spor','road','thx'];
+const catName=c=>t(c==='love'?'tp_d':c==='road'?'tp_c':'c_'+c);
+
+/* generator */
+const ELEM={water:["Apă curgătoare, apă neîncepută,","Apă limpede, apă de izvor,"],fire:["Foc de lumină, foc de nădejde,","Flacără mică, flacără blândă,"],earth:["Pământ de sub picioare, pământ hrănitor,","Țărână caldă, țărână bună,"],wind:["Vânt de dimineață, vânt ușor,","Suflare de aer, suflare curată,"],salt:["Sare din sărat, sare din pământ,","Sare curată, sare de ocrotire,"],thread:["Fir roșu, fir de viață,","Fir subțire, fir de legătură cu binele,"]};
+const CORE={prot:["Ferește casa, drumul și gândul de privire rea,","Ferește de vorbă rea și de pas greșit,","Lasă numai binele să treacă pragul,","Pune lumină în jur, ca un zid de lumină,"],
+calm:["Alungă frica și grija din piept,","Fă răsuflarea lungă și inima ușoară,","Pune în gând limpezime ca în izvor,","Dă somn bun și zi liniștită,"],
+fam:["Adună neamul la o masă de pace,","Dezleagă supărarea, adu vorba blândă,","Pune iertare între cei apropiați,","Ține casa caldă și ușa deschisă,"],
+love:["Pregătește inima pentru o iubire dreaptă,","Fă ochii limpezi și vorba cinstită,","Dă răbdare până la ceasul cel bun,","Să nu lege pe nimeni cu sila, ci să lumineze calea,"],
+spor:["Dă spor în casă și în masă,","Dă rod muncii și răsplată cinstită,","Ce-i puțin să crească, ce-i mult să se împartă,","Pune belșug în mâna care dăruiește,"],
+road:["Deschide calea și ferește piciorul de piatră,","Pune soare în frunte și pace în urmă,","Du la țintă cu bine și înapoi cu spor,","Dă tovarăși buni pe drum,"],
+thx:["Mulțumire pentru pâine și pentru apă,","Mulțumire pentru casă și pentru cei dragi,","Mulțumire pentru ziua de azi și pentru cea de mâine,","Mulțumire pentru lumina care ne ține,"]};
+const IMG=["Cum se duce roua la soare,\nașa să se ducă tot ce-i în plus.","Cum curge izvorul la vale,\nașa să curgă binele spre casă.","Cum se așază frunza pe apă,\nașa să se așeze pacea.","Cum răsare soarele după noapte,\nașa să răsară limpezimea.","Cum se coace grâul sub soare,\nașa să se coacă timpul bun.","Cum își găsește pasărea cuibul,\nașa să-și găsească omul liniștea."];
+const SEAL="Cuvântul meu — lacăt,\nrăsuflarea mea — cheie.\nAșa să fie, de trei ori!";
+
+/* ====== stare ====== */
+const S={tab:'bobi',mode:store.get('mode','carte'),topic:store.get('topic','g'),stage:0,cuts:[],cur:null,fcat:'all',kt:store.get('kt',3),kn:0,gtxt:''};
+let pts=[],tableEls=[];
+
+/* ====== navigare ====== */
+function switchTab(n){S.tab=n;$$('section').forEach(s=>s.classList.toggle('on',s.id==='s-'+n));$$('nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===n));if(n==='hist')renderHist();window.scrollTo(0,0)}
+$$('nav button').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
+
+/* ====== dat în bobi ====== */
+const GUIDE="🫘 PREGĂTIREA\n1. Ia exact 41 de boabe de fasole albă (sau porumb) în pumn.\n2. Suflă peste ele de 3 ori și spune: „Cum hrăniți lumea, așa să-mi arătați adevărul despre [întrebarea ta]”.\n\n📐 ÎMPĂRȚIREA (din 4 în 4)\nBoabele se așază într-o matrice de 3 rânduri × 3 grămezi.\n• Rândul 1 (SUS — Gândul): din grămada mare se scot câte 4; restul (1, 2, 3 sau 4 boabe) e prima grămadă, în stânga. Repetă cu boabele numărate pentru grămada din mijloc, apoi pentru cea din dreapta.\n• Rândul 2 (MIJLOC — Inima): strânge boabele rămase și repetă pentru cele 3 grămezi de la mijloc.\n• Rândul 3 (JOS — Drumul): repetă pentru ultimele 3 grămezi.\nBoabele care mai rămân la final se pun deoparte.\nÎn aplicație: în locul acestui „trage din grămadă”, tai șirul de 41 de boabe în 9 grămezi (opt tăieturi) și din fiecare scoți câte 4; restul de 1–4 intră în matrice. Așa fiecare citire iese diferit.\n\n🔮 CITIREA RAPIDĂ\n• 1 sau 3 boabe (impar): semn bun, bucurie, reușită — DA.\n• 2 sau 4 boabe (par): cumpănă, întârziere, supărare — NU.\n\n🌟 SEMNELE MARI\n• 4 boabe în centru: „Casă plină” (noroc, bani, belșug).\n• 3 boabe jos-mijloc: „Colac în prag” (nuntă, petrecere, oaspeți dragi).\n• 1 bob jos-dreapta: „Bob sositor” (vin bani sau o veste mult așteptată).\n• Par în stânga-sus și în dreapta-jos: „Cumpăna mare”.\n• Rândul de jos doar impar: „Drumul deschis”.\n• O linie de câte 3 boabe: „Linia norocoasă”.\nÎn Oltenia, adaugă: 3 boabe pe rândul de sus = „colac în cap”; rândul de sus însumează 5 (în grabă) sau 9 (mai târziu, dar sigur); nu da în bobi de două ori în aceeași zi pentru aceeași întrebare.";
+$('#gtext').textContent=GUIDE;$('#gcpy').onclick=ev=>copyText(GUIDE,ev.target);
+const isM=e=>e.mode==='carte'||e.mode==='oltenia';
+const stOf=e=>isM(e)?e.n.map(x=>x%4||4):e.n.map(x=>x%3||3);
+const need=()=>S.mode==='trei'?2:8;
+function renderModes(){$('#modes').innerHTML=[['carte','mode_9'],['oltenia','mode_o'],['trei','mode_3']].map(m=>`<button class="chip${S.mode===m[0]?' on':''}" data-m="${m[0]}">${t(m[1])}</button>`).join('');
+  $$('#modes .chip').forEach(b=>b.onclick=()=>{if(S.mode===b.dataset.m)return;S.mode=b.dataset.m;store.set('mode',S.mode);renderModes();resetAll()})}
+function renderTopics(){$('#topics').innerHTML=TOPICS.map(k=>`<button class="chip${S.topic===k?' on':''}" data-k="${k}">${t('tp_'+k)}</button>`).join('');
+  $$('#topics .chip').forEach(b=>b.onclick=()=>{S.topic=b.dataset.k;store.set('topic',S.topic);renderTopics()})}
+function scatter(){const P=[];for(let i=0;i<44;i++){let best=null,bd=-1;for(let k=0;k<30;k++){const x=7+Math.random()*86,y=9+Math.random()*82;let md=1e9;for(const p of P){const dx=x-p.x,dy=(y-p.y)*0.64;const d=dx*dx+dy*dy;if(d<md)md=d}if(md>bd){bd=md;best={x,y}}}P.push({x:best.x,y:best.y,r:Math.round(Math.random()*180-90)})}return P}
+function setPos(e,p){e.style.left=p.x+'%';e.style.top=p.y+'%';e.style.setProperty('--rot',p.r+'deg')}
+function buildTable(){const tb=$('#table');tb.innerHTML='';tableEls=[];pts=scatter();pts.forEach((p,i)=>{const e=document.createElement('div');e.className='bean'+(i>=41?' pebble':'');tb.appendChild(e);tableEls.push(e)});requestAnimationFrame(()=>requestAnimationFrame(()=>pts.forEach((p,i)=>setPos(tableEls[i],p))))}
+function shuffleTable(){pts=scatter();pts.forEach((p,i)=>setPos(tableEls[i],p))}
+function grp(j){const c=S.cuts;if(!c.length)return'';let g=0;while(g<c.length&&j>c[g])g++;if(g>=c.length&&c.length<need())return'';return 'g'+(g%3)}
+function renderStage(){const el=$('#stage');
+  if(S.stage===0){el.innerHTML=`<p class="hint">${t('h_table')}</p><div class="table" id="table"></div><div class="btns"><button class="btn sec" id="bsh">${t('b_shuffle')}</button><button class="btn" id="brow">${t('b_row')}</button></div>`;buildTable();$('#bsh').onclick=shuffleTable;$('#brow').onclick=()=>{S.stage=1;S.cuts=[];renderStage()}}
+  else if(S.stage===1){let h=`<p class="hint">${t(S.mode==='trei'?'h_cut':'h_cut9')} <b>${t('cuts_l')}: ${S.cuts.length}/${need()}</b></p><div class="row">`;
+    for(let j=0;j<41;j++)h+=`<button class="rb ${grp(j)}${S.cuts.includes(j)?' cut':''}" data-j="${j}"${j===40?' disabled':''} aria-label="${j+1}"><i></i></button>`;
+    h+=`</div><div class="btns"><button class="btn sec" id="brand">${t('b_rand')}</button><button class="btn" id="bcount"${S.cuts.length<need()?' disabled':''}>${t('b_count')}</button><button class="btn sec" id="bagain">${t('b_again')}</button></div>`;
+    el.innerHTML=h;$$('.rb').forEach(b=>b.onclick=()=>{const j=+b.dataset.j;if(S.cuts.length>=need())S.cuts=[];if(S.cuts.includes(j))return;S.cuts=[...S.cuts,j].sort((a,b)=>a-b);renderStage()});
+    $('#brand').onclick=()=>{S.cuts=sample([...Array(40).keys()],need()).sort((a,b)=>a-b);renderStage()};$('#bcount').onclick=doCount;$('#bagain').onclick=resetAll}
+  else{renderPiles(el)}}
+function doCount(){const c=S.cuts;let prev=-1;const n=[...c,40].map(b=>{const x=b-prev;prev=b;return x});
+  const e={ts:Date.now(),mode:S.mode,topic:S.topic,q:$('#q').value.trim(),n};
+  if(S.mode==='trei'){e.signs=sample([...SIGNS.keys()],3);const peb=[0,0,0];for(let i=0;i<3;i++)peb[rnd(3)]++;e.peb=peb}
+  if(S.mode==='oltenia'){const key=e.q.toLowerCase()+'|'+e.topic,day=new Date().toDateString(),L=store.get('last',{});e.twice=L.key===key&&L.day===day;store.set('last',{key,day})}
+  S.cur=e;S.stage=2;const h=store.get('hist',[]);h.unshift(e);store.set('hist',h.slice(0,40));renderStage();renderResult();$('#result').scrollIntoView({behavior:'smooth',block:'start'})}
+function renderMatrix(el,e){const R=[t('r_head'),t('r_heart'),t('r_feet')];let h='<div class="mx">';
+  for(let r=0;r<3;r++){h+=`<div class="mxr"><b>${R[r]}</b>`;for(let c=0;c<3;c++){const n=e.n[r*3+c],v=n%4||4;h+=`<div class="mc ${v%2?'od':'ev'}"><span class="mv">${v}</span><span class="small">${n} ${t('u_beans')}</span></div>`}h+='</div>'}
+  h+=`</div><div class="btns"><button class="btn sec" id="bagain">${t('b_again')}</button></div>`;el.innerHTML=h;$('#bagain').onclick=resetAll}
+function renderPiles(el){const e=S.cur;if(isM(e))return renderMatrix(el,e);const P=[t('p_past'),t('p_pres'),t('p_fut')];let h='<div class="piles">';
+  e.n.forEach((n,k)=>{const r=n%3||3;const full=r===3?n/3-1:Math.floor(n/3);const left=r;let b='';
+    const tri=(m,c)=>`<span class="tri${c?' left':''}">${'<i class="mb"></i>'.repeat(m)}</span>`;
+    for(let i=0;i<full;i++)b+=tri(3,false);b+=tri(left,true);
+    h+=`<div class="pile p${k}"><div class="ph"><b>${P[k]}</b><span>${n} ${t('u_beans')} → ${t('s'+r)}</span></div>${b}</div>`});
+  h+=`</div><div class="btns"><button class="btn sec" id="bagain">${t('b_again')}</button></div>`;el.innerHTML=h;$('#bagain').onclick=resetAll}
+function resetAll(){S.stage=0;S.cuts=[];S.cur=null;$('#result').innerHTML='';renderStage()}
+function resultData(e){const P=[t('p_past'),t('p_pres'),t('p_fut')];const r=e.n.map(x=>x%3||3);const rows=r.map((s,k)=>{const sg=SIGNS[e.signs[k]];return{pos:P[k],head:`${e.n[k]} ${t('u_beans')} → ${t('s'+s)}`,text:READ[e.topic][k][s-1],sign:`${sg[0]} ${t('sign_l')}: ${sg[1]} — ${sg[2]}.`,peb:e.peb[k]?(PEB[k]+(e.peb[k]>1?' (×'+e.peb[k]+')':'')):''}});
+  const key=[...r].sort().join(',');const verd=VERD[key]||'';const adv=ADV[e.ts%ADV.length];return{rows,verd,adv,sid:SUGG[e.topic]}}
+const ROWT=[["Cap încărcat: grijă mare, hotărâri amânate; așteaptă să se limpezească.","Gândurile se încurcă; nu hotărî în grabă.","Mintea e mai mult senină; o mică îndoială cere răbdare.","Gânduri limpezi și dorințe cu cale deschisă; ce ai în minte se poate împlini."],
+["Inimă grea: supărare sau lacrimi; ocrotește-ți liniștea și odihna.","Emoții încurcate; ai nevoie de o vorbă sinceră în casă.","Sentimentele sunt mai mult bune; o supărare mică se va potoli.","Inima e în pace: dragoste, casă și sănătate stau bine."],
+["Drum închis deocamdată: amână plecările și afacerile mari.","Drum cu piedici sau cheltuieli; pregătește-te cu socoteală.","Drumul merge, cu câte o zăbavă.","Drumuri deschise și bani cu noroc; oaspeți bineveniți."]];
+const CELLN=['curat','zăbavă','noroc deplin','greutate'];
+const OLT_DESC="Voi, 41 de bobi,\nCum știți de încolțiți,\nToate luncile înverziți,\nToată lumea o hrăniți,\nAșa să știți de știrea lui [numele persoanei]...\nDacă e de bine, să dați pe șase (sau pe nouă),\nLa inimă două, să se vază bine!";
+const OLT_DESC2="Cum hrăniți lumea,\nașa să-mi arătați adevărul\ndespre [numele persoanei / întrebarea].";
+const LINES=[[[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],[[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],[[0,0],[1,1],[2,2]],[[0,2],[1,1],[2,0]]];
+function resultMatrix(e){const v=stOf(e);const M=[0,1,2].map(r=>v.slice(r*3,r*3+3));const R=[t('r_head'),t('r_heart'),t('r_feet')];const ol=e.mode==='oltenia';const parts=[];
+  let h='<div class="card">';h+=`<p class="q">${e.q?'“'+esc(e.q)+'” — ':''}${t('tp_'+e.topic)} · ${t(ol?'mode_o':'mode_9')}</p>`;
+  if(e.twice)h+=`<p class="pb">⚠️ ${t('warn_twice')}</p>`;
+  if(e.q)parts.push('“'+e.q+'”');
+  M.forEach((r,i)=>{const k=r.filter(x=>x%2).length;const head=r.map(x=>x+' '+CELLN[x-1]).join(' · ');h+=`<div class="rc"><div class="rh"><b>${R[i]}</b><span>${head}</span></div><p>${ROWT[i][k]}</p></div>`;parts.push(R[i]+': '+head+'\n'+ROWT[i][k])});
+  const sp=[];
+  if(M[0][0]%2===0&&M[2][2]%2===0)sp.push("Cumpăna mare: prima grămadă de sus (stânga) și ultima de jos (dreapta) sunt pare — ai un obstacol de trecut; fă-o cu pași mici.");
+  if(M[2].every(x=>x%2))sp.push("Drumul deschis: rândul de jos are doar numere impare — orice drum sau plan început acum are succes.");
+  if(LINES.some(l=>l.every(([r,c])=>M[r][c]===3)))sp.push("Linia norocoasă: o linie întreagă de câte 3 boabe — dorința se împlinește repede și fără obstacole.");
+  if(ol){const o=[];
+    if(M[1][1]===4)o.push("În casă (Căsuța 5): exact 4 boabe — casă plină, belșug și mulțumire; dorința se împlinește foarte repede.");else o.push(`În casă (Căsuța 5): ${M[1][1]} ${M[1][1]===1?'bob':'boabe'}.`);
+    const sum=M[0].reduce((a,b)=>a+b,0);o.push(sum===5?"Rândul de sus însumează 5: răspuns pozitiv, care se va întâmpla în grabă.":sum===9?"Rândul de sus însumează 9: răspuns pozitiv, mai târziu, dar sigur.":`Rândul de sus însumează ${sum}: fără semn deosebit.`);
+    const g=[];
+    M[0].forEach(x=>{if(x===1)g.push("Bob singur sus: veste în deșert, fără importanță.");if(x===3)g.push("Colac în cap: bucurie mare.")});
+    if(M[2][2]===1)g.push("Bob sositor (1 bob jos-dreapta): vin bani sau o veste mult așteptată, cineva drag de la drum lung.");else if(M[2].includes(1))g.push("Bob sositor, varianta largă (1 bob pe rândul de jos, nu în dreapta): cineva drag vine de la drum lung sau sosesc bani în casă.");
+    if(M[2][1]===3)g.push("Colac în prag (3 boabe jos-mijloc): nuntă, petrecere, oaspeți dragi.");else if(M[2].includes(3))g.push("Colac în prag, varianta largă (3 boabe pe rândul de jos, nu la mijloc): oaspeți sau o petrecere.");
+    v.forEach(x=>{if(x===2)g.push("Două boabe: îndoială, cumpănă sau o veste care strânge inima.")});
+    if(LINES.some(l=>l.every(([r,c])=>M[r][c]===M[l[0][0]][l[0][1]]&&(M[r][c]===2||M[r][c]===3))))g.push("Linie de câte 2 sau 3 boabe așezate consecutiv: drum lung, peste hotare sau în afara județului.");
+    const uniq=[...new Set(g)];
+    h+=`<div class="rc"><div class="rh"><b>Oltenia</b></div>${o.map(x=>`<p>${x}</p>`).join('')}${uniq.map(x=>`<p class="sg">${x}</p>`).join('')}<p class="small">Descântec de menire (variantă locală; formulele diferă de la sat la sat):</p><div class="verse">${esc(OLT_DESC)}</div><p class="small">Variantă scurtă:</p><div class="verse">${esc(OLT_DESC2)}</div></div>`;
+    parts.push('Oltenia\n'+o.join('\n')+'\n'+uniq.join('\n')+'\n'+OLT_DESC+'\n\n'+OLT_DESC2)}
+  if(sp.length){h+=`<div class="rc"><div class="rh"><b>${'★'}</b></div>${sp.map(x=>`<p class="sg">${x}</p>`).join('')}</div>`;parts.push(sp.join('\n'))}
+  const tot=v.filter(x=>x%2).length;const yn=tot>=7?"Răspunsul bobilor: DA — bobii sunt de partea ta.":tot>=5?"Mai degrabă da, cu puțină răbdare.":tot>=3?"Mai degrabă nu acum; așteaptă un ceas mai bun.":"NU deocamdată; lasă lucrurile să se așeze.";
+  const adv=ADV[e.ts%ADV.length],ds=DESC.find(x=>x.id===SUGG[e.topic]);parts.push(yn+'\n'+adv);
+  h+=`<div class="verd"><b>${t('verdict_l')}</b> <span class="small">(${tot}/9</span><p>${yn}</p><p><i>${adv}</i></p><p class="small">${t('sugg_l')}: <b>${ds.t}</b></p><div class="btns"><button class="btn sec" id="bopen">${t('open_l')}</button><button class="btn sec" id="bcopyr">${t('b_copy')}</button></div></div></div>`;
+  $('#result').innerHTML=h;$('#bopen').onclick=()=>openDesc(ds.id);$('#bcopyr').onclick=ev=>copyText(parts.join('\n\n'),ev.target)}
+function renderResult(){const e=S.cur;if(!e){$('#result').innerHTML='';return}if(isM(e)){resultMatrix(e);return}const d=resultData(e);let h='<div class="card">';
+  if(e.q)h+=`<p class="q">“${esc(e.q)}” — ${t('tp_'+e.topic)}</p>`;else h+=`<p class="q">${t('tp_'+e.topic)}</p>`;
+  d.rows.forEach(r=>{h+=`<div class="rc"><div class="rh"><b>${r.pos}</b><span>${r.head}</span></div><p>${r.text}</p><p class="sg">${r.sign}</p>${r.peb?`<p class="pb">🪨 ${r.peb}</p>`:''}</div>`});
+  const ds=DESC.find(x=>x.id===d.sid);
+  h+=`<div class="verd"><b>${t('verdict_l')}</b><p>${d.verd}</p><p><i>${d.adv}</i></p><p class="small">${t('sugg_l')}: <b>${ds.t}</b></p><div class="btns"><button class="btn sec" id="bopen">${t('open_l')}</button><button class="btn sec" id="bcopyr">${t('b_copy')}</button></div></div></div>`;
+  $('#result').innerHTML=h;$('#bopen').onclick=()=>openDesc(d.sid);
+  $('#bcopyr').onclick=ev=>{let s=(e.q?'“'+e.q+'”\n':'')+t('tp_'+e.topic)+'\n\n';d.rows.forEach(r=>{s+=`${r.pos} (${r.head})\n${r.text}\n${r.sign}\n${r.peb?r.peb+'\n':''}\n`});s+=d.verd+'\n'+d.adv;copyText(s,ev.target)}}
+
+/* ====== descântece ====== */
+function moonAge(d){const syn=29.530588853;const ref=Date.UTC(2000,0,6,18,14);return(((d.getTime()-ref)/86400000)%syn+syn)%syn}
+function renderMoon(){const syn=29.530588853,age=moonAge(new Date());const i=Math.floor(age/syn*8+0.5)%8;const em=['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'][i];const tip=i===4?'mt_full':i<4?'mt_wax':'mt_wane';
+  $('#moon').innerHTML=`<div class="moon"><div class="mi">${em}</div><div><b>${t('m'+i)}</b><div class="small">${t('age_l')}: ${age.toFixed(1)} ${t('days_l')}</div><div>${t(tip)}</div></div></div>`}
+function renderCounter(){$('#ktargets').innerHTML=[3,7,9,12].map(n=>`<button class="chip${S.kt===n?' on':''}" data-n="${n}">${n}</button>`).join('');
+  $$('#ktargets .chip').forEach(b=>b.onclick=()=>{S.kt=+b.dataset.n;store.set('kt',S.kt);S.kn=0;renderCounter()});
+  $('#kcount').textContent=S.kn+' / '+S.kt;$('#kdone').textContent=S.kn>=S.kt?t('k_done'):''}
+$('#kbtn').onclick=()=>{if(S.kn<S.kt){S.kn++;if(navigator.vibrate)try{navigator.vibrate(S.kn>=S.kt?[60,40,60]:25)}catch(e){}}renderCounter()};
+$('#kreset').onclick=()=>{S.kn=0;renderCounter()};
+function renderDescList(){const cs=['all',...CATS];$('#chips').innerHTML=cs.map(c=>`<button class="chip${S.fcat===c?' on':''}" data-c="${c}">${c==='all'?t('f_all'):catName(c)}</button>`).join('');
+  $$('#chips .chip').forEach(b=>b.onclick=()=>{S.fcat=b.dataset.c;renderDescList()});
+  $('#dlist').innerHTML=DESC.filter(d=>S.fcat==='all'||d.cat===S.fcat).map(d=>`<details id="d-${d.id}"><summary><span>${d.t}</span><span class="tag">${catName(d.cat)}</span></summary><div class="dbody"><h3>${t('d_when')}</h3><div>${d.cand}</div><h3>${t('d_mat')}</h3><ul>${d.mat.map(x=>`<li>${x}</li>`).join('')}</ul><h3>${t('d_steps')}</h3><ol>${d.pas.map(x=>`<li>${x}</li>`).join('')}</ol><h3>${t('d_text')}</h3><div class="verse">${d.txt}</div>${d.nota?`<h3>${t('d_note')}</h3><div class="small">${d.nota}</div>`:''}<div class="btns"><button class="btn sec cpd" data-id="${d.id}">${t('b_copy')}</button></div></div></details>`).join('');
+  $$('.cpd').forEach(b=>b.onclick=()=>{const d=DESC.find(x=>x.id===b.dataset.id);copyText(d.t+'\n\n'+d.txt,b)})}
+function openDesc(id){switchTab('desc');S.fcat='all';renderDescList();const el=$('#d-'+id);if(el){el.open=true;setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),50)}}
+function renderGen(){const gp=$('#gp'),ge=$('#ge');const pv=gp.value,ev=ge.value;gp.innerHTML=CATS.map(c=>`<option value="${c}">${catName(c)}</option>`).join('');ge.innerHTML=Object.keys(ELEM).map(k=>`<option value="${k}">${t('e_'+k)}</option>`).join('');if(pv)gp.value=pv;if(ev)ge.value=ev}
+$('#gmake').onclick=()=>{const c=$('#gp').value,e=$('#ge').value,n=$('#gn').value.trim();const L=[];if(n)L.push('Pentru '+n+', cu bine.');L.push(pick(ELEM[e]));L.push(...sample(CORE[c],3));L.push(pick(IMG));L.push(SEAL);S.gtxt=L.join('\n');const o=$('#gout');o.textContent=S.gtxt;o.style.display='block'};
+$('#gcopy').onclick=ev=>{if(S.gtxt)copyText(S.gtxt,ev.target)};
+
+/* ====== istoric ====== */
+function renderHist(){const h=store.get('hist',[]);const L=$('#hlist');
+  if(!h.length){L.innerHTML=`<div class="card">${t('h_empty')}</div>`;$('#hclear').style.display='none';return}
+  $('#hclear').style.display='';
+  L.innerHTML=h.map((e,i)=>`<div class="hrow"><div><div class="ht">${new Date(e.ts).toLocaleString(LANGS[li][0])} · ${t('tp_'+e.topic)}</div><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.q?esc(e.q):'—'} · ${stOf(e).join('-')}</div></div><button class="btn sec" data-h="${i}">${t('h_view')}</button></div>`).join('');
+  $$('#hlist button').forEach(b=>b.onclick=()=>{S.cur=h[+b.dataset.h];S.topic=S.cur.topic;S.mode=S.cur.mode||'trei';S.stage=2;switchTab('bobi');renderTopics();renderModes();renderStage();renderResult()})}
+$('#hclear').onclick=()=>{store.set('hist',[]);renderHist()};
+
+/* ====== limbă ====== */
+function applyI18n(){document.documentElement.lang=LANGS[li][0];$$('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));$$('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
+  renderTopics();renderModes();renderMoon();renderCounter();renderDescList();renderGen();renderHist();
+  renderStage();if(S.stage===2&&S.cur)renderResult()}
+const ls=$('#lang');ls.innerHTML=LANGS.map((l,i)=>`<option value="${i}">${l[1]}</option>`).join('');
+li=store.get('lang',0);if(!(li>=0&&li<LANGS.length))li=0;ls.value=li;
+ls.onchange=()=>{li=+ls.value;store.set('lang',li);applyI18n()};
+
+/* ====== pornire ====== */
+applyI18n();
+</script>
+</body>
+</html>
