@@ -6,7 +6,7 @@ Román babavetés (41 bab) és hagyományos ráolvasások, 8 nyelvű felülettel
 
 **[Alkalmazás megnyitása →](https://descantar.chiuta.ro/)**
 
-_Verzió: 1.3.1 · Utolsó frissítés: 2026-11-15_
+_Verzió: 1.4.0 · Utolsó frissítés: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|
