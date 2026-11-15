@@ -15,8 +15,8 @@
   "storageKeys": [
     "descantar_"
   ],
-  "sizeBytes": 447938,
-  "sha256": "a6519e887991c28a36e389b220fe132774db01a0a4f32afb3ec1e5718db9818b",
+  "sizeBytes": 473400,
+  "sha256": "9858c5b8d4571a1a5eb96649f55d8cb9513fa8cc1b293745e74fba5fae5010c1",
   "csp": {
     "present": true,
     "directives": {
@@ -52,6 +52,7 @@
       "core",
       "store",
       "dialog",
+      "view",
       "a11y",
       "ux",
       "label"
@@ -63,6 +64,7 @@
       "core",
       "store",
       "dialog",
+      "view",
       "a11y",
       "ux",
       "label"
