@@ -6,7 +6,7 @@ Dat în bobi (41 de boabe) și descântece tradiționale românești, cu interfa
 
 **[Deschide aplicația →](https://descantar.chiuta.ro/)**
 
-_Versiune: 1.3.0 · Ultima actualizare: 2026-11-14_
+_Versiune: 1.3.1 · Ultima actualizare: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|

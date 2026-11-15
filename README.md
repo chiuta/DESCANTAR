@@ -6,7 +6,7 @@ Romanian folk bean divination (41 beans) and traditional charms, with an 8-langu
 
 **[Open the app →](https://descantar.chiuta.ro/)**
 
-_Version: 1.3.0 · Last updated: 2026-11-14_
+_Version: 1.3.1 · Last updated: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|

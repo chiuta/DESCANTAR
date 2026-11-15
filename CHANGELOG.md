@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1 — 2026-11-15
+
+- New: hyper-detailed fractal textures (fff-texturi 1.1.2) — the background and large surfaces (cards, panels, headers, buttons; tabs and dialogs that are hidden at load, once they open) get a locally generated material (WebGL2, no network, no images) that tiles seamlessly; the app keeps its own colours. Turn it off in the "Transparency" dialog or with `?notex=1`.
+
 ## 1.3.0 — 2026-11-14
 
 - All folklore content (readings, signs, 12 charms, Oltenian rules, guide) translated into EN, FR, IT, ES, PT, DE, HU, with Romanian fallback. AI-generated, not reviewed by native speakers.
