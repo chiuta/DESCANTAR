@@ -9,19 +9,20 @@
   "permissions": [
     "clipboard",
     "localStorage",
-    "Web Crypto"
+    "Web Crypto",
+    "WebGL"
   ],
   "storageKeys": [
     "descantar_"
   ],
-  "sizeBytes": 350234,
-  "sha256": "a9c42cc8beb40d1fce57ffe49b425b0c18d2d75d352c852b1c439f338bbe6e9b",
+  "sizeBytes": 402275,
+  "sha256": "740a31c2de90bb8502117abcdd3e8049902a908a66635e731b5b418d16022bf6",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
       "style-src": "'unsafe-inline'",
-      "script-src": "sha256×2",
+      "script-src": "sha256×3",
       "img-src": "data:",
       "connect-src": "'none'",
       "base-uri": "'none'",
