@@ -6,7 +6,7 @@ Adivinación rumana con frijoles (41 frijoles) y ensalmos tradicionales, interfa
 
 **[Abrir la aplicación →](https://descantar.chiuta.ro/)**
 
-_Versión: 1.4.0 · Última actualización: 2026-11-15_
+_Versión: 1.4.1 · Última actualización: 2026-11-15_
 
 | 1 | 2 | 3 |
 |---|---|---|
