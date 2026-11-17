@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "descantar",
   "name": "DESCÂNTAR — bobi și descântece",
-  "version": "1.4.1",
-  "updated": "2026-11-15",
+  "version": "1.4.2",
+  "updated": "2026-11-17",
   "description": "DESCÂNTAR — dat în bobi (41 de boabe, metoda 3×3, varianta oltenească) și descântece tradiționale, în 8 limbi. Un singur fișier, offline.",
   "egress": [],
   "permissions": [
@@ -15,14 +15,14 @@
   "storageKeys": [
     "descantar_"
   ],
-  "sizeBytes": 491436,
-  "sha256": "efff99f8b2d9c4f8dae66649366c584ce40edb7e44b255c6e4208f2916c381a9",
+  "sizeBytes": 552236,
+  "sha256": "8dfe25487f4fdd2af463ec52fe50840afe9c9d43688c92ade7a8f17a2eb2f7f5",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
       "style-src": "'unsafe-inline'",
-      "script-src": "sha256×3",
+      "script-src": "sha256×5",
       "img-src": "data:",
       "connect-src": "'none'",
       "base-uri": "'none'",
@@ -60,7 +60,7 @@
     ]
   },
   "kit": {
-    "version": "1.7.0",
+    "version": "1.8.0",
     "modules": [
       "core",
       "store",
