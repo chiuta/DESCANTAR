@@ -6,7 +6,7 @@ Divination romaine aux haricots (41 haricots) et incantations traditionnelles, i
 
 **[Ouvrir l’application →](https://descantar.chiuta.ro/)**
 
-_Version: 1.4.2 · Dernière mise à jour: 2026-11-17_
+_Version: 1.4.3 · Dernière mise à jour: 2026-11-19_
 
 | 1 | 2 | 3 |
 |---|---|---|

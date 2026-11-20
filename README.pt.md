@@ -6,7 +6,7 @@ Adivinhação romena com feijões (41 feijões) e benzeduras tradicionais, inter
 
 **[Abrir a aplicação →](https://descantar.chiuta.ro/)**
 
-_Versão: 1.4.2 · Última atualização: 2026-11-17_
+_Versão: 1.4.3 · Última atualização: 2026-11-19_
 
 | 1 | 2 | 3 |
 |---|---|---|

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.3 — 2026-11-19
+
+- Cu valori corupte în stocarea browserului (de exemplu `null` sau `[]` la cheia limbii), aplicația nu mai cade la pornire: indicele limbii se validează ca număr întreg, iar citirea din stocare întoarce valoarea implicită când tipul valorii citite nu se potrivește (constatat de bateria adversarială din 19 noiembrie 2026)
+
 ## 1.4.2 — 2026-11-17
 
 - Older-browser compatibility (Chrome/Edge 55+, Firefox 52+, Safari 10.1+/iOS 10.3+): kit 1.8.0 brings the compatibility layer (fallbacks for APIs missing in old engines), and JavaScript syntax newer than ES2017 was replaced with equivalent forms where it existed; newer regular expressions and `import()` go through fallbacks. No functional changes intended. Verified with an ES2017 parser and in a simulated old engine, not on real devices.

@@ -6,7 +6,7 @@ Divinazione rumena con i fagioli (41 fagioli) e incantesimi tradizionali, interf
 
 **[Apri l’app →](https://descantar.chiuta.ro/)**
 
-_Versione: 1.4.2 · Ultimo aggiornamento: 2026-11-17_
+_Versione: 1.4.3 · Ultimo aggiornamento: 2026-11-19_
 
 | 1 | 2 | 3 |
 |---|---|---|
